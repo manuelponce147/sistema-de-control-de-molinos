@@ -18,20 +18,16 @@
 
 }
 .header{
-    background: coral;
     height: 100px;
     grid-area: header;
 }
 .sidebar{
-    background: cornflowerblue;
     grid-area: sidebar;  
 }
 .content{
-    background:rosybrown ;
     grid-area: content;
 }
 .footer{
-    background-color: tomato;
     grid-area: footer;
 }
 
