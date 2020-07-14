@@ -1,0 +1,18 @@
+.header{
+    height: 100px;
+    text-align: center;
+    font-size: 38px;
+    background-color: #1F72A6;
+    color: black;
+}
+.logo img{
+    width: 100px;
+    height: 100px;
+}
+.logo{
+    display: flex;
+}
+.login img{
+    width: 75px;
+    height: 75px;
+}
