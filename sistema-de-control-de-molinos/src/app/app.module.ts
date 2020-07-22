@@ -6,13 +6,24 @@ import { AppComponent } from './app.component';
 import { CabeceraComponent } from './components/cabecera/cabecera.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { NavigationComponent } from './components/navigation/navigation.component';
+import { NuevoPesajeComponent } from './components/pesajes/nuevo-pesaje/nuevo-pesaje.component';
+import { RouterModule } from '@angular/router';
+import { DeshabilitarPesajeComponent } from './components/pesajes/deshabilitar-pesaje/deshabilitar-pesaje.component';
+import { HomeComponent } from './components/home/home.component';
+import { ClientesComponent } from './components/clientes/clientes.component';
+import { SilosComponent } from './components/silos/silos.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CabeceraComponent,
     FooterComponent,
-    NavigationComponent
+    NavigationComponent,
+    NuevoPesajeComponent,
+    DeshabilitarPesajeComponent,
+    HomeComponent,
+    ClientesComponent,
+    SilosComponent
   ],
   imports: [
     BrowserModule,
