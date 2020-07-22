@@ -27,7 +27,6 @@
               "src/styles.css",
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "node_modules/font-awesome/css/font-awesome.css"
-
             ],
             "scripts": [
               "node_modules/jquery/dist/jquery.slim.min.js",
@@ -126,6 +125,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "sistema-de-control-de-molinos"
+    }
+  },
+  "defaultProject": "sistema-de-control-de-molinos",
+  "cli": {
+    "analytics": "0bd929f4-aba4-4a1b-85bd-5fd071caf83a"
+  }
 }
