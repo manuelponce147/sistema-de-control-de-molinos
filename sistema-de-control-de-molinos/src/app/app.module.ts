@@ -12,6 +12,7 @@ import { DeshabilitarPesajeComponent } from './components/pesajes/deshabilitar-p
 import { HomeComponent } from './components/home/home.component';
 import { ClientesComponent } from './components/clientes/clientes.component';
 import { SilosComponent } from './components/silos/silos.component';
+import { EliminarComponent } from './components/eliminar/eliminar.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { SilosComponent } from './components/silos/silos.component';
     DeshabilitarPesajeComponent,
     HomeComponent,
     ClientesComponent,
-    SilosComponent
+    SilosComponent,
+    EliminarComponent
   ],
   imports: [
     BrowserModule,
