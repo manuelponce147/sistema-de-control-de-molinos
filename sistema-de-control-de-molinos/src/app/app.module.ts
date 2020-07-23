@@ -12,6 +12,8 @@ import { DeshabilitarPesajeComponent } from './components/pesajes/deshabilitar-p
 import { HomeComponent } from './components/home/home.component';
 import { ClientesComponent } from './components/clientes/clientes.component';
 import { SilosComponent } from './components/silos/silos.component';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms'
+import {HttpClientModule} from '@angular/common/http'
 
 @NgModule({
   declarations: [
@@ -27,7 +29,9 @@ import { SilosComponent } from './components/silos/silos.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

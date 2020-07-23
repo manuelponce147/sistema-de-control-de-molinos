@@ -1,23 +1,24 @@
 <div class="container">
     <h2>Formulario Pesajes</h2>
-    <form action="">
+    <form [formGroup]="formPesaje" (ngSubmit)="saveData()" novalidate>
         <div class="row">
             <div class=col-left>
                 <div class="client card">
                     <h5 class="card-title">Cliente</h5>
                     <div class="form-group">
                         <label for="name" class="form-label">Nombre</label>
-                        <input type="text" name="" id="" class="form-control">
+                        <input type="text" formControlName="name" class="form-control"
+                        placeholder="Nombre">
         
                     </div>
                     
                     <div class="form-group">
                         <label for="rut" class="form-label">Rut</label>
-                        <input type="text" name="rut"class="form-control">
+                        <input type="text" formControlName="rut"class="form-control">
                     </div>
                     <div class="form-group">
                         <label for="reasson">Razón Social</label>
-                        <input type="text" name="reasson" class="form-control">
+                        <input type="text" formControlName="reason" class="form-control">
         
                     </div>
                 </div>
@@ -28,17 +29,18 @@
                     <h5 class="card-title">Detalles</h5>
                     <div class="form-group">
                         <label for="input" class="form-label">Peso de entrada</label>
-                        <input type="text"name="input" class="form-control">
+                        <input type="text" formControlName="inputs" class="form-control">
+
         
                     </div>
                     <div class="form-group">
                         <label for="output" class="output">Peso de salida</label>
-                        <input type="text" name="output" class="form-control">
+                        <input type="text" formControlName="output" class="form-control">
         
                     </div>
                     <label for=""> Tipo de transaccion</label>
                     <div class="form-group">
-                        <select name="transaction" class="form-control">
+                        <select formControlName="transaction" class="form-control">
                             <option value="buy">Compra</option>
                             <option value="sale">Venta</option>
                         </select>
@@ -55,11 +57,11 @@
                    
                     <div class="form-group">
                         <label for="n_vehicle" class="form-label">Patente</label>
-                        <input type="text" name="" class="form-control">
+                        <input type="text" formControlName="n_vehicle" class="form-control">
                     </div>
                     <div class="form-group">
                         <label for="type_vehicle">Tipo de Vehiculo</label>
-                        <input type="text" name="type_vehicle" class="form-control">
+                        <input type="text" formControlName="type_vehicle" class="form-control">
                     </div>
                 </div>
 
