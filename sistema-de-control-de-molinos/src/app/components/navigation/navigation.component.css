@@ -1,25 +1,25 @@
-
-.d-flex{
+.d-flex {
     overflow: hidden;
     font-family: 'Muli,sans-serif';
     font-weight: 300px;
     background: #1F72A6;
-}    
-#sidebar-container{
-    min-height: 90vh;
-    
 }
-#sidebar-container .menu{
+
+#sidebar-container {
+    min-height: 90vh;
+}
+
+#sidebar-container .menu {
     min-height: 90vh;
     width: 21rem;
-
 }
-#sidebar-container .menu a{
+
+#sidebar-container .menu a {
     background: #1F72A6;
     color: #fff;
 }
-#sidebar-container .menu a:hover{
+
+#sidebar-container .menu a:hover {
     background: #063e61;
     text-decoration: none;
-    
 }
