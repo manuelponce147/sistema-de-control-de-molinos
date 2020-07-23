@@ -1,7 +1,4 @@
-<div class="col-12 header">
-    <div class="logo col-md-2">
-        <img src="../../../assets/logo.png" alt="logo de la pagina">
-    </div>
+<div class="header">
     <div class="nav">
 
         <li [routerLink]="['components/home']" class="nav-item">
@@ -10,8 +7,14 @@
         <li [routerLink]="['components/clientes']" class="nav-item">
             <a class="nav-link">Clientes</a>
         </li>
+        <li>
+            <img id="logo" src="../../../assets/logo.png" alt="logo de la pagina">
+        </li>
         <li [routerLink]="['components/silos']" class="nav-item">
             <a class="nav-link">Silos</a>
+        </li>
+        <li [routerLink]="['components/silos']" class="nav-item">
+            <a class="nav-link">Admin</a>
         </li>
 
     </div>
