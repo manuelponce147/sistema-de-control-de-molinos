@@ -13,6 +13,8 @@ import { HomeComponent } from './components/home/home.component';
 import { ClientesComponent } from './components/clientes/clientes.component';
 import { SilosComponent } from './components/silos/silos.component';
 import { EliminarComponent } from './components/eliminar/eliminar.component';
+import { PedidoComponent } from './components/pedido/pedido.component';
+
 
 @NgModule({
   declarations: [
@@ -25,7 +27,8 @@ import { EliminarComponent } from './components/eliminar/eliminar.component';
     HomeComponent,
     ClientesComponent,
     SilosComponent,
-    EliminarComponent
+    EliminarComponent,
+    PedidoComponent
   ],
   imports: [
     BrowserModule,

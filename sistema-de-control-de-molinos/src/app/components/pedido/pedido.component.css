@@ -1,0 +1,16 @@
+div {
+  padding-top: 10px;
+  padding-left: 20px;
+
+}
+input[type=checkbox] {
+  display:none;
+}
+
+input#thing1[type=checkbox] + label
+{
+  background-image: url("https://openclipart.org/image/100px/svg_to_png/321687/cheerleader.png");
+  height:100px;
+  width: 100px;
+
+}
