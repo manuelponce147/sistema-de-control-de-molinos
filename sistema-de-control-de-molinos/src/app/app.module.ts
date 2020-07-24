@@ -13,7 +13,10 @@ import { HomeComponent } from './components/home/home.component';
 import { ClientesComponent } from './components/clientes/clientes.component';
 import { SilosComponent } from './components/silos/silos.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms'
-import {HttpClientModule} from '@angular/common/http'
+import {HttpClientModule} from '@angular/common/http';
+import { ListarPesajesComponent } from './components/pesajes/listar-pesajes/listar-pesajes.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap'
+import {NgbPaginationModule, NgbAlertModule} from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -25,13 +28,18 @@ import {HttpClientModule} from '@angular/common/http'
     DeshabilitarPesajeComponent,
     HomeComponent,
     ClientesComponent,
-    SilosComponent
+    SilosComponent,
+    ListarPesajesComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule,
+    NgbModule,
+    NgbPaginationModule, 
+    NgbAlertModule
   ],
   providers: [],
   bootstrap: [AppComponent]

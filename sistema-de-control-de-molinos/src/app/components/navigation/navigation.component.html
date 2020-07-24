@@ -2,12 +2,15 @@
     <div id="sidebar-container" class="border">
 
         <div class="menu">
-            <a [routerLink]="['components/pesajes/nuevo-pesaje']" class="list-group-item  p-3"><i
-                    class="fa fa-plus fa-2x" aria-hidden="true"></i> Realizar Pesaje</a>
-            <a [routerLink]="['components/pesajes/editar-pesaje']" class="list-group-item  p-3"><i class="fa fa-pencil fa-2x" aria-hidden="true"></i> Editar
+            <a [routerLink]="['/pesajes/nuevo-pesaje']" class="list-group-item  p-3">
+                <i class="fa fa-plus fa-2x" aria-hidden="true"></i>
+                 Realizar Pesaje
+            </a>
+            <a [routerLink]="['/pesajes/editar-pesaje']" class="list-group-item  p-3"><i class="fa fa-pencil fa-2x" aria-hidden="true"></i> Editar
                 Pesaje</a>
-            <a [routerLink]="['components/pesajes/deshabilitar-pesaje']" class="list-group-item  p-3"><i class="fa fa-times-circle-o fa-2x" aria-hidden="true"></i>
-                Deshabilitar Pesaje</a>
+            <a [routerLink]="['/pesajes/listar-pesaje']" class="list-group-item  p-3"><i class="fa fa-list fa-2x" aria-hidden="true"></i>Listar Pesajes</a>
+            <a [routerLink]="['/pesajes/deshabilitar-pesaje']" class="list-group-item  p-3"><i class="fa fa-times-circle-o fa-2x" aria-hidden="true"></i>
+                Eliminar Pesaje</a>
         </div>
     </div>
 </div>

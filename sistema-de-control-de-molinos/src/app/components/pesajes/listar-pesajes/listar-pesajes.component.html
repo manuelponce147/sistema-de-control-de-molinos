@@ -1,0 +1,30 @@
+<div class="container">
+
+    <table class="table">
+        <thead class="thead-light">
+          <tr>
+            <th scope="col">Nombre</th>
+            <th scope="col">Rut</th>
+            <th scope="col">Patente</th>
+            <th scope="col">Fecha</th>
+            <th scope="col">Tipo de Producto</th>
+            <th scope="col">Acción</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let pesaje of pesajes" class=pesaje>
+            <td>{{pesaje.nombre}}</td>
+            <td>{{pesaje.rut}}</td>
+            <td>{{pesaje.patente}}</td>
+            <td>fecha!!</td>
+            <td>tipo_deP</td>
+            <td>
+              <a href=""><i class="fa fa-eye fa-2x"></i></a>
+              <a href=""><i class="fa fa fa-file-pdf-o fa-2x "></i></a>
+            </td>
+          </tr>
+          <tr>
+        </tbody>
+      </table>
+
+</div>

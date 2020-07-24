@@ -12,14 +12,14 @@ export class NuevoPesajeComponent implements OnInit {
 
   constructor(private pesajeService:PesajeService, private formBuilder:FormBuilder) { 
     this.formPesaje=this.formBuilder.group({
-       name:['',[Validators.required]],
+       nombre:['',[Validators.required]],
        rut:['',[Validators.required]],
-       reason:['',[Validators.required]],
-       inputs:['',[Validators.required]],
-       output:['',[Validators.required]],
-       transaction:['',Validators.required],
-       n_vehicle:['',Validators.required],
-       type_vehicle:['',Validators.required],
+       razonSocial:['',[Validators.required]],
+       pesoEntrada:['',[Validators.required]],
+       pesoSalida:['',[Validators.required]],
+       tipoTransaccion:['',Validators.required],
+       patente:['',Validators.required],
+       tipoVehiculo:['',Validators.required],
 
     })
   }
@@ -27,8 +27,14 @@ export class NuevoPesajeComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  saveData(){
-    console.log(this.formPesaje.value);
+  onSubmit(){
+    this.pesajeService.guardarPesaje(this.formPesaje.value).
+      subscribe(
+        (data)=>{
+          console.log("imprimiendo resultado");
+          console.log(data)
+      
+      })
     
   }
 

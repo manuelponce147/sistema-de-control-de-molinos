@@ -6,15 +6,17 @@ import { DeshabilitarPesajeComponent } from './components/pesajes/deshabilitar-p
 import { SilosComponent } from './components/silos/silos.component';
 import { ClientesComponent } from './components/clientes/clientes.component';
 import { HomeComponent } from './components/home/home.component';
+import { ListarPesajesComponent } from './components/pesajes/listar-pesajes/listar-pesajes.component';
 
 
 const routes: Routes = [
-  { path: 'components/pesajes/nuevo-pesaje', component: NuevoPesajeComponent },
-  { path: 'components/pesajes/editar-pesaje', component: EditarPesajeComponent },
-  { path: 'components/pesajes/deshabilitar-pesaje', component: DeshabilitarPesajeComponent },
-  { path: 'components/silos', component: SilosComponent },
-  { path: 'components/clientes', component: ClientesComponent },
-  { path: 'components/home', component: HomeComponent }
+  { path: 'pesajes/nuevo-pesaje', component: NuevoPesajeComponent },
+  { path: 'pesajes/editar-pesaje', component: EditarPesajeComponent },
+  { path: 'pesajes/deshabilitar-pesaje', component: DeshabilitarPesajeComponent },
+  { path: 'silos', component: SilosComponent },
+  { path: 'clientes', component: ClientesComponent },
+  { path:'pesajes/listar-pesaje',component:ListarPesajesComponent},
+  { path: 'home', component: HomeComponent }
 
 ];
 
