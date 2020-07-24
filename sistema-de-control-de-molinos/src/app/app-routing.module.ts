@@ -6,6 +6,7 @@ import { DeshabilitarPesajeComponent } from './components/pesajes/deshabilitar-p
 import { SilosComponent } from './components/silos/silos.component';
 import { ClientesComponent } from './components/clientes/clientes.component';
 import { HomeComponent } from './components/home/home.component';
+import { PedidoComponent } from './components/pedido/pedido.component';
 
 
 const routes: Routes = [
@@ -14,7 +15,8 @@ const routes: Routes = [
   { path: 'components/pesajes/deshabilitar-pesaje', component: DeshabilitarPesajeComponent },
   { path: 'components/silos', component: SilosComponent },
   { path: 'components/clientes', component: ClientesComponent },
-  { path: 'components/home', component: HomeComponent }
+  { path: 'components/home', component: HomeComponent },
+  { path: 'components/pedido', component: PedidoComponent }
 
 ];
 
