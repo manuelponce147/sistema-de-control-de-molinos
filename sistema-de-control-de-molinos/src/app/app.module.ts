@@ -18,6 +18,7 @@ import {HttpClientModule} from '@angular/common/http';
 import { ListarPesajesComponent } from './components/pesajes/listar-pesajes/listar-pesajes.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap'
 import {NgbPaginationModule, NgbAlertModule} from '@ng-bootstrap/ng-bootstrap';
+import { SidebarModule } from 'ng-sidebar';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import {NgbPaginationModule, NgbAlertModule} from '@ng-bootstrap/ng-bootstrap';
     NgbModule,
     NgbPaginationModule, 
     NgbAlertModule,
-    CommonModule
+    CommonModule,
+    SidebarModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent],

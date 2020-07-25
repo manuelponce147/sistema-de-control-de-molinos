@@ -43,16 +43,16 @@
               <h5>Cliente</h5>
               <div class="form-group">
                 <label for="nombre" class="form-label">Nombre</label>
-                <input type="text" formControlName="nombre" class="form-control" disabled placeholder="Nombre" >
+                <input type="text" formControlName="nombre" class="form-control" [attr.disabled]="true" placeholder="Nombre" >
               </div>
 
               <div class="form-group">
                 <label for="rut" class="form-label">Rut</label>
-                <input type="text" formControlName="rut" class="form-control" disabled placeholder="Rut">
+                <input type="text" formControlName="rut" class="form-control" [attr.disabled]="true" placeholder="Rut">
               </div>
               <div class="form-group">
                 <label for="razonSocial">Razón Social</label>
-                <input type="text" formControlName="razonSocial" class="form-control" disabled placeholder="Razón Social">
+                <input type="text" formControlName="razonSocial" class="form-control" [attr.disabled]="true" placeholder="Razón Social">
 
               </div>
 
@@ -62,18 +62,18 @@
               <h5>Detalles</h5>
               <div class="form-group">
                 <label for="pesoEntrada" class="form-label">Peso de entrada</label>
-                <input type="number" formControlName="pesoEntrada" class="form-control" disabled placeholder="Peso de Entrada">
+                <input type="number" formControlName="pesoEntrada" class="form-control" [attr.disabled]="true" placeholder="Peso de Entrada">
 
 
               </div>
               <div class="form-group">
                 <label for="pesoSalida" class="form-label">Peso de salida</label>
-                <input type="number" formControlName="pesoSalida" class="form-control" disabled placeholder="Peso de Salida">
+                <input type="number" formControlName="pesoSalida" class="form-control" [attr.disabled]="true" placeholder="Peso de Salida">
 
               </div>
               <div class="form-group">
                 <label for="tipoTransaccion"> Tipo de transaccion</label>
-                <select formControlName="tipoTransaccion" disabled class="form-control">
+                <select formControlName="tipoTransaccion" class="form-control" [attr.disabled]="true">
                   <option value="compra">Compra</option>
                   <option selected value="venta">Venta</option>
                 </select>
@@ -87,11 +87,11 @@
             <h5> Vehiculo</h5>
             <div class="form-group">
               <label for="patente" class="form-label">Patente</label>
-              <input type="text" formControlName="patente" class="form-control" disabled placeholder="Patente">
+              <input type="text" formControlName="patente" class="form-control" [attr.disabled]="true" placeholder="Patente">
             </div>
             <div class="form-group">
               <label for="tipoVehiculo">Tipo de Vehiculo</label>
-              <input type="text" formControlName="tipoVehiculo" class="form-control" disabled placeholder="Tipo de vehiculo">
+              <input type="text" formControlName="tipoVehiculo" class="form-control" [attr.disabled]="true" placeholder="Tipo de vehiculo">
             </div>
           </div>
 

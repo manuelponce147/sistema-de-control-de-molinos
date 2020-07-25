@@ -1,14 +1,59 @@
-<div class="d-flex">
-    <div id="sidebar-container" class="border">
+<div>
+    <ng-sidebar-container style=" height: 100vh">
+    <ng-sidebar [opened]="opened" closeOnClickOutside="true" mode="push" autoCollapseWidth=100>
+        <div class="text-justify">
+            <img src="../../../assets/logo.png" alt="">
 
-        <div class="menu">
-            <a [routerLink]="['/pesajes/nuevo-pesaje']" class="list-group-item  p-3">
-                <i class="fa fa-plus fa-2x" aria-hidden="true"></i>
-                 Realizar Pesaje
-            </a>
-            <a [routerLink]="['/pesajes/listar-pesaje']" class="list-group-item  p-3"><i class="fa fa-list fa-2x" aria-hidden="true"></i>Listar Pesajes</a>
-            <a [routerLink]="['/pesajes/deshabilitar-pesaje']" class="list-group-item  p-3"><i class="fa fa-times-circle-o fa-2x" aria-hidden="true"></i>
-                Administrar Pesaje</a>
+            <ul class="nav justify-contetn-center menu" id="sidebar">
+                <li class="nav-item">
+                    <a class="nav-link" [routerLink]="['/pesajes/nuevo-pesaje']">
+                        <i class="fa fa-plus-circle fa-2x btnside" aria-hidden="true"></i>
+                        Realizar Pesaje
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" [routerLink]="['/pesajes/listar-pesaje']">
+                        <i class="fa fa-eye fa-2x" aria-hidden="true"></i>
+                        Visualizar Pesajes
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" [routerLink]="['/pesajes/deshabilitar-pesaje']">
+                        <i class="fa fa-pencil fa-2x" aria-hidden="true"></i>
+                        Configurar Pesajes
+                    </a>
+                </li>
+            </ul>
+           
+
         </div>
+      
+
+    </ng-sidebar>
+
+    <!-- Page Header -->
+    <div ng-sidebar-content>
+    <div class="header">
+        <a class="icon" (click)="toggleSidebar()"><i class="fa fa-bars fa-2x"></i><span class="sr-only">(current)</span></a>
+        <ul class="nav" position="rigth">
+            <li class="nav-item">
+                <a class="nav-link" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Clientes</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Silos</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Admin</a>
+            </li>
+        </ul>
+
     </div>
+        <!--body-->
+      <router-outlet></router-outlet>
+
+    </div>
+  </ng-sidebar-container>    
 </div>
