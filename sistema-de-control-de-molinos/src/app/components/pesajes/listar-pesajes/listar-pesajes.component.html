@@ -21,7 +21,7 @@
         <td>
           <a href="#" (click)="VerPesaje($event,pesaje)" data-toggle="modal" data-target="#updatemodal"><i
               class="fa fa-eye fa-2x"></i></a>
-          <a href="#"><i class="fa fa fa-file-pdf-o fa-2x "></i></a>
+          <a href="#" (click)="onExport($event)"><i class="fa fa fa-file-pdf-o fa-2x "></i></a>
         </td>
       </tr>
       <tr>
@@ -32,11 +32,11 @@
 <div class="modal fade" id="updatemodal" tabindex="-1" role="dailog">
   <div class="modal-dialog ">
     <div class="modal-content">
-      <form [formGroup]=formPesaje novalidate>
+      <form [formGroup]=formPesaje novalidate id="export">
 
         <div class="modal-header">
           <h4 class="modal-title">Ver Información</h4>
-          <button type="button" class="close" data-dismiss="modal">x</button>
+          <button type="button" class="close" id="modalclose" data-dismiss="modal">x</button>
         </div>
         <div class="moda-body">
             <div class="client">
@@ -99,7 +99,7 @@
         </div>
 
         <div class="modal-footer">
-          <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+          <button type="button" class="btn btn-danger" id="btnmodal"data-dismiss="modal">Cerrar</button>
 
         </div>
 

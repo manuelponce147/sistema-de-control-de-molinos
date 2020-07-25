@@ -6,6 +6,8 @@ import { SilosComponent } from './components/silos/silos.component';
 import { ClientesComponent } from './components/clientes/clientes.component';
 import { HomeComponent } from './components/home/home.component';
 import { ListarPesajesComponent } from './components/pesajes/listar-pesajes/listar-pesajes.component';
+import { ErrorComponent } from './components/error/error.component';
+import { NuevoPedidoComponent } from './components/pedido/nuevo-pedido/nuevo-pedido.component';
 
 
 const routes: Routes = [
@@ -14,7 +16,10 @@ const routes: Routes = [
   { path: 'silos', component: SilosComponent },
   { path: 'clientes', component: ClientesComponent },
   { path:'pesajes/listar-pesaje',component:ListarPesajesComponent},
-  { path: 'home', component: HomeComponent }
+  { path: 'home', component: HomeComponent },
+  {path:'pedido/nuevo-pedido',component:NuevoPedidoComponent},
+  {path:'**',component:ErrorComponent}
+
 
 ];
 

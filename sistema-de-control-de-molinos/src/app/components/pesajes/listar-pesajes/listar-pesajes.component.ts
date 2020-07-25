@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { PesajeService } from 'src/app/services/pesaje.service';
 import { Pesaje } from 'src/app/models/pesaje';
 import {Global} from '../../../global';
+import * as html2pdf from 'html2pdf.js';
 import { FormBuilder, FormGroup,Validators} from '@angular/forms';
 @Component({
   selector: 'app-listar-pesajes',
@@ -68,5 +69,16 @@ export class ListarPesajesComponent implements OnInit {
     event.preventDefault();
     this.cargarDatos(pesaje);
   }
+  onExport(event:Event){
 
+    event.preventDefault();
+    const options={
+      filename:'download.pdf',
+      html2canvas:{},
+      jspdf:{orientation:'landscape'}
+    };
+    var element=document.getElementById('export');
+    html2pdf().from(element).set(options).save();
+  }
+  
 }

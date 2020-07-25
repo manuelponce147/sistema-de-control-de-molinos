@@ -13,12 +13,14 @@ import { DeshabilitarPesajeComponent } from './components/pesajes/deshabilitar-p
 import { HomeComponent } from './components/home/home.component';
 import { ClientesComponent } from './components/clientes/clientes.component';
 import { SilosComponent } from './components/silos/silos.component';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms'
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import { ListarPesajesComponent } from './components/pesajes/listar-pesajes/listar-pesajes.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap'
 import {NgbPaginationModule, NgbAlertModule} from '@ng-bootstrap/ng-bootstrap';
 import { SidebarModule } from 'ng-sidebar';
+import { NuevoPedidoComponent } from './components/pedido/nuevo-pedido/nuevo-pedido.component';
+import { ErrorComponent } from './components/error/error.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +34,8 @@ import { SidebarModule } from 'ng-sidebar';
     ClientesComponent,
     SilosComponent,
     ListarPesajesComponent,
+    NuevoPedidoComponent,
+    ErrorComponent,
     
   ],
   imports: [
