@@ -16,7 +16,7 @@ import { SilosComponent } from './components/silos/silos.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import { ListarPesajesComponent } from './components/pesajes/listar-pesajes/listar-pesajes.component';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap'
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {NgbPaginationModule, NgbAlertModule} from '@ng-bootstrap/ng-bootstrap';
 import { SidebarModule } from 'ng-sidebar';
 import { NuevoPedidoComponent } from './components/pedido/nuevo-pedido/nuevo-pedido.component';
