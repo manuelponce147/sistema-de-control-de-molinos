@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FormGroup, FormBuilder, Validators} from '@angular/forms';
+import {FormGroup, FormBuilder,FormControl, Validators} from '@angular/forms';
 import { PesajeService } from 'src/app/services/pesaje.service';
 @Component({
   selector: 'app-nuevo-pesaje',
@@ -18,7 +18,7 @@ export class NuevoPesajeComponent implements OnInit {
        pesoEntrada:['',[Validators.required]],
        pesoSalida:['',[Validators.required]],
        tipoTransaccion:['',Validators.required],
-       patente:['',Validators.required],
+       patente:['',Validators.required,Validators.maxLength(6)],
        tipoVehiculo:['',Validators.required],
 
     })
@@ -33,6 +33,7 @@ export class NuevoPesajeComponent implements OnInit {
         (data)=>{
           console.log("imprimiendo resultado");
           console.log(data)
+          this.formPesaje.reset();
       
       })
     

@@ -10,3 +10,33 @@ table{
 a{
     margin-left: 15px;
 }
+.modal-body{
+    position: flex;
+    overflow: auto;
+    margin:10px;
+    padding:20px;
+}
+
+.client, .details{
+   display:inline-block;
+   margin: 5px;
+   padding: 5px;
+   width: 45%;
+  
+}
+@media screen and (max-width:767px){
+    .client , .details{
+        display: block;
+        width: inherit;
+        margin: 5px;
+        padding: 5px;
+
+    }
+}
+.vehicle{
+    margin: 5px;
+    padding: 5px;
+}
+.container{
+    overflow-x: auto;
+}

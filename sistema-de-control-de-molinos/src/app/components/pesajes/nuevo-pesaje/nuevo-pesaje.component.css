@@ -18,12 +18,22 @@ h5{
     margin: 10px;
     padding:10px;
 }
- .col-left , .col-right{
-    width: 50%;
-    display:block-inline;
+ .client , .details{
+    width: 45%;
+    display:inline-block;
+}
+@media screen and (max-width:767px){
+    .client, .details{
+        display: block;
+        width: inherit;
+    }
 }
 .row{
     width: 100%;
     display: flex;
     justify-content: center;
+}
+
+.alert{
+    margin-top: 20px;
 }

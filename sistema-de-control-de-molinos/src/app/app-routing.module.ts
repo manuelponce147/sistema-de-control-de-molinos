@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { NuevoPesajeComponent } from './components/pesajes/nuevo-pesaje/nuevo-pesaje.component';
-import { EditarPesajeComponent } from './components/pesajes/editar-pesaje/editar-pesaje.component';
 import { DeshabilitarPesajeComponent } from './components/pesajes/deshabilitar-pesaje/deshabilitar-pesaje.component';
 import { SilosComponent } from './components/silos/silos.component';
 import { ClientesComponent } from './components/clientes/clientes.component';
@@ -11,7 +10,6 @@ import { ListarPesajesComponent } from './components/pesajes/listar-pesajes/list
 
 const routes: Routes = [
   { path: 'pesajes/nuevo-pesaje', component: NuevoPesajeComponent },
-  { path: 'pesajes/editar-pesaje', component: EditarPesajeComponent },
   { path: 'pesajes/deshabilitar-pesaje', component: DeshabilitarPesajeComponent },
   { path: 'silos', component: SilosComponent },
   { path: 'clientes', component: ClientesComponent },

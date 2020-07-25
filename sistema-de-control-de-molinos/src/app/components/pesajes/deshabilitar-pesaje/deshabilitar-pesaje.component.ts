@@ -13,7 +13,7 @@ export class DeshabilitarPesajeComponent implements OnInit {
   public pesajes:Pesaje[];
   public url:string;
   formPesaje:FormGroup;
-
+  guardarId:string;
 
   constructor(private pesajeService:PesajeService, private formBuilder:FormBuilder ){
     this.url=Global.url;
@@ -58,6 +58,31 @@ export class DeshabilitarPesajeComponent implements OnInit {
 
   }
 
-  onSubmit(){}
+  cargarDatos(pesaje:any, id:string){
+    this.formPesaje=this.formBuilder.group({
+      nombre:pesaje.nombre,
+      rut:pesaje.rut,
+      razonSocial:pesaje.razonSocial,
+      pesoEntrada:pesaje.pesoEntrada,
+      pesoSalida:pesaje.pesoSalida,
+      tipoTransaccion:pesaje.pesoSalida,
+      patente:pesaje.patente,
+      tipoVehiculo:pesaje.tipoVehiculo
+    }) 
+    this.guardarId=id;
+ 
+     
 
+
+  }
+  onSubmit(){
+    this.pesajeService.updatePesaje(this.guardarId,this.formPesaje.value).subscribe(
+      res=>{
+        this.getPesajes();
+        document.getElementById('updatemodal').click();
+        
+    })
+    
+  }
+  
 }

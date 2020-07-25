@@ -4,9 +4,15 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var PesajeSchema = Schema({
-	    tipoTransaccion:String,
-        pesoEntradad:Number,
+        nombre:String,
+        rut:String,
+        razonSocial:String,
+        pesoEntrada:Number,
         pesoSalida:Number,
+        tipoTransaccion:String,
+        tipoVehiculo:String,
+        patente:String, 
+
 });
 
 module.exports = mongoose.model('Pesaje', PesajeSchema);
