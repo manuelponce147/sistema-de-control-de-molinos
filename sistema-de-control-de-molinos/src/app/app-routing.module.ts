@@ -9,12 +9,14 @@ import { ListarPesajesComponent } from './components/pesajes/listar-pesajes/list
 
 
 const routes: Routes = [
+  { path: '', component: HomeComponent },
+  { path: 'home', component: HomeComponent },
   { path: 'pesajes/nuevo-pesaje', component: NuevoPesajeComponent },
   { path: 'pesajes/deshabilitar-pesaje', component: DeshabilitarPesajeComponent },
   { path: 'silos', component: SilosComponent },
   { path: 'clientes', component: ClientesComponent },
-  { path:'pesajes/listar-pesaje',component:ListarPesajesComponent},
-  { path: 'home', component: HomeComponent }
+  { path:'pesajes/listar-pesaje',component:ListarPesajesComponent}
+
 
 ];
 

@@ -24,10 +24,10 @@
                     </a>
                 </li>
             </ul>
-           
+
 
         </div>
-      
+
 
     </ng-sidebar>
 
@@ -37,7 +37,7 @@
         <a class="icon" (click)="toggleSidebar()"><i class="fa fa-bars fa-2x"></i><span class="sr-only">(current)</span></a>
         <ul class="nav" position="rigth">
             <li class="nav-item">
-                <a class="nav-link" href="#">Home</a>
+                <a class="nav-link" [routerLink]="['/home']">Home</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#">Clientes</a>
@@ -55,5 +55,5 @@
       <router-outlet></router-outlet>
 
     </div>
-  </ng-sidebar-container>    
+  </ng-sidebar-container>
 </div>

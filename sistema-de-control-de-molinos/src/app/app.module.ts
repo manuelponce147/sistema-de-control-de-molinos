@@ -31,8 +31,8 @@ import { SidebarModule } from 'ng-sidebar';
     HomeComponent,
     ClientesComponent,
     SilosComponent,
-    ListarPesajesComponent,
-    
+    ListarPesajesComponent
+
   ],
   imports: [
     BrowserModule,
@@ -41,7 +41,7 @@ import { SidebarModule } from 'ng-sidebar';
     ReactiveFormsModule,
     HttpClientModule,
     NgbModule,
-    NgbPaginationModule, 
+    NgbPaginationModule,
     NgbAlertModule,
     CommonModule,
     SidebarModule.forRoot()
