@@ -13,6 +13,7 @@ app.use(bodyParser.urlencoded({extended:true}));
 //cargar archivis de rutas
 var pesajes_routes = require('./router/pesajes');
 var silos_router=require('./router/silos');
+var producto_routes=require('./router/producto');
 // cors 
 app.use(function (req,res, next){
     res.header("Access-Control-Allow-Origin","*");
@@ -25,5 +26,6 @@ app.use(function (req,res, next){
 
 // rutas
 app.use('/api',pesajes_routes);
-app.use('/api',silos_router);
+app.use('/api/silos',silos_router);
+app.use('/api/producto',producto_routes);
 module.exports=app;
