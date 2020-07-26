@@ -1,84 +1,90 @@
 import { Component, OnInit } from '@angular/core';
 import { PesajeService } from 'src/app/services/pesaje.service';
 import { Pesaje } from 'src/app/models/pesaje';
-import {Global} from '../../../global';
-import * as html2pdf from 'html2pdf.js';
-import { FormBuilder, FormGroup,Validators} from '@angular/forms';
+import { Global } from '../../../global';
+import * as jspdf from 'jspdf';
+import html2canvas from 'html2canvas';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 @Component({
   selector: 'app-listar-pesajes',
   templateUrl: './listar-pesajes.component.html',
   styleUrls: ['./listar-pesajes.component.css'],
-  providers:[PesajeService]
+  providers: [PesajeService]
 })
 export class ListarPesajesComponent implements OnInit {
-    public pesajes:Pesaje[];
-    public url:string;
-    formPesaje:FormGroup;
+  public pesajes: Pesaje[];
+  public url: string;
+  formPesaje: FormGroup;
+  details: FormGroup;
 
+  constructor(private pesajeService: PesajeService, private formBuilder: FormBuilder) {
+    this.url = Global.url;
+    this.formPesaje = this.formBuilder.group({
+      nombre: ['', [Validators.required]],
+      rut: ['', [Validators.required]],
+      razonSocial: ['', [Validators.required]],
+      pesoEntrada: ['', [Validators.required]],
+      pesoSalida: ['', [Validators.required]],
+      tipoTransaccion: ['', Validators.required],
+      patente: ['', Validators.required],
+      tipoVehiculo: ['', Validators.required],
 
-  constructor(private pesajeService:PesajeService, private formBuilder:FormBuilder ){
-      this.url=Global.url;
-      this.formPesaje=this.formBuilder.group({
-        nombre:['',[Validators.required]],
-        rut:['',[Validators.required]],
-        razonSocial:['',[Validators.required]],
-        pesoEntrada:['',[Validators.required]],
-        pesoSalida:['',[Validators.required]],
-        tipoTransaccion:['',Validators.required],
-        patente:['',Validators.required],
-        tipoVehiculo:['',Validators.required],
-  
-     })
-    this.url=Global.url;
+    })
+    this.url = Global.url;
 
-   }
+  }
 
   ngOnInit(): void {
     this.getPesajes();
   }
-  getPesajes(){
+  getPesajes() {
     this.pesajeService.obtenerPesajes().subscribe(
-      response=>{
-        if(response.pesajes){
-          this.pesajes=response.pesajes;
+      response => {
+        if (response.pesajes) {
+          this.pesajes = response.pesajes;
         }
-      },error=>{
+      }, error => {
         console.log(<any>error);
-        
+
       }
     )
   }
-  cargarDatos(pesaje:any){
-    this.formPesaje=this.formBuilder.group({
-      nombre:pesaje.nombre,
-      rut:pesaje.rut,
-      razonSocial:pesaje.razonSocial,
-      pesoEntrada:pesaje.pesoEntrada,
-      pesoSalida:pesaje.pesoSalida,
-      tipoTransaccion:pesaje.pesoSalida,
-      patente:pesaje.patente,
-      tipoVehiculo:pesaje.tipoVehiculo
-    }) 
-    
- 
-     
+  cargarDatos(pesaje: any) {
+    this.formPesaje = this.formBuilder.group({
+      nombre: pesaje.nombre,
+      rut: pesaje.rut,
+      razonSocial: pesaje.razonSocial,
+      pesoEntrada: pesaje.pesoEntrada,
+      pesoSalida: pesaje.pesoSalida,
+      tipoTransaccion: pesaje.pesoSalida,
+      patente: pesaje.patente,
+      tipoVehiculo: pesaje.tipoVehiculo
+    });
+  }
+  cargarpdf(pesaje: any) {
+    this.details = this.formBuilder.group({
+      nombre: pesaje.nombre,
+      rut: pesaje.rut,
+      razonSocial: pesaje.razonSocial,
+      pesoEntrada: pesaje.pesoEntrada,
+      pesoSalida: pesaje.pesoSalida,
+      tipoTransaccion: pesaje.pesoSalida,
+      patente: pesaje.patente,
+      tipoVehiculo: pesaje.tipoVehiculo
+    });
 
 
   }
-  VerPesaje(event:Event,pesaje:any){
+  VerPesaje(event: Event, pesaje: any) {
     event.preventDefault();
     this.cargarDatos(pesaje);
   }
-  onExport(event:Event){
-
+  generarPdf(event: Event, pesaje: any) {
     event.preventDefault();
-    const options={
-      filename:'download.pdf',
-      html2canvas:{},
-      jspdf:{orientation:'landscape'}
-    };
-    var element=document.getElementById('export');
-    html2pdf().from(element).set(options).save();
-  }
+    this.cargarDatos(pesaje);
+
+    var element =document.getElementById('updatemodal');
+    
   
+  }
 }

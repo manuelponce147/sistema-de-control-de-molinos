@@ -17,9 +17,9 @@ export class NuevoPesajeComponent implements OnInit {
        razonSocial:['',[Validators.required]],
        pesoEntrada:['',[Validators.required]],
        pesoSalida:['',[Validators.required]],
-       tipoTransaccion:['',Validators.required],
-       patente:['',Validators.required,Validators.maxLength(6)],
-       tipoVehiculo:['',Validators.required],
+       tipoTransaccion:['',[Validators.required]],
+       patente:['',[Validators.required,Validators.maxLength(6)]],
+       tipoVehiculo:['',[Validators.required]],
 
     })
   }
