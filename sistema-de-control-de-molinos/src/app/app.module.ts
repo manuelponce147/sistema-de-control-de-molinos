@@ -21,6 +21,10 @@ import {NgbPaginationModule, NgbAlertModule} from '@ng-bootstrap/ng-bootstrap';
 import { SidebarModule } from 'ng-sidebar';
 import { NuevoPedidoComponent } from './components/pedido/nuevo-pedido/nuevo-pedido.component';
 import { ErrorComponent } from './components/error/error.component';
+import { PhotoFormComponent } from './components/photos/photo-form/photo-form.component';
+import { PhotoPreviewComponent } from './components/photos/photo-preview/photo-preview.component';
+import { PhotoListComponent } from './components/photos/photo-list/photo-list.component';
+import { CatalogoComponent } from './components/catalogo/catalogo.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +40,10 @@ import { ErrorComponent } from './components/error/error.component';
     ListarPesajesComponent,
     NuevoPedidoComponent,
     ErrorComponent,
+    PhotoFormComponent,
+    PhotoPreviewComponent,
+    PhotoListComponent,
+    CatalogoComponent
     
   ],
   imports: [
