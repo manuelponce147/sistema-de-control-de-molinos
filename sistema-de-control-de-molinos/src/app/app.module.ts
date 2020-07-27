@@ -4,7 +4,6 @@ import { CommonModule }   from '@angular/common';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { CabeceraComponent } from './components/cabecera/cabecera.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { NavigationComponent } from './components/navigation/navigation.component';
 import { NuevoPesajeComponent } from './components/pesajes/nuevo-pesaje/nuevo-pesaje.component';
@@ -24,12 +23,10 @@ import { ErrorComponent } from './components/error/error.component';
 import { PhotoFormComponent } from './components/photos/photo-form/photo-form.component';
 import { PhotoPreviewComponent } from './components/photos/photo-preview/photo-preview.component';
 import { PhotoListComponent } from './components/photos/photo-list/photo-list.component';
-import { CatalogoComponent } from './components/catalogo/catalogo.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CabeceraComponent,
     FooterComponent,
     NavigationComponent,
     NuevoPesajeComponent,
@@ -42,8 +39,8 @@ import { CatalogoComponent } from './components/catalogo/catalogo.component';
     ErrorComponent,
     PhotoFormComponent,
     PhotoPreviewComponent,
-    PhotoListComponent,
-    CatalogoComponent
+    PhotoListComponent
+    
     
   ],
   imports: [

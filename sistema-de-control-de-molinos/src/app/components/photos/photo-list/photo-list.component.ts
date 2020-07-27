@@ -28,7 +28,7 @@ export class PhotoListComponent implements OnInit {
   }
 
   selectedCard(id: string) {
-    this.router.navigate(['/photos', id]);
+    this.router.navigate(['/catalogo', id]);
   }
 
 

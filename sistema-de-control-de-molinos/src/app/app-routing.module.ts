@@ -11,7 +11,6 @@ import { NuevoPedidoComponent } from './components/pedido/nuevo-pedido/nuevo-ped
 import { PhotoListComponent } from './components/photos/photo-list/photo-list.component';
 import { PhotoFormComponent } from './components/photos/photo-form/photo-form.component';
 import { PhotoPreviewComponent } from './components/photos/photo-preview/photo-preview.component';
-import { CatalogoComponent } from './components/catalogo/catalogo.component';
 
 
 const routes: Routes = [
@@ -22,10 +21,9 @@ const routes: Routes = [
   { path: 'pesajes/listar-pesaje', component: ListarPesajesComponent },
   { path: 'home', component: HomeComponent },
   { path: 'pedido/nuevo-pedido', component: NuevoPedidoComponent },
-  { path: 'photos', component: PhotoListComponent },
-  { path: 'photos/new', component: PhotoFormComponent },
-  { path: 'photos/:id', component: PhotoPreviewComponent },
-  { path: 'catalogo', component: CatalogoComponent },
+  { path: 'catalogo', component: PhotoListComponent },
+  { path: 'catalogo/new', component: PhotoFormComponent },
+  { path: 'catalogo/:id', component: PhotoPreviewComponent },
 
 
 

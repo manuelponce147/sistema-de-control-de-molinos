@@ -36,12 +36,16 @@ export class ListarPesajesComponent implements OnInit {
 
   ngOnInit(): void {
     this.getPesajes();
+
+    
   }
   getPesajes() {
     this.pesajeService.obtenerPesajes().subscribe(
       response => {
-        if (response.pesajes) {
-          this.pesajes = response.pesajes;
+        if (response) {
+          this.pesajes=response;
+          console.log(response);
+          
         }
       }, error => {
         console.log(<any>error);
@@ -78,13 +82,7 @@ export class ListarPesajesComponent implements OnInit {
   VerPesaje(event: Event, pesaje: any) {
     event.preventDefault();
     this.cargarDatos(pesaje);
-  }
-  generarPdf(event: Event, pesaje: any) {
-    event.preventDefault();
-    this.cargarDatos(pesaje);
-
-    var element =document.getElementById('updatemodal');
     
-  
   }
+ 
 }

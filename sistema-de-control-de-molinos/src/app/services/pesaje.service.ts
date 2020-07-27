@@ -29,7 +29,7 @@ export class PesajeService {
   guardarPesaje(pesaje:any):Observable<any>{
     let params=JSON.stringify(pesaje);
     let headers= new HttpHeaders().set('Content-Type','application/json');
-    return this.http.post(this.url+'save-pesaje',params,{headers:headers})
+    return this.http.post(this.url+'pesajes',params,{headers:headers})
 
      
   }

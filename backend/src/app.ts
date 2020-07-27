@@ -18,10 +18,20 @@ app.set('port', process.env.PORT || 3000);
 
 // Middlewares
 app.use(morgan('dev'));
-app.use(cors());
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
+//midellwares
+
+app.use(cors());
+app.use(function (req,res, next){
+    res.header("Access-Control-Allow-Origin","*");
+    res.header("Access-Control-Allow-Methods","GET, POST, PUT, DELETE, OPTIONS");
+    res.header("Access-COntrol-Allow-Headers",
+    "Origin,X-Requested-With,Content-Type,Accept,x-client-key,x-client-token,x-client-secret,Authorization");
+    next();
+
+})
 // Routes
 app.use('/api', indexRoutes);
 app.use('/api', pesajeRouter);

@@ -36,8 +36,8 @@ export class DeshabilitarPesajeComponent implements OnInit {
   getPesajes(){
     this.pesajeService.obtenerPesajes().subscribe(
       response=>{
-        if(response.pesajes){
-          this.pesajes=response.pesajes;
+        if(response){
+          this.pesajes=response;
           console.log(this.pesajes);
           
         }
