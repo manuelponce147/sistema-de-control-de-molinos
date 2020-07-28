@@ -8,6 +8,7 @@ import * as bodyParser from 'body-parser';
 import indexRoutes from './router/index'
 import pesajeRouter from './router/pesaje'
 import  siloRouter  from "./router/silos";
+import authRouter from './router/auth';
 
 // Initializations
 const app: Application = express();
@@ -36,6 +37,7 @@ app.use(function (req,res, next){
 app.use('/api', indexRoutes);
 app.use('/api', pesajeRouter);
 app.use('/api',siloRouter);
+app.use('/api/auth',authRouter);
 // this folders for this application will be used to store public file images
 app.use('/uploads', express.static(path.resolve('uploads')));
 
