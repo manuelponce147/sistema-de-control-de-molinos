@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SilosComponent } from './silos.component';
+import { ListSilosComponent } from './list-silos.component';
 
-describe('SilosComponent', () => {
-  let component: SilosComponent;
-  let fixture: ComponentFixture<SilosComponent>;
+describe('ListSilosComponent', () => {
+  let component: ListSilosComponent;
+  let fixture: ComponentFixture<ListSilosComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SilosComponent ]
+      declarations: [ ListSilosComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(SilosComponent);
+    fixture = TestBed.createComponent(ListSilosComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

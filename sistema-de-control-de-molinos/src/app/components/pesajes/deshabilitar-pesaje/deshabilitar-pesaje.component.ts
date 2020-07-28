@@ -10,7 +10,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
   styleUrls: ['./deshabilitar-pesaje.component.css']
 })
 export class DeshabilitarPesajeComponent implements OnInit {
-  public pesajes:Pesaje[];
+  public pesajes:Pesaje[]=[];
   public url:string;
   formPesaje:FormGroup;
   guardarId:string;

@@ -4,6 +4,7 @@ export class Silo {
     nombre:string,
     capacidadTotal:number,
     stock:number,
-    tipo_producto:string
+    tipoProducto:string,
+    estado:boolean
     ){}
 }

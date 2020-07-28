@@ -11,7 +11,6 @@ import { RouterModule } from '@angular/router';
 import { DeshabilitarPesajeComponent } from './components/pesajes/deshabilitar-pesaje/deshabilitar-pesaje.component';
 import { HomeComponent } from './components/home/home.component';
 import { ClientesComponent } from './components/clientes/clientes.component';
-import { SilosComponent } from './components/silos/silos.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import { ListarPesajesComponent } from './components/pesajes/listar-pesajes/listar-pesajes.component';
@@ -23,6 +22,9 @@ import { ErrorComponent } from './components/error/error.component';
 import { PhotoFormComponent } from './components/photos/photo-form/photo-form.component';
 import { PhotoPreviewComponent } from './components/photos/photo-preview/photo-preview.component';
 import { PhotoListComponent } from './components/photos/photo-list/photo-list.component';
+import { ListSilosComponent } from './components/silos/list-silos/list-silos.component';
+import { CreateSiloComponent } from './components/silos/create-silo/create-silo.component';
+import { ConfigureSiloComponent } from './components/silos/configure-silo/configure-silo.component';
 
 @NgModule({
   declarations: [
@@ -33,13 +35,15 @@ import { PhotoListComponent } from './components/photos/photo-list/photo-list.co
     DeshabilitarPesajeComponent,
     HomeComponent,
     ClientesComponent,
-    SilosComponent,
     ListarPesajesComponent,
     NuevoPedidoComponent,
     ErrorComponent,
     PhotoFormComponent,
     PhotoPreviewComponent,
-    PhotoListComponent
+    PhotoListComponent,
+    ListSilosComponent,
+    CreateSiloComponent,
+    ConfigureSiloComponent
     
     
   ],
