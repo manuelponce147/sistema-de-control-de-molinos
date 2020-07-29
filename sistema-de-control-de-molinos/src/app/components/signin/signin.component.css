@@ -1,0 +1,22 @@
+
+.container{
+    height: 600px;
+    position: relative;
+}
+form{
+    position: absolute;
+    top: 20%;
+    left: 10%;
+    height: 30%;
+    width: 90%;
+    opacity: 0.8;
+    box-shadow: 5px  grey;
+}
+.card-title{
+    text-align: center;
+}
+.row{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}

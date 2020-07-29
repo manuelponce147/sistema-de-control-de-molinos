@@ -12,7 +12,7 @@ import { DeshabilitarPesajeComponent } from './components/pesajes/deshabilitar-p
 import { HomeComponent } from './components/home/home.component';
 import { ClientesComponent } from './components/clientes/clientes.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {HttpClientModule} from '@angular/common/http';
+import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 import { ListarPesajesComponent } from './components/pesajes/listar-pesajes/listar-pesajes.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {NgbPaginationModule, NgbAlertModule} from '@ng-bootstrap/ng-bootstrap';
@@ -25,7 +25,11 @@ import { PhotoListComponent } from './components/photos/photo-list/photo-list.co
 import { ListSilosComponent } from './components/silos/list-silos/list-silos.component';
 import { CreateSiloComponent } from './components/silos/create-silo/create-silo.component';
 import { ConfigureSiloComponent } from './components/silos/configure-silo/configure-silo.component';
-
+import { SigninComponent } from './components/signin/signin.component';
+import { SignupComponent } from './components/signup/signup.component';
+import { AuthGuard } from "./auth.guard";
+import { HttpInterceptor } from "@angular/common/http";
+import { TokenInterceptorService } from "./services/token-interceptor.service";
 @NgModule({
   declarations: [
     AppComponent,
@@ -43,7 +47,9 @@ import { ConfigureSiloComponent } from './components/silos/configure-silo/config
     PhotoListComponent,
     ListSilosComponent,
     CreateSiloComponent,
-    ConfigureSiloComponent
+    ConfigureSiloComponent,
+    SigninComponent,
+    SignupComponent
     
     
   ],
@@ -59,7 +65,11 @@ import { ConfigureSiloComponent } from './components/silos/configure-silo/config
     CommonModule,
     SidebarModule.forRoot()
   ],
-  providers: [],
+  providers: [AuthGuard,{
+    provide:HTTP_INTERCEPTORS,
+    useClass:TokenInterceptorService,
+    multi:true
+  }],
   bootstrap: [AppComponent],
 })
 export class AppModule { }

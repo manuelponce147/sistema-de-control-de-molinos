@@ -5,6 +5,7 @@ export interface IUser extends Document{
     name:string;
     email:string;
     password:string;
+    userRole:string;
     encryptPassword(password:string):Promise<string>;
     validatePassword(password:string):Promise<boolean>;
 }
@@ -35,10 +36,13 @@ const schema = new Schema({
     userRole:{
         type:String,
         required:true,
-        default:"Client"
-    
-    },
-   // userToken:String,
+        default:"regular",
+        enum:[
+            'regular',
+            'encargado',
+            'admin'
+        ]
+    }
 
 },{
     timestamps:true

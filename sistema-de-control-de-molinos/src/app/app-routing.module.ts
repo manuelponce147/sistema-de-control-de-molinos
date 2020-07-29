@@ -13,9 +13,20 @@ import { PhotoPreviewComponent } from './components/photos/photo-preview/photo-p
 import { ListSilosComponent } from './components/silos/list-silos/list-silos.component';
 import { CreateSiloComponent } from './components/silos/create-silo/create-silo.component';
 import { ConfigureSiloComponent } from './components/silos/configure-silo/configure-silo.component';
-
+import { SigninComponent } from './components/signin/signin.component';
+import { SignupComponent } from './components/signup/signup.component';
+import { AuthGuard } from "./auth.guard";
 
 const routes: Routes = [
+  {path:'',
+  redirectTo:'/signup',
+  pathMatch:'full',
+  canActivate:[AuthGuard]  
+},
+  {path:'signin',
+  component:SigninComponent,
+},
+  {path:'signup',component:SignupComponent},
   { path: 'pesajes/nuevo-pesaje', component: NuevoPesajeComponent },
   { path: 'pesajes/deshabilitar-pesaje', component: DeshabilitarPesajeComponent },
   { path: 'clientes', component: ClientesComponent },
