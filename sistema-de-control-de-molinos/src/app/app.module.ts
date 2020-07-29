@@ -60,7 +60,7 @@ import { TokenInterceptorService } from "./services/token-interceptor.service";
     ReactiveFormsModule,
     HttpClientModule,
     NgbModule,
-    NgbPaginationModule, 
+    NgbPaginationModule,
     NgbAlertModule,
     CommonModule,
     SidebarModule.forRoot()

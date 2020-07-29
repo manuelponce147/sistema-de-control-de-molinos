@@ -1,0 +1,12 @@
+.picsum-img-wrapper{
+  width: inherit;
+  height: 600px;
+}
+.carrusel{
+  width: inherit;
+  overflow: hidden;
+}
+.carrusel img{
+  width: inherit;
+
+}
