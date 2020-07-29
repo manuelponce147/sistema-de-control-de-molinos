@@ -20,12 +20,18 @@ import { AuthGuard } from "./auth.guard";
 const routes: Routes = [
   {path:'',
   redirectTo:'/signup',
-  pathMatch:'full',
-  canActivate:[AuthGuard]  
+  pathMatch:'full'
+    
 },
   {path:'signin',
-  component:SigninComponent,
+  component:SigninComponent
 },
+{ 
+  path: 'catalogo', 
+  component: PhotoListComponent,
+  canActivate:[AuthGuard]
+},
+
   {path:'signup',component:SignupComponent},
   { path: 'pesajes/nuevo-pesaje', component: NuevoPesajeComponent },
   { path: 'pesajes/deshabilitar-pesaje', component: DeshabilitarPesajeComponent },
@@ -33,7 +39,6 @@ const routes: Routes = [
   { path: 'pesajes/listar-pesaje', component: ListarPesajesComponent },
   { path: 'home', component: HomeComponent },
   { path: 'pedido/nuevo-pedido', component: NuevoPedidoComponent },
-  { path: 'catalogo', component: PhotoListComponent },
   { path: 'catalogo/new', component: PhotoFormComponent },
   { path: 'catalogo/:id', component: PhotoPreviewComponent },
   {path:'silos',component:ListSilosComponent},

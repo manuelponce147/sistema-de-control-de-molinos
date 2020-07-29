@@ -18,10 +18,17 @@ export class AuthService {
       return this.http.post(this.url+'signup',user);
    }
    signin(user:any):Observable<any>{
+    let params=JSON.stringify(user)
      return this.http.post(this.url+'signin',user);
    }
    loggedIn():Boolean{
-     return !!(localStorage.getItem('token-auth'))
+    if(typeof(localStorage.getItem("auth-token"))=='undefined'){
+      return true;
+    }else{
+      return false;
+    }
+        
+    
    }
    getToken():String{
      return localStorage.getItem('token-auth');

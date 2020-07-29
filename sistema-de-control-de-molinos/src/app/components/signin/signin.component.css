@@ -1,22 +1,19 @@
-
-.container{
-    height: 600px;
-    position: relative;
-}
 form{
-    position: absolute;
-    top: 20%;
-    left: 10%;
-    height: 30%;
-    width: 90%;
-    opacity: 0.8;
-    box-shadow: 5px  grey;
+    margin-top: 6%;
+    opacity: 0.9;
 }
-.card-title{
-    text-align: center;
+button{
+    margin: 0 auto;
 }
-.row{
-    width: 100%;
-    display: flex;
-    justify-content: center;
+.card{
+    color :white !important;
+    font-weight: bold;
+    background: transparent;
+    
+}
+
+.card-title img{
+    display: block;
+    margin:auto;
+    
 }
