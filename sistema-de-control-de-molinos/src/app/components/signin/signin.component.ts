@@ -10,6 +10,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 })
 export class SigninComponent implements OnInit {
   formSignin:FormGroup;
+
   constructor(private authService: AuthService, private router: Router,private formBuilder:FormBuilder) {
       this.formSignin=this.formBuilder.group({
         email:['',[Validators.required]],
@@ -23,7 +24,10 @@ export class SigninComponent implements OnInit {
     this.authService.signin(this.formSignin.value).subscribe(
       res => {
         console.log(res);
-        localStorage.setItem('token-auth', res.token);
+        localStorage.setItem('auth-token', res.token);
+        
+          console.log(res);
+          
         Swal.fire({
           title:"HAs iniciado sesión correctamente",
           icon:'success'

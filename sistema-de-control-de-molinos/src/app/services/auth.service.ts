@@ -31,11 +31,12 @@ export class AuthService {
     
    }
    getToken():String{
-     return localStorage.getItem('token-auth');
+     return localStorage.getItem('auth-token');
    }
    logout():void{
-     localStorage.removeItem('token-auth');
+     localStorage.removeItem('auth-token');
      this.router.navigate(['/signin']);
    }
+   
    
 }

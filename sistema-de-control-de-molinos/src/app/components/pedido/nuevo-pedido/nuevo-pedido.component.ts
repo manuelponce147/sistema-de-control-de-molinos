@@ -6,11 +6,9 @@ import { FormGroup } from '@angular/forms';
   templateUrl: './nuevo-pedido.component.html',
   styleUrls: ['./nuevo-pedido.component.css']
 })
-export class NuevoPedidoComponent implements OnInit {
-    formPedido:FormGroup;
-  constructor() { }
+export class NuevoPedidoComponent   {
+  formPedido:FormGroup;
 
-  ngOnInit(): void {
-  }
+  constructor() { }
 
 }

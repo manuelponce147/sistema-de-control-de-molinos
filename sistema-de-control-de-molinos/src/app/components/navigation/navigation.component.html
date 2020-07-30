@@ -1,77 +1,113 @@
 <div>
     <ng-sidebar-container style=" height: 100vh">
-    <ng-sidebar [opened]="opened" closeOnClickOutside="true" mode="push" autoCollapseWidth=100>
-        <div class="text-justify">
-            <img src="../../../assets/logo.png" alt="">
+        <ng-sidebar [opened]="opened" mode="push" autoCollapseWidth=100>
+            <div class="text-justify">
+                <img src="../../../assets/logo.png" alt="">
 
-            <ul class="nav justify-contetn-center menu" id="sidebar">
-                <li class="nav-item">
-                    <a class="nav-link" [routerLink]="['/pesajes/nuevo-pesaje']">
-                        <i class="fa fa-plus-circle fa-2x btnside" aria-hidden="true"></i>
-                        Realizar Pesaje
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" [routerLink]="['/pesajes/listar-pesaje']">
-                        <i class="fa fa-list-ul fa-2x" aria-hidden="true"></i>
-                        Visualizar Pesajes
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" [routerLink]="['/pesajes/deshabilitar-pesaje']">
-                        <i class="fa fa-sliders fa-2x" aria-hidden="true"></i>
-                        Configurar Pesajes
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" [routerLink]="['/catalogo/new']">
-                        <i class="fa fa-plus-circle fa-2x" aria-hidden="true"></i>
-                        Registrar Producto
+                <ul class="nav justify-contetn-center menu" id="sidebar">
+                    <li class="nav-item">
+                        <a class="nav-link" [routerLink]="['/pesajes/nuevo-pesaje']">
+                            <i class="fa fa-plus-circle fa-2x btnside" aria-hidden="true"></i>
+                            Realizar Pesaje
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" [routerLink]="['/pesajes/listar-pesaje']">
+                            <i class="fa fa-list-ul fa-2x" aria-hidden="true"></i>
+                            Visualizar Pesajes
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" [routerLink]="['/pesajes/deshabilitar-pesaje']">
+                            <i class="fa fa-sliders fa-2x" aria-hidden="true"></i>
+                            Configurar Pesajes
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" [routerLink]="['/pedido/nuevo-pedido']">
+                            <i class="fa fa-plus-circle fa-2x" aria-hidden="true"></i>
+                            Registrar Pedido
 
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" [routerLink]="['/catalogo']">
-                        <i class="fa fa-list-ul fa-2x" aria-hidden="true"></i>
-                        Lista de Productos
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" [routerLink]="['/catalogo/new']">
+                            <i class="fa fa-plus-circle fa-2x" aria-hidden="true"></i>
+                            Registrar Producto
 
-                    </a>
-                </li>
-              
-            </ul>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" [routerLink]="['/catalogo']">
+                            <i class="fa fa-list-ul fa-2x" aria-hidden="true"></i>
+                            Lista de Productos
 
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" [routerLink]="['/catalogo']">
+                            <i class="fa fa-sliders fa-2x" aria-hidden="true"></i>
+                            Configurar Pedidos
+
+                        </a>
+                    </li>
+
+                </ul>
+
+
+            </div>
+
+
+        </ng-sidebar>
+
+        <!-- Page Header -->
+        <div ng-sidebar-content>
+            
+            <nav class="navbar navbar-expand-md navbar-dark ">
+                <a class="icon" (click)="toggleSidebar()"><i class="fa fa-bars fa-2x"></i><span
+                        class="sr-only">(current)</span></a>
+                        <ul class="nav mx-auto text-center">
+                            <li class="nav-item">
+                                <a class="nav-link" [routerLink]="['/home']">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" [routerLink]="['/clientes']">Clientes</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" [routerLink]="['/silos']">Silos</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" [routerLink]="['/catalogo']">Catologo</a>
+                            </li>
+         
+                        </ul>
+                        <div class="dropleft">
+                            <a data-toggle="dropdown"
+                            aria-expanded="false"><img src="../../../assets/user.png"
+                             alt="user" width="40px" height="40px"></a>
+                            <div class="dropdown-menu">
+                              <a class="dropdown-item" [routerLink]="['/signin']">
+                                <i class="fa fa-sign-in" aria-hidden="true"></i>
+  
+                                Iniciar Sesión</a>
+                              <a class="dropdown-item"  [routerLink]="['/signup']">
+                                <i class="fa fa-user-plus" aria-hidden="true"></i> 
+                                Registrarse</a>
+                              <div class="dropdown-divider"></div>
+                              <a class="dropdown-item" (click)="cerrarSesion()" ><i class="fa fa-sign-out" aria-hidden="true"
+                                
+                                ></i>
+                                Cerrar Sesión</a>
+                            </div>
+                          </div>
+                 
+
+
+            </nav>
+
+            <!--body-->
+            <router-outlet></router-outlet>
 
         </div>
-                                                                                                             
-
-    </ng-sidebar>
-
-    <!-- Page Header -->
-    <div ng-sidebar-content>
-    <div class="header">
-        <a class="icon" (click)="toggleSidebar()"><i class="fa fa-bars fa-2x"></i><span class="sr-only">(current)</span></a>
-        <ul class="nav" position="rigth">
-            <li class="nav-item">
-                <a class="nav-link" [routerLink]="['/home']">Home</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" [routerLink]="['/clientes']">Clientes</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" [routerLink]="['/silos']">Silos</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" [routerLink]="['/catalogo']">Catologo</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Admin</a>
-            </li>
-        </ul>
-
-    </div>
-        <!--body--> 
-      <router-outlet></router-outlet>
-
-    </div>
-  </ng-sidebar-container>    
+    </ng-sidebar-container>
 </div>

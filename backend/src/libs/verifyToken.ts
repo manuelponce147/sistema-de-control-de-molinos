@@ -1,22 +1,28 @@
 import { Request, Response, NextFunction } from 'express';
-import jwt from "jsonwebtoken";
-
+import jwt, { decode } from "jsonwebtoken";
+import * as currentUser from "./../../types";
 interface IPayload {
     _id: string;
     iat: number;
+    role: string;
+}
+
+
+export const TokenValidation = (req: Request, res: Response, next: NextFunction) => {
+    if (req.headers.authorization) {
+        let token = req.headers.authorization.split(' ')[1];
+        jwt.verify(token, process.env.TOKEN || 'tokentest', function (error, decoded)  {
+            if (error) return res.status(403).send({ message: 'No tienes los permisos suficientes para estar aquí...' });
+
+            next();
+
+        });
+    } else {
+        return res.status(403).send({ message: 'No tienes los permisos suficientes para estar aquí...' });
+    }
 }
 
 
 
-export const TokenValidation = async (req: Request, res: Response, next: NextFunction) => {
 
 
-
-    const token = req.header('auth-token');
-    if (!token) return res.status(401).json("Access denied");
-
-    const payload = jwt.verify(token, process.env.TOKEN_SECRET || 'tokentest') as IPayload;
-    console.log(payload);
-    next();
-
-}

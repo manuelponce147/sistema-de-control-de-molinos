@@ -19,7 +19,7 @@ export const signup = async (req: Request, res: Response) => {
     //token
     const token: string = jwt.sign({ _id: savedUser._id}, process.env.TOKEN_SECRET || 'tokentest');
 
-     res.header('auth-token', token).json(savedUser)
+     res.header('auth-token', token).json({user:savedUser})
 }
 
 export const signin = async (req: Request, res: Response) => {
@@ -34,6 +34,6 @@ export const signin = async (req: Request, res: Response) => {
     const token = jwt.sign({ _id: user._id,role:user.userRole }, process.env.TOKEN_SECRET || 'tokentest', {
         expiresIn: 60 * 60 * 24
     });
-    res.header('auth-token', token).json({ token: token });
+    res.header('auth-token', token).json({ token: token ,user:user});
 }
 

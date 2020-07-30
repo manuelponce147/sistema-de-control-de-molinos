@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Photo } from 'src/app/interfaces/photo';
 import { PhotoService } from 'src/app/services/photo.service';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-photo-list',
@@ -14,7 +15,8 @@ export class PhotoListComponent implements OnInit {
 
   constructor(
     private photoService: PhotoService,
-    private router: Router 
+    private router: Router,
+    private authservive:AuthService
   ) { }
 
   ngOnInit() {
