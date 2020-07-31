@@ -20,6 +20,8 @@
     margin-bottom: 10px;
     opacity: 0.9;
     cursor: pointer;
+    border-radius: 10px;
+    background: transparent;
 
 }
 img{
