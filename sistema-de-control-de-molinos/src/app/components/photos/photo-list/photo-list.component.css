@@ -1,7 +1,55 @@
-.card-photo {
+.products{
+    display: flex;
+    flex-wrap: wrap;
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+.card-header{
+    margin: 0 auto;
+    background: none;
+    border: none;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #A92EFF;
+}
+.card{
+    height: 270px;
+    width: 200px;
+    margin: 30px;
+    margin: 0 auto;
+    margin-bottom: 10px;
+    opacity: 0.9;
     cursor: pointer;
+
+}
+img{
+    padding-top: 10px;
+    height: 165px;
+    width: 140px;
+    overflow: hidden;
+
+
+}
+.ver-mas{
+    width: 100px;
+    border-radius: 5px;
+    border: none;
+    box-shadow: none;
+    background: #A92EFF;
+    color: white;
+    height: 30px!important;
+    margin-top: 10px;
+    align-items: flex-end;
+
+
+}
+.card-body{
+    padding: 0 !important;
+    align-items: center;
+    justify-content: center;
+
 }
 
-.card-photo:hover {
-    border: 1px solid #333;
+.products :hover {
+    border: 1px solid #A92EFF;
 }

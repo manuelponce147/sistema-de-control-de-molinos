@@ -1,13 +1,12 @@
-<div class="row">
-    <div class="col-md-2 p-3" *ngFor="let photo of photos">
-        <div class="card card-photo" (click)="selectedCard(photo._id)">
+<div class="products">
+        <div  *ngFor="let photo of photos" class="card" (click)="selectedCard(photo._id)">
             <div class="card-header">
-                {{photo.title}}
+               <b> {{photo.title}}</b>
             </div>
-            <img [src]="'http://localhost:3000/' + photo.imagePath" class="img-card-top w-100">
-            <div class="card-body">
-                <p>{{photo.description}}</p>
+            <div class="card-body mx-auto">
+                <img [src]="'http://localhost:3000/' + photo.imagePath">
             </div>
+                <button type="button" class="ver-mas mx-auto m-3"> Ver más </button>
         </div>
-    </div>
+    
 </div>

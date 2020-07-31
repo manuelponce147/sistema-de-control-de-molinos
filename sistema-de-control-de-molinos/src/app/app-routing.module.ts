@@ -19,7 +19,7 @@ import { AuthGuard } from "./auth.guard";
 
 const routes: Routes = [
   {path:'',
-  redirectTo:'/signup',
+  redirectTo:'/catalogo/new',
   pathMatch:'full'
     
 },
@@ -33,17 +33,32 @@ const routes: Routes = [
 },
 
   {path:'signup',component:SignupComponent},
-  { path: 'pesajes/nuevo-pesaje', component: NuevoPesajeComponent },
-  { path: 'pesajes/deshabilitar-pesaje', component: DeshabilitarPesajeComponent },
-  { path: 'clientes', component: ClientesComponent },
-  { path: 'pesajes/listar-pesaje', component: ListarPesajesComponent },
+  { path: 'pesajes/nuevo-pesaje', 
+  component: NuevoPesajeComponent,
+  canActivate:[AuthGuard]
+ 
+
+},
+  { path: 'pesajes/deshabilitar-pesaje', component: DeshabilitarPesajeComponent,  canActivate:[AuthGuard]
+},
+  { path: 'clientes', component: ClientesComponent ,  canActivate:[AuthGuard]
+},
+  { path: 'pesajes/listar-pesaje', component: ListarPesajesComponent ,  canActivate:[AuthGuard]
+},
   { path: 'home', component: HomeComponent },
-  { path: 'pedido/nuevo-pedido', component: NuevoPedidoComponent },
-  { path: 'catalogo/new', component: PhotoFormComponent },
-  { path: 'catalogo/:id', component: PhotoPreviewComponent },
-  {path:'silos',component:ListSilosComponent},
-  {path:'silos/new',component:CreateSiloComponent},
-  {path:'silos/:id',component:ConfigureSiloComponent},
+  { path: 'pedido/nuevo-pedido', component: NuevoPedidoComponent,  canActivate:[AuthGuard]
+},
+  { path: 'catalogo/new', component: PhotoFormComponent ,  canActivate:[AuthGuard]
+},
+  { path: 'catalogo/:id', component: PhotoPreviewComponent,  canActivate:[AuthGuard]
+},
+  {path:'silos',component:ListSilosComponent,  canActivate:[AuthGuard]
+},
+
+  {path:'silos/new',component:CreateSiloComponent,  canActivate:[AuthGuard]
+},
+  {path:'silos/:id',component:ConfigureSiloComponent,  canActivate:[AuthGuard]
+},
 
 
 

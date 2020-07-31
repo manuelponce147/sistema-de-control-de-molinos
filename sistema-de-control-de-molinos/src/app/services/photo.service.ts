@@ -13,14 +13,20 @@ export class PhotoService {
   }
 
   createPhoto(title: string, description: string, photo: File) {
-    const fd = new FormData();
+    const fd = new FormData();    
     fd.append('title', title);
     fd.append('description', description);
     fd.append('image', photo);
-    let headers = new HttpHeaders();
-    return this.http.post(this.url + 'photos/', fd, { headers: headers })
+    let auth=localStorage.getItem("auth-token");
+    console.log(JSON.stringify(fd));
+
+  
+    return this.http.post(this.url + "photos", fd)
 
 
+  }
+  createProducto(producto:any){
+    return this.http.post(this.url+'photos',producto)
   }
   getPhotos() {
     return this.http.get<Photo[]>(this.url+'photos');

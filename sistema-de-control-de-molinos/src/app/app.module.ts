@@ -49,7 +49,8 @@ import { TokenInterceptorService } from "./services/token-interceptor.service";
     CreateSiloComponent,
     ConfigureSiloComponent,
     SigninComponent,
-    SignupComponent
+    SignupComponent,
+    
     
     
   ],

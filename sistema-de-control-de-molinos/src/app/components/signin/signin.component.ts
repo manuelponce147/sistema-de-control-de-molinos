@@ -25,6 +25,7 @@ export class SigninComponent implements OnInit {
       res => {
         console.log(res);
         localStorage.setItem('auth-token', res.token);
+        localStorage.setItem('user', JSON.stringify(res.user));
         
           console.log(res);
           
