@@ -12,6 +12,8 @@ export async function getPhotos(req: Request, res: Response): Promise<Response> 
 
 export async function createPhoto(req: Request, res: Response): Promise<Response> {
     const { title, description } = req.body;
+
+    
     const newPhoto = { title, description, imagePath: req.file.path };
     const photo = new Photo(newPhoto);
     await photo.save();
@@ -48,4 +50,7 @@ export async function updatePhoto(req: Request, res: Response): Promise<Response
         updatedPhoto
     });
 
+}
+export async function getPhotosLimit(req:Request,res:Response):Promise<Response>{
+    const photos=await Photo.find().limit
 }

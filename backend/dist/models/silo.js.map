@@ -1,0 +1,1 @@
+{"version":3,"file":"silo.js","sourceRoot":"","sources":["../../src/models/silo.ts"],"names":[],"mappings":";;AAAA,uCAAkD;AAElD,MAAM,MAAM,GAAG,IAAI,iBAAM,CAAC;IACtB,MAAM,EAAC,MAAM;IACb,cAAc,EAAC,MAAM;IACrB,KAAK,EAAC,MAAM;IACZ,YAAY,EAAC,MAAM;IACnB,MAAM,EAAC,OAAO;CACjB,CAAC,CAAC;AAUH,kBAAe,gBAAK,CAAS,OAAO,EAAE,MAAM,CAAC,CAAC"}
