@@ -39,27 +39,21 @@ app.set('port', process.env.PORT || 3000);
 // Middlewares
 app.use(morgan_1.default('dev'));
 app.use(express_1.default.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }));
 //midellwares
 app.use(cors_1.default());
 app.use((req, res, next) => {
     res.header('Access-Control-Allow-Origin', '*');
-    // authorized headers for preflight requests
-    // https://developer.mozilla.org/en-US/docs/Glossary/preflight_request
     res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+    res.header('Access-Control-Allow-Methods', 'GET, PATCH, PUT, POST, DELETE, OPTIONS');
     next();
-    app.options('*', (req, res) => {
-        // allowed XHR methods  
-        res.header('Access-Control-Allow-Methods', 'GET, PATCH, PUT, POST, DELETE, OPTIONS');
-        res.send();
-    });
 });
 // Routes
+app.use('/uploads', express_1.default.static(path_1.default.resolve('uploads')));
 app.use('/api', index_1.default);
 app.use('/api', pesaje_1.default);
 app.use('/api', silos_1.default);
 app.use('/api/auth', auth_1.default);
 // this folders for this application will be used to store public file images
-app.use('/uploads', express_1.default.static(path_1.default.resolve('uploads')));
 exports.default = app;
 //# sourceMappingURL=app.js.map

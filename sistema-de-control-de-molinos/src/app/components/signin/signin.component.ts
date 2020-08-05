@@ -33,7 +33,9 @@ export class SigninComponent implements OnInit {
           title:"HAs iniciado sesión correctamente",
           icon:'success'
         })
-        setTimeout(() => {  this.router.navigate(['/home']);
+        location.reload();
+        setTimeout(() => {  
+          this.router.navigate(['/home']);
       }, 2000);
         
 

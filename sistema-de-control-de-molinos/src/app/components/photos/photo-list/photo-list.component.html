@@ -1,12 +1,17 @@
-<div class="products">
-        <div  *ngFor="let photo of photos" class="card" (click)="selectedCard(photo._id)">
-            <div class="card-header">
-               <b> {{photo.title}}</b>
+<div class="content">
+    <div class="products row ">
+            <div  *ngFor="let photo of photos | paginate:{itemsPerPage:8,currentPage:p}" class="card " (click)="selectedCard(photo._id)" >
+                <div class="card-header">
+                   <b> {{photo.title}}</b>
+                </div>
+                <div class="mx-auto">
+                    <img [src]="'http://localhost:3000/' + photo.imagePath">
+                </div>
             </div>
-            <div class="card-body mx-auto">
-                <img [src]="'http://localhost:3000/' + photo.imagePath">
-            </div>
-                <button type="button" class="ver-mas mx-auto m-3"> Ver más </button>
-        </div>
-    
+            
+    </div>
+    <div class="row">
+
+        <pagination-controls (pageChange)="p = $event"></pagination-controls>
+    </div>
 </div>

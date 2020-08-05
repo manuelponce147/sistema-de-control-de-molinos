@@ -16,52 +16,66 @@ import { ConfigureSiloComponent } from './components/silos/configure-silo/config
 import { SigninComponent } from './components/signin/signin.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { AuthGuard } from "./auth.guard";
+import { UserComponent } from './components/user/user.component';
 
 const routes: Routes = [
-  {path:'',
-  redirectTo:'/catalogo/new',
-  pathMatch:'full'
-    
-},
-  {path:'signin',
-  component:SigninComponent
-},
-{ 
-  path: 'catalogo', 
-  component: PhotoListComponent,
-  canActivate:[AuthGuard]
-},
+  {
+    path: '',
+    redirectTo: 'home',
+    pathMatch: 'full'
 
-  {path:'signup',component:SignupComponent},
-  { path: 'pesajes/nuevo-pesaje', 
-  component: NuevoPesajeComponent,
-  canActivate:[AuthGuard]
- 
+  },
+  {
+    path: 'signin',
+    component: SigninComponent
+  },
+  {
+    path: 'catalogo',
+    component: PhotoListComponent,
+    canActivate: [AuthGuard]
+  },
 
-},
-  { path: 'pesajes/deshabilitar-pesaje', component: DeshabilitarPesajeComponent,  canActivate:[AuthGuard]
-},
-  { path: 'clientes', component: ClientesComponent ,  canActivate:[AuthGuard]
-},
-  { path: 'pesajes/listar-pesaje', component: ListarPesajesComponent ,  canActivate:[AuthGuard]
-},
+  { path: 'signup', component: SignupComponent },
+  {
+    path: 'pesajes/nuevo-pesaje',
+    component: NuevoPesajeComponent,
+    canActivate: [AuthGuard]
+
+
+  },
+  {
+    path: 'pesajes/deshabilitar-pesaje', component: DeshabilitarPesajeComponent, canActivate: [AuthGuard]
+  },
+  {
+    path: 'clientes', component: ClientesComponent, canActivate: [AuthGuard]
+  },
+  {
+    path: 'pesajes/listar-pesaje', component: ListarPesajesComponent, canActivate: [AuthGuard]
+  },
   { path: 'home', component: HomeComponent },
-  { path: 'pedido/nuevo-pedido', component: NuevoPedidoComponent,  canActivate:[AuthGuard]
-},
-  { path: 'catalogo/new', component: PhotoFormComponent ,  canActivate:[AuthGuard]
-},
-  { path: 'catalogo/:id', component: PhotoPreviewComponent,  canActivate:[AuthGuard]
-},
-  {path:'silos',component:ListSilosComponent,  canActivate:[AuthGuard]
-},
+  {
+    path: 'pedido/nuevo-pedido', component: NuevoPedidoComponent, canActivate: [AuthGuard]
+  },
+  {
+    path: 'catalogo/new', component: PhotoFormComponent, canActivate: [AuthGuard]
+  },
+  {
+    path: 'catalogo/:id', component: PhotoPreviewComponent, canActivate: [AuthGuard]
+  },
+  {
+    path: 'silos', component: ListSilosComponent, canActivate: [AuthGuard]
+  },
 
-  {path:'silos/new',component:CreateSiloComponent,  canActivate:[AuthGuard]
-},
-  {path:'silos/:id',component:ConfigureSiloComponent,  canActivate:[AuthGuard]
-},
+  {
+    path: 'silos/new', component: CreateSiloComponent, canActivate: [AuthGuard]
+  },
+  {
+    path: 'silos/:id', component: ConfigureSiloComponent, canActivate: [AuthGuard]
+  },
 
 
 
+  {path:'user',component:UserComponent},
   { path: '**', component: ErrorComponent }
 
 

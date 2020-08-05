@@ -12,6 +12,7 @@ import { AuthService } from 'src/app/services/auth.service';
 export class PhotoListComponent implements OnInit {
 
   photos: Photo[] = [];
+  p:number=1;
 
   constructor(
     private photoService: PhotoService,

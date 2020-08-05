@@ -5,52 +5,104 @@
                 <img src="../../../assets/logo.png" alt="">
 
                 <ul class="nav justify-contetn-center menu" id="sidebar">
-                    <li class="nav-item">
-                        <a class="nav-link" [routerLink]="['/pesajes/nuevo-pesaje']">
-                            <i class="fa fa-plus-circle fa-2x btnside" aria-hidden="true"></i>
-                            Realizar Pesaje
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" [routerLink]="['/pesajes/listar-pesaje']">
-                            <i class="fa fa-list-ul fa-2x" aria-hidden="true"></i>
-                            Visualizar Pesajes
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" [routerLink]="['/pesajes/deshabilitar-pesaje']">
-                            <i class="fa fa-sliders fa-2x" aria-hidden="true"></i>
-                            Configurar Pesajes
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" [routerLink]="['/pedido/nuevo-pedido']">
-                            <i class="fa fa-plus-circle fa-2x" aria-hidden="true"></i>
-                            Registrar Pedido
+                    <div class="accordion" id="accordionMenu">
+                        <div class="card">
+                          <div class="card-header" id="headingOne">
+                           
+                              <a data-toggle="collapse" data-target="#collapsePesaje" aria-expanded="false" aria-controls="collapseOne">
+                                <i class="fa fa-list-ul" aria-hidden="true"></i>
+                                Pesajes
+                              </a>
+                          </div>
+                          <div id="collapsePesaje" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionMenu">
+                            <div class="card-body">
+                                <li class="nav-item">
+                                    <a class="nav-link" [routerLink]="['/pesajes/nuevo-pesaje']">
+                                        Realizar Pesaje
+                                    </a>
+                                </li>
 
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" [routerLink]="['/catalogo/new']">
-                            <i class="fa fa-plus-circle fa-2x" aria-hidden="true"></i>
-                            Registrar Producto
+                                <li class="nav-item">
+                                    <a class="nav-link" [routerLink]="['/pesajes/listar-pesaje']">
+                                        Visualizar Pesajes
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" [routerLink]="['/pesajes/deshabilitar-pesaje']">
+                                        Configurar Pesajes
+                                    </a>
+                                </li>
+                            </div>
+                          </div>
+                        </div>
 
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" [routerLink]="['/catalogo']">
-                            <i class="fa fa-list-ul fa-2x" aria-hidden="true"></i>
-                            Lista de Productos
+                        <div class="card">
+                            <div class="card-header" id="headingOne">
+                             
+                                <a data-toggle="collapse" data-target="#collapseProduct" aria-expanded="false" aria-controls="collapseOne">
+                                  <i class="fa fa-list-ul" aria-hidden="true"></i>
+                                  Productos
+                                </a>
+                            </div>
+                            <div id="collapseProduct" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionMenu">
+                              <div class="card-body">
+                                <li class="nav-item">
+                                    <a class="nav-link" [routerLink]="['/catalogo/new']">
+                                        Registrar Producto
+            
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" [routerLink]="['/catalogo']">
+                                        Lista de Productos
+            
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" [routerLink]="['/catalogo']">
+                                        Configurar Pedidos
+            
+                                    </a>
+                                </li>
+                              </div>
+                            </div>
+                          </div>
 
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" [routerLink]="['/catalogo']">
-                            <i class="fa fa-sliders fa-2x" aria-hidden="true"></i>
-                            Configurar Pedidos
+                        
+                          <div class="card">
+                            <div class="card-header" id="headingOne">
+                             
+                                <a data-toggle="collapse" data-target="#collapseSilo" aria-expanded="false" aria-controls="collapseOne">
+                                  <i class="fa fa-list-ul" aria-hidden="true"></i>
+                                  Silos
+                                </a>
+                            </div>
+                            <div id="collapseS#collapseSilo" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionMenu">
+                              <div class="card-body">
+                                <li class="nav-item">
+                                    <a class="nav-link" [routerLink]="['/silos/new']">
+                                        Registrar Silo
+            
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" [routerLink]="['/silos']">
+                                        Lista de Silos
+            
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" [routerLink]="['/silos']">
+                                        Configurar Silos
+            
+                                    </a>
+                                </li>
+                              </div>
+                            </div>
+                          </div>  
+                    </div>    
+                    
 
-                        </a>
-                    </li>
 
                 </ul>
 
@@ -62,45 +114,45 @@
 
         <!-- Page Header -->
         <div ng-sidebar-content>
-            
+
             <nav class="navbar navbar-expand-md navbar-dark ">
                 <a class="icon" (click)="toggleSidebar()"><i class="fa fa-bars fa-2x"></i><span
                         class="sr-only">(current)</span></a>
-                        <ul class="nav mx-auto text-center">
-                            <li class="nav-item">
-                                <a class="nav-link" [routerLink]="['/home']">Home</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" [routerLink]="['/clientes']">Clientes</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" [routerLink]="['/silos']">Silos</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" [routerLink]="['/catalogo']">Catologo</a>
-                            </li>
-         
-                        </ul>
-                        <div class="dropleft">
-                            <a data-toggle="dropdown"
-                            aria-expanded="false"><img src="../../../assets/user.png"
-                             alt="user" width="40px" height="40px"></a>
-                            <div class="dropdown-menu">
-                              <a class="dropdown-item" [routerLink]="['/signin']">
-                                <i class="fa fa-sign-in" aria-hidden="true"></i>
-  
-                                Iniciar Sesión</a>
-                              <a class="dropdown-item"  [routerLink]="['/signup']">
-                                <i class="fa fa-user-plus" aria-hidden="true"></i> 
-                                Registrarse</a>
-                              <div class="dropdown-divider"></div>
-                              <a class="dropdown-item" (click)="cerrarSesion()" ><i class="fa fa-sign-out" aria-hidden="true"
-                                
-                                ></i>
-                                Cerrar Sesión</a>
-                            </div>
-                          </div>
-                 
+                <ul class="nav mx-auto text-center">
+
+                    <li class="nav-item">
+                        <a class="nav-link" [routerLink]="['/home']">Home</a>
+                    </li>
+                    <li class="nav-item" *ngIf="this.status">
+                        <a class="nav-link" [routerLink]="['/clientes']">Clientes</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" *ngIf="this.status" [routerLink]="['/silos']">Silos</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" [routerLink]="['/catalogo']">Catologo</a>
+                    </li>
+
+                </ul>
+                <div class="dropleft">
+                    <a data-toggle="dropdown" aria-expanded="false"><img src="../../../assets/user.png" alt="user"
+                            width="40px" height="40px"></a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" [routerLink]="['/signin']" *ngIf="!this.status">
+                            <i class="fa fa-sign-in" aria-hidden="true"></i>
+
+                            Iniciar Sesión</a>
+                        <a class="dropdown-item" [routerLink]="['/home']" *ngIf="!this.status">
+                            <i class="fa fa-user-plus" aria-hidden="true"></i>
+                            Registrarse</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" *ngIf="this.status" (click)="cerrarSesion()"><i class="fa fa-sign-out"
+                                aria-hidden="true"></i>
+                            Cerrar Sesión</a>
+                    </div>
+                </div>
+
 
 
             </nav>

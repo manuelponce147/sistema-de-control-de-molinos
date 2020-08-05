@@ -3,6 +3,7 @@ import { Auth } from '../global';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
+import {IUser } from '../interfaces/user'
 
 @Injectable({
   providedIn: 'root'
@@ -35,8 +36,23 @@ export class AuthService {
    }
    logout():void{
      localStorage.removeItem('auth-token');
+     localStorage.removeItem('user');
+     location.reload();
      this.router.navigate(['/signin']);
+
    }
+   getUserID(){
+     let user: IUser=JSON.parse(localStorage.getItem('user'));
+
+     return user._id;
+   }
+   getUserRole(){
+    let user: IUser=JSON.parse(localStorage.getItem('user'));
+
+    return user.userRole;
+
+
+  }
    
    
 }

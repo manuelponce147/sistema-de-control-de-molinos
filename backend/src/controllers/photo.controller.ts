@@ -51,6 +51,3 @@ export async function updatePhoto(req: Request, res: Response): Promise<Response
     });
 
 }
-export async function getPhotosLimit(req:Request,res:Response):Promise<Response>{
-    const photos=await Photo.find().limit
-}

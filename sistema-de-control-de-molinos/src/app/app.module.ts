@@ -30,6 +30,9 @@ import { SignupComponent } from './components/signup/signup.component';
 import { AuthGuard } from "./auth.guard";
 import { HttpInterceptor } from "@angular/common/http";
 import { TokenInterceptorService } from "./services/token-interceptor.service";
+import { NgxPaginationModule } from "ngx-pagination";
+import { UserComponent } from './components/user/user.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -50,6 +53,7 @@ import { TokenInterceptorService } from "./services/token-interceptor.service";
     ConfigureSiloComponent,
     SigninComponent,
     SignupComponent,
+    UserComponent
     
     
     
@@ -64,7 +68,8 @@ import { TokenInterceptorService } from "./services/token-interceptor.service";
     NgbPaginationModule,
     NgbAlertModule,
     CommonModule,
-    SidebarModule.forRoot()
+    SidebarModule.forRoot(),
+    NgxPaginationModule
   ],
   providers: [AuthGuard,{
     provide:HTTP_INTERCEPTORS,
