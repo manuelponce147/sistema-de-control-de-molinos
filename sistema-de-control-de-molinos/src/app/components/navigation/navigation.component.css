@@ -4,6 +4,7 @@
     padding: 2em 3em ;
     box-shadow: 0 0 2.5em rgba(85,85,85,0.5);
     overflow-y: hidden;
+
 }
 
 @media (min-width: 768px) {
