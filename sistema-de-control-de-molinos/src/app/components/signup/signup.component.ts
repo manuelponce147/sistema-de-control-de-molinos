@@ -24,7 +24,7 @@ export class SignupComponent implements OnInit {
     this.authService.signup(this.formSignup.value).subscribe(
       res=>{
         console.log(res);
-        localStorage.setItem('token-auth',res.token);
+        localStorage.setItem('auth-token',res.token);
         Swal.fire({
           title:'Felicidades se ha registrado exitosamente !!',
           icon:'success'
