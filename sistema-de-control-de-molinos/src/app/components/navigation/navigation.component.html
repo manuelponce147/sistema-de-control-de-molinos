@@ -1,8 +1,8 @@
-<div>
-    <ng-sidebar-container style=" height: 100vh">
-        <ng-sidebar [opened]="opened" mode="push" autoCollapseWidth=100>
-            <div class="text-justify">
-                <img src="../../../assets/logo.png" alt="">
+<div >
+    <ng-sidebar-container style=" height: 100vh" >
+        <ng-sidebar [opened]="opened" mode="push" autoCollapseWidth=100 *ngIf="this.status">
+            <div class="text-justify" >
+                <img src="../../../assets/logo.png" alt="" >
 
                 <ul class="nav justify-contetn-center menu" id="sidebar">
                     <div class="accordion" id="accordionMenu">
@@ -122,7 +122,7 @@
         <div ng-sidebar-content>
 
             <nav class="navbar navbar-expand-md navbar-dark ">
-                <a class="icon" (click)="toggleSidebar()"><i class="fa fa-bars fa-2x"></i><span
+                <a class="icon" (click)="toggleSidebar()"*ngIf="this.status"><i class="fa fa-bars fa-2x"></i><span
                         class="sr-only">(current)</span></a>
                 <ul class="nav mx-auto text-center">
 

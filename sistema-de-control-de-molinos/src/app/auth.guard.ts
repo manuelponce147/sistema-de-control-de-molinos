@@ -11,6 +11,7 @@ export class AuthGuard implements CanActivate {
 
 
   }
+
   canActivate():boolean{
     let token = localStorage.getItem('auth-token');
     if (token) {
@@ -20,9 +21,20 @@ export class AuthGuard implements CanActivate {
       return false;
     }
     console.log(token);
-    
+
   }
-    
-  
-  
+
+  isAdmin():boolean{
+
+    let rol = localStorage.getItem('user.userRole');
+    if (rol=="admin") {
+      return true;
+    } else {
+      return false;
+    }
+    console.log(rol);
+
+  }
+
+
 }
