@@ -24,6 +24,17 @@ export class AuthGuard implements CanActivate {
 
   }
 
+  isAdmin():boolean{
+
+    let rol = localStorage.getItem('user.userRole');
+    if (rol=="admin") {
+      return true;
+    } else {
+      return false;
+    }
+    console.log(rol);
+
+  }
 
 
 }
