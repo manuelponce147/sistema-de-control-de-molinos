@@ -26,17 +26,17 @@ export class SigninComponent implements OnInit {
         console.log(res);
         localStorage.setItem('auth-token', res.token);
         localStorage.setItem('user', JSON.stringify(res.user));
-        
+
           console.log(res);
-          
+
         Swal.fire({
-          title:"HAs iniciado sesión correctamente",
+          title:"Has iniciado sesión correctamente",
           icon:'success'
         })
-        setTimeout(() => {  this.router.navigate(['/home']);
-      }, 2000);
-        
-
+        this.router.navigate(['/home'])
+        .then(() => {
+          window.location.reload();
+        });
       },
       err => {
         console.log(err);
@@ -45,7 +45,7 @@ export class SigninComponent implements OnInit {
               icon: 'error'
             });
 
-          
+
       }
     )
 

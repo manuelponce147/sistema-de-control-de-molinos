@@ -11,6 +11,7 @@ export class AuthGuard implements CanActivate {
 
 
   }
+
   canActivate():boolean{
     let token = localStorage.getItem('auth-token');
     if (token) {
@@ -20,9 +21,9 @@ export class AuthGuard implements CanActivate {
       return false;
     }
     console.log(token);
-    
+
   }
-    
-  
-  
+
+
+
 }

@@ -70,3 +70,9 @@
 .dropdown-menu a:active{
     background: rgb(30, 26, 26)
 }
+.nav-link{
+    font-weight: bold;
+}
+ng-template{
+    display: inline-block;
+}
