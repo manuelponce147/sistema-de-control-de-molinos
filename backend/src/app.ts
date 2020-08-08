@@ -9,6 +9,8 @@ import productoRoutes from './router/index'
 import pesajeRouter from './router/pesaje'
 import  siloRouter  from "./router/silos";
 import authRouter from './router/auth';
+import userRouter from './router/user';
+
 
 
 // Initializations
@@ -38,6 +40,7 @@ app.use('/api', productoRoutes);
 app.use('/api', pesajeRouter);
 app.use('/api',siloRouter);
 app.use('/api/auth',authRouter);
+app.use('/api',userRouter);
 // this folders for this application will be used to store public file images
 
 export default app;

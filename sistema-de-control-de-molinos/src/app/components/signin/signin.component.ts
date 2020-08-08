@@ -33,19 +33,12 @@ export class SigninComponent implements OnInit {
           title:"Has iniciado sesión correctamente",
           icon:'success'
         })
-<<<<<<< HEAD
         location.reload();
         setTimeout(() => {  
           this.router.navigate(['/home']);
       }, 2000);
         
 
-=======
-        this.router.navigate(['/home'])
-        .then(() => {
-          window.location.reload();
-        });
->>>>>>> RohrOriginal
       },
       err => {
         console.log(err);

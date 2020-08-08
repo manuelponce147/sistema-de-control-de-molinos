@@ -36,4 +36,3 @@ export const signin = async (req: Request, res: Response) => {
     });
     res.header('auth-token', token).json({ token: token ,user:user});
 }
-
