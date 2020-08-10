@@ -33,6 +33,8 @@ import { TokenInterceptorService } from "./services/token-interceptor.service";
 import { NgxPaginationModule } from "ngx-pagination";
 import { UserComponent } from './components/user/user.component';
 
+import {GoogleMapsModule} from '@angular/google-maps'
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -69,7 +71,8 @@ import { UserComponent } from './components/user/user.component';
     NgbAlertModule,
     CommonModule,
     SidebarModule.forRoot(),
-    NgxPaginationModule
+    NgxPaginationModule,
+    GoogleMapsModule
   ],
   providers: [AuthGuard,{
     provide:HTTP_INTERCEPTORS,
