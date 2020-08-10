@@ -27,7 +27,7 @@ import { CreateSiloComponent } from './components/silos/create-silo/create-silo.
 import { ConfigureSiloComponent } from './components/silos/configure-silo/configure-silo.component';
 import { SigninComponent } from './components/signin/signin.component';
 import { SignupComponent } from './components/signup/signup.component';
-import { AuthGuard } from "./auth.guard";
+import { AuthGuard } from "./guards/auth.guard";
 import { HttpInterceptor } from "@angular/common/http";
 import { TokenInterceptorService } from "./services/token-interceptor.service";
 import { NgxPaginationModule } from "ngx-pagination";

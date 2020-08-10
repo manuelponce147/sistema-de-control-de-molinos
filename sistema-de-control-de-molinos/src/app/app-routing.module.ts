@@ -15,8 +15,9 @@ import { CreateSiloComponent } from './components/silos/create-silo/create-silo.
 import { ConfigureSiloComponent } from './components/silos/configure-silo/configure-silo.component';
 import { SigninComponent } from './components/signin/signin.component';
 import { SignupComponent } from './components/signup/signup.component';
-import { AuthGuard } from "./auth.guard";
+import { AuthGuard } from "./guards/auth.guard";
 import { UserComponent } from './components/user/user.component';
+import { UserAdminGuard } from './guards/user-admin.guard';
 
 const routes: Routes = [
   {
@@ -75,7 +76,16 @@ const routes: Routes = [
 
 
 
-  {path:'user',component:UserComponent},
+  {
+    path:'user',
+    component:UserComponent,
+    canActivate:[UserAdminGuard]
+  
+  },
+
+
+
+
   { path: '**', component: ErrorComponent }
 
 

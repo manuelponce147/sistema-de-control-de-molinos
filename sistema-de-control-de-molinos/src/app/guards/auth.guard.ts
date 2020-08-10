@@ -1,16 +1,13 @@
 import { Injectable } from '@angular/core';
 import { CanActivate, Router } from '@angular/router';
-import { AuthService } from "./services/auth.service";
+import { AuthService } from "../services/auth.service";
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthGuard implements CanActivate {
 
-  constructor(private authService:AuthService, private router:Router){
-
-
-  }
+  constructor(private authService:AuthService, private router:Router){}
 
   canActivate():boolean{
     let token = localStorage.getItem('auth-token');
@@ -20,21 +17,6 @@ export class AuthGuard implements CanActivate {
       this.router.navigate(['/signin']);
       return false;
     }
-    console.log(token);
-
   }
-
-  isAdmin():boolean{
-
-    let rol = localStorage.getItem('user.userRole');
-    if (rol=="admin") {
-      return true;
-    } else {
-      return false;
-    }
-    console.log(rol);
-
-  }
-
 
 }
