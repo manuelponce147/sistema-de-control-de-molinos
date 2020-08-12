@@ -6,6 +6,7 @@
 
                 <ul class="nav justify-contetn-center menu" id="sidebar">
                     <div class="accordion" id="accordionMenu">
+
                         <div class="card">
                             <div class="card-header" id="headingOne">
 
@@ -47,6 +48,7 @@
                                     Productos
                                 </a>
                             </div>
+
                             <div id="collapseProduct" class="collapse show" aria-labelledby="headingOne"
                                 data-parent="#accordionMenu">
                                 <div class="card-body">
@@ -70,45 +72,46 @@
                                     </li>
                                 </div>
                             </div>
+
                         </div>
-
-
                         <div class="card">
-                            <div class="card-header" id="headingOne">
+                          <div class="card-header" id="headingOne">
 
-                                <a data-toggle="collapse" data-target="#collapseSilo" aria-expanded="false"
-                                    aria-controls="collapseOne">
-                                    <i class="fa fa-list-ul" aria-hidden="true"></i>
-                                    Silos
-                                </a>
-                            </div>
-                            <div id="#collapseSilo" class="collapse show" aria-labelledby="headingOne"
-                                data-parent="#accordionMenu">
-                                <div class="card-body">
-                                    <li class="nav-item">
-                                        <a class="nav-link" [routerLink]="['/silos/new']">
-                                            Registrar Silo
+                              <a data-toggle="collapse" data-target="#collapseSilos" aria-expanded="false"
+                                  aria-controls="collapseOne">
+                                  <i class="fa fa-list-ul" aria-hidden="true"></i>
+                                  Silos
+                              </a>
+                          </div>
 
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" [routerLink]="['/silos']">
-                                            Lista de Silos
+                          <div id="collapseSilos" class="collapse show" aria-labelledby="headingOne"
+                              data-parent="#accordionMenu">
+                              <div class="card-body">
+                                  <li class="nav-item">
+                                      <a class="nav-link" [routerLink]="['/silos/new']">
+                                          Registrar Silo
 
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" [routerLink]="['/silos']">
-                                            Configurar Silos
+                                      </a>
+                                  </li>
+                                  <li class="nav-item">
+                                      <a class="nav-link" [routerLink]="['/silos']">
+                                          Lista de Silos
 
-                                        </a>
-                                    </li>
-                                </div>
-                            </div>
-                        </div>
+                                      </a>
+                                  </li>
+                                  <li class="nav-item">
+                                      <a class="nav-link" [routerLink]="['/silos']">
+                                          Configurar Silos
+
+                                      </a>
+                                  </li>
+                              </div>
+                          </div>
+
+                      </div>
+
+
                     </div>
-
-
 
                 </ul>
 

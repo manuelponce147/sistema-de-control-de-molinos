@@ -9,36 +9,41 @@
                 <div class="form-group">
                     <label for="nombre" class="form-label ml-1">Nombre</label>
                     <input type="text" formControlName="nombre" class="form-control" placeholder="Nombre">
-                   
+
                 </div>
                 <div class="form-group">
                     <label for="capacidadTotal" class="form-label ml-1">Capacidad Total</label>
-                    <input type="text" formControlName="capacidadTotal" 
+                    <input type="text" formControlName="capacidadTotal"
                     class="form-control" placeholder="Capacidad Total">
-                   
+
                 </div>
                 <div class="form-group">
                     <label for="stock" class="form-label ml-1">Stock Actual</label>
-                    <input type="text" formControlName="stock" 
+                    <input type="text" formControlName="stock"
                     class="form-control" placeholder="Stock Actual">
-                   
+
                 </div>
                 <div class="form-group">
-                    <label for="tipoProducto" class="form-label ml-1">Tipo de Producto</label>
-                    <input type="text" formControlName="tipoProducto" 
-                    class="form-control" placeholder="Tipo de Producto">
-                   
+                    <label for="tipoProducto" class="form-label ml-1">Tipo de Grano</label>
+                    <select class="form-control">
+                      <option value="" selected disabled>Tipo de Grano</option>
+                      <option value="Trigo">Trigo</option>
+                      <option value="Soya">Soya</option>
+                      <option value="Avena">Avena</option>
+                    </select>
+
+
                 </div>
                 <div class="form-group">
                     <label for="estado" class="form-label ml-1">Estado</label>
-                    <input type="text" formControlName="estado" 
+                    <input type="text" formControlName="estado"
                     class="form-control" placeholder="Estado">
-                   
+
                 </div>
                 <div class="row">
 
                     <button type="submit" [disabled]="!formSilo.valid" class="btn btn-primary">Registrar</button>
-        
+
                 </div>
             </div>
         </div>
