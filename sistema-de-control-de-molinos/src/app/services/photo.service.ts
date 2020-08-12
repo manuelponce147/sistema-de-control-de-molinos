@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Global } from '../global';
 import {Photo} from './../interfaces/photo';
+import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
@@ -12,14 +13,14 @@ export class PhotoService {
     this.url = Global.url;
   }
 
-  createPhoto(title: string, description: string, photo: File) {
+  createPhoto(title: string, description: string, price:string,photo: File) {
     const fd = new FormData();    
     fd.append('title', title);
     fd.append('description', description);
+    fd.append('price', price);
     fd.append('image', photo);
     let auth=localStorage.getItem("auth-token");
     console.log(JSON.stringify(fd));
-
   
     return this.http.post(this.url + "photos", fd)
 
@@ -32,7 +33,8 @@ export class PhotoService {
     return this.http.get<Photo[]>(this.url+'photos');
   }
 
-  getPhoto(id: string) {
+  getPhoto(id: string):Observable<Photo> {
+
     return this.http.get<Photo>(`${this.url}/photos/${id}`);
   }
 

@@ -1,0 +1,44 @@
+<div class="container">
+    <div class="card" class="col-7 mx-auto">
+        <div class="card-header">
+            <h3 class="card-title">Solicitar Pedido</h3>
+        </div>
+        <form [formGroup]="formPedido" (ngSubmit)="onSubmit()" novalidate>
+
+            <div class="card-content">
+                <div class="form-group">
+                    <input type="text" formControlName="producto" class="form-control d-none">
+                </div>
+                <div class="form-group">
+                    <input type="text" formControlName="cliente" class="form-control d-none ">
+                </div>
+                <div class="form-group">
+                    <label for="cantidad" class="form-label">Cantidad</label>
+                    <input type="number" formControlName="cantidad" class="form-control"
+                    (keyup)="generatePrice($event)">
+                </div>
+                <div class="form-group">
+                    <label for="precio" class="form-label">Precio</label>
+                    <input type="number" formControlName="precio" class="form-control" 
+                  
+                   >
+                </div>
+                
+
+            </div>
+    
+            <div class="card-footer">
+                <button type="submit" [disabled]="!formPedido.valid" class="btn btn-primary">Solicitar</button>
+                <button type="button" class="btn btn-danger">Cancelar</button>
+
+            </div>
+
+        </form>
+        
+
+    </div>
+
+
+
+
+</div>

@@ -6,7 +6,6 @@ import { ClientesComponent } from './components/clientes/clientes.component';
 import { HomeComponent } from './components/home/home.component';
 import { ListarPesajesComponent } from './components/pesajes/listar-pesajes/listar-pesajes.component';
 import { ErrorComponent } from './components/error/error.component';
-import { NuevoPedidoComponent } from './components/pedido/nuevo-pedido/nuevo-pedido.component';
 import { PhotoListComponent } from './components/photos/photo-list/photo-list.component';
 import { PhotoFormComponent } from './components/photos/photo-form/photo-form.component';
 import { PhotoPreviewComponent } from './components/photos/photo-preview/photo-preview.component';
@@ -18,6 +17,11 @@ import { SignupComponent } from './components/signup/signup.component';
 import { AuthGuard } from "./guards/auth.guard";
 import { UserComponent } from './components/user/user.component';
 import { UserAdminGuard } from './guards/user-admin.guard';
+import { UserEncargadoGuard } from './guards/user-encargado.guard';
+
+import { AuthService } from './services/auth.service';
+import { PedidosComponent } from './components/pedidos/pedidos.component';
+import { CreatePedidosComponent } from './components/pedidos/create-pedidos/create-pedidos.component';
 
 const routes: Routes = [
   {
@@ -28,50 +32,78 @@ const routes: Routes = [
   },
   {
     path: 'signin',
-    component: SigninComponent
+    component: SigninComponent,
   },
   {
     path: 'catalogo',
     component: PhotoListComponent,
-    canActivate: [AuthGuard]
+    canActivate: [AuthGuard,UserEncargadoGuard]
   },
 
-  { path: 'signup', component: SignupComponent },
+  { path: 'signup', 
+    component: SignupComponent
+
+  },
   {
     path: 'pesajes/nuevo-pesaje',
     component: NuevoPesajeComponent,
-    canActivate: [AuthGuard]
+    canActivate: [AuthGuard,UserEncargadoGuard]
 
 
   },
   {
-    path: 'pesajes/deshabilitar-pesaje', component: DeshabilitarPesajeComponent, canActivate: [AuthGuard]
+    path: 'pesajes/deshabilitar-pesaje', 
+    component: DeshabilitarPesajeComponent, 
+    canActivate: [AuthGuard,UserEncargadoGuard]  },
+  {
+    path: 'clientes', 
+    component: ClientesComponent, 
+    canActivate: [AuthGuard,UserEncargadoGuard]
   },
   {
-    path: 'clientes', component: ClientesComponent, canActivate: [AuthGuard]
+    path: 'pesajes/listar-pesaje', 
+    component: ListarPesajesComponent,
+    canActivate: [AuthGuard,UserEncargadoGuard]
+  },
+  { path: 'home',
+   component: HomeComponent 
+
+
   },
   {
-    path: 'pesajes/listar-pesaje', component: ListarPesajesComponent, canActivate: [AuthGuard]
-  },
-  { path: 'home', component: HomeComponent },
-  {
-    path: 'pedido/nuevo-pedido', component: NuevoPedidoComponent, canActivate: [AuthGuard]
+    path:'pedidos',
+    component:PedidosComponent
   },
   {
-    path: 'catalogo/new', component: PhotoFormComponent, canActivate: [AuthGuard]
+    path:'pedido/:id',
+    component:CreatePedidosComponent
+  }
+  ,
+  {
+    path: 'catalogo/new', 
+    component: PhotoFormComponent, 
+    canActivate: [AuthGuard,UserEncargadoGuard]
   },
   {
-    path: 'catalogo/:id', component: PhotoPreviewComponent, canActivate: [AuthGuard]
+    path: 'catalogo/:id', 
+    component: PhotoPreviewComponent, 
+    canActivate: [AuthGuard,UserEncargadoGuard]
   },
   {
-    path: 'silos', component: ListSilosComponent, canActivate: [AuthGuard]
+    path: 'silos', 
+    component: ListSilosComponent,
+    canActivate: [AuthGuard,UserEncargadoGuard]
   },
 
   {
-    path: 'silos/new', component: CreateSiloComponent, canActivate: [AuthGuard]
+    path: 'silos/new', 
+    component: CreateSiloComponent, 
+    canActivate: [AuthGuard,UserEncargadoGuard]
   },
   {
-    path: 'silos/:id', component: ConfigureSiloComponent, canActivate: [AuthGuard]
+    path: 'silos/:id', 
+    component: ConfigureSiloComponent, 
+    canActivate: [AuthGuard,UserEncargadoGuard]
   },
 
 
@@ -79,7 +111,7 @@ const routes: Routes = [
   {
     path:'user',
     component:UserComponent,
-    canActivate:[UserAdminGuard]
+    canActivate: [AuthGuard,UserAdminGuard]
   
   },
 

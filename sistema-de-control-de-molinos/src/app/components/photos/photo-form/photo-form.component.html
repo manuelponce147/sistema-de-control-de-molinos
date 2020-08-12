@@ -4,14 +4,15 @@
             Crear Producto
         </div>
         <div class="card-body">
-            <form (submit)="uploadPhoto(title,description)" enctype="multipart/form-data">
+            <form (submit)="uploadPhoto(title,description,price)" enctype="multipart/form-data">
 
                 <div class="row">
                     <div class=" col-12 col-md-6 col-lg-6 ">
 
                         <div class="form-group">
                             <label for="nombre">Nombre</label>
-                            <input #title type="text" class="form-control" placeholder="ingrese el nombre aqui" required>
+                            <input #title type="text" class="form-control" placeholder="ingrese el nombre aqui"
+                                required>
 
                         </div>
 
@@ -21,13 +22,18 @@
                                 placeholder="ingrese la descripción aqui " required>
 
                         </textarea>
-                    </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="nombre">Precio</label>
+                            <input #price type="text" class="form-control" placeholder="ingrese el Precio aqui" required>
+
+                        </div>
                     </div>
                     <div class="col-12 col-md-6 col-lg-6 mx-auto">
                         <input type="file" class="d-none" #photoInput (change)="onPhotoSelected($event)">
                         <img [src]="photoSelected || './assets/no-image.png'" class="img-fluid " alt="No image"
-                            (click)="photoInput.click()" >
-        
+                            (click)="photoInput.click()">
+
                         <button type="submit" class="form-control mt-2 btn btn-success">Registrar</button>
 
                     </div>
@@ -37,7 +43,7 @@
                 </div>
 
 
-               
+
             </form>
         </div>
     </div>

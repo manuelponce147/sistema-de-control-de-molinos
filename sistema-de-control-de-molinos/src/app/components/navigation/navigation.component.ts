@@ -11,6 +11,7 @@ export class NavigationComponent implements OnInit,OnChanges {
   public opened: boolean = false;
   public closeOnClickOutside = false;
   public token: any;
+  isRegular:boolean;
   status: boolean;
   constructor(public authservice: AuthService) {
 
@@ -38,15 +39,18 @@ export class NavigationComponent implements OnInit,OnChanges {
   }
   cargarcomponentes() {
     this.token = this.authservice.getToken();
+    const user = this.authservice.getUserRole();
     if (this.token != null) {
       this.status = true;
     } else {
       this.status = false;
     }
-    console.log(this.token);
-
-
-
+    if(user=="regular"){
+      this.isRegular=true;
+    }else{
+      this.isRegular=false;
+    }
+    
   }
 
 

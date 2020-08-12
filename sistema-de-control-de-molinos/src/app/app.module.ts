@@ -17,7 +17,6 @@ import { ListarPesajesComponent } from './components/pesajes/listar-pesajes/list
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {NgbPaginationModule, NgbAlertModule} from '@ng-bootstrap/ng-bootstrap';
 import { SidebarModule } from 'ng-sidebar';
-import { NuevoPedidoComponent } from './components/pedido/nuevo-pedido/nuevo-pedido.component';
 import { ErrorComponent } from './components/error/error.component';
 import { PhotoFormComponent } from './components/photos/photo-form/photo-form.component';
 import { PhotoPreviewComponent } from './components/photos/photo-preview/photo-preview.component';
@@ -33,7 +32,9 @@ import { TokenInterceptorService } from "./services/token-interceptor.service";
 import { NgxPaginationModule } from "ngx-pagination";
 import { UserComponent } from './components/user/user.component';
 
-import {GoogleMapsModule} from '@angular/google-maps'
+import {GoogleMapsModule} from '@angular/google-maps';
+import { PedidosComponent } from './components/pedidos/pedidos.component';
+import { CreatePedidosComponent } from './components/pedidos/create-pedidos/create-pedidos.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,6 @@ import {GoogleMapsModule} from '@angular/google-maps'
     HomeComponent,
     ClientesComponent,
     ListarPesajesComponent,
-    NuevoPedidoComponent,
     ErrorComponent,
     PhotoFormComponent,
     PhotoPreviewComponent,
@@ -55,7 +55,9 @@ import {GoogleMapsModule} from '@angular/google-maps'
     ConfigureSiloComponent,
     SigninComponent,
     SignupComponent,
-    UserComponent
+    UserComponent,
+    PedidosComponent,
+    CreatePedidosComponent,
     
     
     

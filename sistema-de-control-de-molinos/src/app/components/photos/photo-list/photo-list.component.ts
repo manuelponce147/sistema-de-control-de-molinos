@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { Photo } from 'src/app/interfaces/photo';
 import { PhotoService } from 'src/app/services/photo.service';
 import { Router } from '@angular/router';
@@ -10,7 +10,8 @@ import { AuthService } from 'src/app/services/auth.service';
   styleUrls: ['./photo-list.component.css']
 })
 export class PhotoListComponent implements OnInit {
-
+  @Output()
+  enviarId:EventEmitter<string>=new EventEmitter<string>();
   photos: Photo[] = [];
   p:number=1;
 
@@ -31,7 +32,15 @@ export class PhotoListComponent implements OnInit {
   }
 
   selectedCard(id: string) {
-    this.router.navigate(['/catalogo', id]);
+    let role=this.authservive.getUserRole();
+    if(role=="regular"){
+      this.enviarId.emit(id);
+      
+    }else{
+      this.router.navigate(['/catalogo', id]);
+    }
+  
+    
   }
 
 

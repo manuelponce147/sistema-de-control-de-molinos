@@ -12,7 +12,7 @@ export class UserEncargadoGuard implements CanActivate {
     let role=this.authService.getUserRole();
     console.log(role);
     
-    if (role=="encargado") {
+    if (role=="encargado"  || role=="admin") {
       return true;
     }else{
       this.router.navigate(['/home']);

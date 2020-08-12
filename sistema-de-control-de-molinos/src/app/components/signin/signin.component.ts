@@ -21,37 +21,30 @@ export class SigninComponent implements OnInit {
   ngOnInit(): void {
   }
   signin() {
+     
     this.authService.signin(this.formSignin.value).subscribe(
       res => {
         console.log(res);
         localStorage.setItem('auth-token', res.token);
         localStorage.setItem('user', JSON.stringify(res.user));
-
-          console.log(res);
-
+        console.log(res);
         Swal.fire({
-          title:"Has iniciado sesión correctamente",
-          icon:'success'
-        })
-        location.reload();
-        setTimeout(() => {  
-          this.router.navigate(['/home']);
-      }, 2000);
-        
-
+          title: "Has iniciado sesión correctamente",
+          icon: 'success'
+        });
+        window.open ('home', '_self');
       },
       err => {
         console.log(err);
-            Swal.fire({
-              title:`${err.error}`,
-              icon: 'error'
-            });
+        Swal.fire({
+          title: `${err.error}`,
+          icon: 'error'
+        });
 
 
       }
-    )
-
-
+    );
+   
 
   }
 
