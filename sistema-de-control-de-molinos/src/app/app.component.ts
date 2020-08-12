@@ -8,7 +8,7 @@ export class AppComponent {
 
 
   constructor() {
-    document.body.setAttribute("style", "background-image: url('../assets/background.jpg');background-repeat: no-repeat;background-size: 100% 100%");
+    document.body.setAttribute("style", "background-image: url('../assets/backgroung.png');background-repeat: no-repeat;background-size: 100% 100%");
 
 
   }
