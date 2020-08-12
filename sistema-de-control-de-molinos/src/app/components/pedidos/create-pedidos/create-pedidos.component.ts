@@ -25,10 +25,6 @@ export class CreatePedidosComponent implements OnInit {
       precio: [{ value: '', disabled: true }, [Validators.required]]
     });
 
-
-
-
-
   }
   cargarDatos() {
     const url = window.location.pathname;
@@ -40,28 +36,17 @@ export class CreatePedidosComponent implements OnInit {
   ngOnInit() {
     this.cargarDatos();
     this.getPhoto();
-    setTimeout(() => {
-
-      this.formPedido.patchValue({
-        producto: this.id,
-        cliente: this.user,
-      })
-    }, 1000);
   }
 
-  
+
   generatePrice(data) {
     setTimeout(() => {
-      this.cantidad = (data.target.value);
-      console.log(this.cantidad);
-
+      this.cantidad = (data.target.value)
       this.formPedido.patchValue({
-
-        precio: this.cantidad *parseInt(this.product.price),
+        precio: this.cantidad * parseInt(this.product.price)
       })
 
-      
-    }, 2000);
+    }, 500);
 
   }
   getPhoto() {
@@ -77,21 +62,26 @@ export class CreatePedidosComponent implements OnInit {
       }
     )
   }
-  onSubmit() { 
+
+  onSubmit() {
+    this.formPedido = this.formBuilder.group({
+      producto: this.id,
+      cliente: this.user,
+      cantidad: this.cantidad,
+      precio: this.cantidad * parseInt(this.product.price),
+    });
     console.log(this.formPedido.value);
-    
+
     this.pedidoService.savePedido(this.formPedido.value)
-    . subscribe(
-      (response)=>{
-        console.log("imprimiendo resultado");
-        console.log(response)
-        this.formPedido.reset();
-    
-    },
-    err=>console.log(err)
-    )
+      .subscribe(
+        (response) => {
+          console.log("imprimiendo resultado");
+          console.log(response)
+          //this.formPedido.reset();
+
+        },
+        err => console.log(err)
+      )
   }
-
-
 
 }
