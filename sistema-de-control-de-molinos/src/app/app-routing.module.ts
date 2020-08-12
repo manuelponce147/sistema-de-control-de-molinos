@@ -22,6 +22,7 @@ import { UserEncargadoGuard } from './guards/user-encargado.guard';
 import { AuthService } from './services/auth.service';
 import { PedidosComponent } from './components/pedidos/pedidos.component';
 import { CreatePedidosComponent } from './components/pedidos/create-pedidos/create-pedidos.component';
+import { ListPedidosComponent } from './components/pedidos/list-pedidos/list-pedidos.component';
 
 const routes: Routes = [
   {
@@ -78,7 +79,10 @@ const routes: Routes = [
     path:'pedido/:id',
     component:CreatePedidosComponent
   }
-  ,
+  ,{
+    path:'pedidos-list',
+    component:ListPedidosComponent
+  },
   {
     path: 'catalogo/new', 
     component: PhotoFormComponent, 

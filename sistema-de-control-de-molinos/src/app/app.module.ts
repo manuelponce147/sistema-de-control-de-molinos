@@ -35,6 +35,7 @@ import { UserComponent } from './components/user/user.component';
 import {GoogleMapsModule} from '@angular/google-maps';
 import { PedidosComponent } from './components/pedidos/pedidos.component';
 import { CreatePedidosComponent } from './components/pedidos/create-pedidos/create-pedidos.component';
+import { ListPedidosComponent } from './components/pedidos/list-pedidos/list-pedidos.component';
 
 @NgModule({
   declarations: [
@@ -58,6 +59,7 @@ import { CreatePedidosComponent } from './components/pedidos/create-pedidos/crea
     UserComponent,
     PedidosComponent,
     CreatePedidosComponent,
+    ListPedidosComponent,
     
     
     
