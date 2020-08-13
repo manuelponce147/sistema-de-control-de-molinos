@@ -4,6 +4,7 @@ import { PedidoService } from 'src/app/services/pedido.service';
 import { AuthService } from 'src/app/services/auth.service';
 import { Photo } from 'src/app/interfaces/photo';
 import { PhotoService } from 'src/app/services/photo.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-create-pedidos',
@@ -77,10 +78,21 @@ export class CreatePedidosComponent implements OnInit {
         (response) => {
           console.log("imprimiendo resultado");
           console.log(response)
-          //this.formPedido.reset();
+          
+          Swal.fire({
+            title: "Se ha registrado tu pedido exitosamente!!",
+            icon: 'success'
+          });
+          this.formPedido.reset();
 
         },
-        err => console.log(err)
+        err => {
+          console.log(err);
+        Swal.fire({
+          title: `No se ha podido registrar tu pedido`,
+          icon: 'error'
+        });
+        }
       )
   }
 

@@ -8,20 +8,11 @@ import { NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
 })
 export class HomeComponent implements OnInit {
 
-    position: {
-      lat: -33.6136239,
-      lng: -70.8573218
+    position: {lat: -33.431044,lng: -70.662498};
+    label:{
+      color:"black",
+      text: "Molinos S.A"
     }
-    label: {
-      color: 'black',
-      text: 'El molino ',
-    }
-    title: 'Marker title ';
-    options: {
-      icon: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png'
-    }
-  
-
 
   constructor() { }
 

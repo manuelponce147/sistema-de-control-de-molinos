@@ -1,36 +1,36 @@
-img{
-    height: 180px;
-    width: 130px;
-    overflow: hidden;
+*{
+    margin: 0;
+    padding: 0;
+}
+.row{
     margin: 0 auto;
 }
-.content{
-    padding-top: 20px;
-    width: 65%;
-    margin: 0 auto;
-    height: 80%;
-}
-
-
-pagination-controls{
-    margin: 0 auto;
-    font-weight: bold;
-    bottom: 0;
-}
-.card{
-    margin: 10px;
-    height: 250px;
-    width: 200px;
-    border-radius: 15px;
-    background: transparent;
-    border: 1px solid #A92EFF;
-    cursor: pointer;
+.card-title{
+    color: white;
+    font-family: sans-serif;
 }
 .card-header{
-    background: none;
-    border:none;
-    margin: 0 auto;
+    border: none;
 }
-.products :hover {
-    border: 2px solid #A92EFF;
+.card{
+    background: rgba(10, 10, 10, 0.3);
+    width: 18%;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    cursor: pointer;
+    border: 2px solid white ;
 }
+.card:hover{
+    border: 3px solid black;
+}
+img{
+   overflow: hidden;
+   width: 140px;
+   height: 165px;
+   padding-bottom: 5px;
+   
+}
+pagination-controls /deep/ .ngx-pagination .disabled {
+    color:rgba(10, 10, 10, 0.5);
+  }

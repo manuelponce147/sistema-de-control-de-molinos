@@ -32,5 +32,9 @@ export class PedidoService {
     return this.http.delete(this.url+'pedido/'+id,{headers:headers})
 
   }
+  getMisPedidos(id:string):Observable<any>{
+    let headers= new HttpHeaders().set('Content-Type','application.json');
+    return this.http.get(this.url+'pedidos/'+id,{headers:headers});
+  }
 
 }

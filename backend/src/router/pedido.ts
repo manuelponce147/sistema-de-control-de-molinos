@@ -13,7 +13,7 @@ router.route('/pedido/:id')
     .put(updatePedido)
     .delete(deletePedido);
 
-router.route('/pedido/:id')
+router.route('/pedidos/:id')
     .get(getPedidoByClient)
     .put(changeStatus); 
     
