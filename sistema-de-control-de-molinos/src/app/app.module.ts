@@ -59,7 +59,7 @@ import { ListPedidosComponent } from './components/pedidos/list-pedidos/list-ped
     UserComponent,
     PedidosComponent,
     CreatePedidosComponent,
-    ListPedidosComponent,
+    ListPedidosComponent
     
     
     

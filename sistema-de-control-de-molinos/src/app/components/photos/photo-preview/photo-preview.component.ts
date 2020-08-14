@@ -50,3 +50,5 @@ export class PhotoPreviewComponent implements OnInit {
     return false;
   }
 }
+
+

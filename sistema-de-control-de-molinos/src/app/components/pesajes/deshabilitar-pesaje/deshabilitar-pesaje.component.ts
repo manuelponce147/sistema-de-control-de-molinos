@@ -27,7 +27,8 @@ export class DeshabilitarPesajeComponent implements OnInit {
       patente:['',Validators.required],
       tipoVehiculo:['',Validators.required],
 
-   })
+   });
+
    }
 
   ngOnInit(): void {
