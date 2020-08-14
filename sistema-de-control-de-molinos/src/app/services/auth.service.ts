@@ -50,8 +50,13 @@ export class AuthService {
     let user: IUser=JSON.parse(localStorage.getItem('user'));
 
     return user.userRole;
-
-
+  }
+  verifyRegular(){
+      if(this.getUserRole()=='regular'){
+        return true;
+      }else{
+        return false;
+      }
   }
    
    

@@ -19,12 +19,12 @@ export class ListPedidosComponent implements OnInit {
 
   constructor(private pedidoService: PedidoService, private photoService: PhotoService, private authService: AuthService, private formBuilder: FormBuilder) {
     this.formProducto = this.formBuilder.group({
-      nombre: [''],
-      description: [''],
-      precio: [''],
-      photoInput: ['']
+      nombre: {value:'',disabled:true},
+      description: {value:'',disabled:true},
+      precio: {value:'',disabled:true},
+      photoInput: {value:'',disabled:true},
 
-    })
+    });
   }
 
 
