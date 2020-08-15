@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
 import { AuthService } from 'src/app/services/auth.service';
+import Swal from 'sweetalert2';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -16,11 +17,41 @@ export class HomeComponent implements OnInit {
       text: "Molinos S.A"
     }
 
-  constructor(private authService:AuthService) { }
+  constructor(private authService:AuthService, private router:Router) { }
 
   ngOnInit(): void { 
-    this.verify=this.authService.verifyRegular();
+   
+  }
+  butonclic(){
+    let isLogged= this.authService.loggedIn();
+    console.log(isLogged);
+    if(isLogged){
+      Swal.fire({
+        title:'Por favor Incia sesión o registrate para acceder al catalogo',
+        icon:'info'
+      });
+    }else{
+      let user=this.authService.getUserRole();
+      console.log(user);
+      if (user=='regular') {
+        this.router.navigate(['pedidos']);
+      }else{
+        if (user=='encargado' || user=='admin') {
+          this.router.navigate(['catalogo']);
+        }
+      }
+      
 
+      
+    }
+    
+   
+  
+    
+
+   
+      
+    
   }
 
 

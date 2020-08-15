@@ -19,13 +19,17 @@ export class NavigationComponent implements OnInit,OnChanges {
   }
 
   ngOnInit(): void {
-    this.cargarcomponentes();
+      this.cargarcomponentes();
+
+    
   
 
 
   }
   ngOnChanges(){
-    this.cargarcomponentes();
+       this.cargarcomponentes();
+
+    
   }
 
   public toggleSidebar() {
@@ -39,17 +43,20 @@ export class NavigationComponent implements OnInit,OnChanges {
   }
   cargarcomponentes() {
     this.token = this.authservice.getToken();
-    const user = this.authservice.getUserRole();
+    
     if (this.token != null) {
       this.status = true;
+      const user = this.authservice.getUserRole();
+      
+      if(user=="regular"){
+        this.isRegular=true;
+      }else{
+        this.isRegular=false;
+      }
     } else {
       this.status = false;
     }
-    if(user=="regular"){
-      this.isRegular=true;
-    }else{
-      this.isRegular=false;
-    }
+   
     
   }
 

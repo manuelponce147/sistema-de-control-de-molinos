@@ -13,19 +13,19 @@
                 </div>
                 <div class="form-group">
                     <label for="capacidadTotal" class="form-label ml-1">Capacidad Total</label>
-                    <input type="text" formControlName="capacidadTotal"
+                    <input type="number" formControlName="capacidadTotal"
                     class="form-control" placeholder="Capacidad Total">
 
                 </div>
                 <div class="form-group">
                     <label for="stock" class="form-label ml-1">Stock Actual</label>
-                    <input type="text" formControlName="stock"
+                    <input type="number" formControlName="stock"
                     class="form-control" placeholder="Stock Actual">
 
                 </div>
                 <div class="form-group">
                     <label for="tipoProducto" class="form-label ml-1">Tipo de Grano</label>
-                    <select class="form-control">
+                    <select class="form-control" formControlName="tipoProducto">
                       <option value="" selected disabled>Tipo de Grano</option>
                       <option value="Trigo">Trigo</option>
                       <option value="Soya">Soya</option>

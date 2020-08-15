@@ -4,6 +4,7 @@ import { AuthService } from 'src/app/services/auth.service';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { PhotoService } from 'src/app/services/photo.service';
 import { Photo } from 'src/app/interfaces/photo';
+import { Route } from '@angular/router';
 
 @Component({
   selector: 'app-list-pedidos',
@@ -17,7 +18,7 @@ export class ListPedidosComponent implements OnInit {
   producto:Photo;
   img:string='./assets/no-image.png';
 
-  constructor(private pedidoService: PedidoService, private photoService: PhotoService, private authService: AuthService, private formBuilder: FormBuilder) {
+  constructor(private pedidoService: PedidoService,private photoService: PhotoService, private authService: AuthService, private formBuilder: FormBuilder) {
     this.formProducto = this.formBuilder.group({
       nombre: {value:'',disabled:true},
       description: {value:'',disabled:true},

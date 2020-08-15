@@ -23,7 +23,9 @@ export class AuthService {
      return this.http.post(this.url+'signin',user);
    }
    loggedIn():Boolean{
-    if(typeof(localStorage.getItem("auth-token"))=='undefined'){
+     console.log(localStorage.getItem("auth-token"));
+     
+    if(typeof(localStorage.getItem("auth-token"))=='undefined' || localStorage.getItem("auth-token")==null ){
       return true;
     }else{
       return false;
@@ -51,13 +53,7 @@ export class AuthService {
 
     return user.userRole;
   }
-  verifyRegular(){
-      if(this.getUserRole()=='regular'){
-        return true;
-      }else{
-        return false;
-      }
-  }
+  
    
    
 }
