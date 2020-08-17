@@ -4,35 +4,35 @@
 
         <div class="client card">
 
-                <div class="card-body">
-                    <h5 class="card-title">Cliente</h5>
-                    <div class="form-group">
-                        <label for="nombre" class="form-label">Nombre</label>
-                        <input type="text" formControlName="nombre" class="form-control" placeholder="Nombre">
-                        <div *ngIf="formPesaje.get('nombre').errors && (formPesaje.get('nombre').touched
+            <div class="card-body">
+                <h5 class="card-title">Cliente</h5>
+                <div class="form-group">
+                    <label for="nombre" class="form-label">Nombre</label>
+                    <input type="text" formControlName="nombre" class="form-control" placeholder="Nombre">
+                    <div *ngIf="formPesaje.get('nombre').errors && (formPesaje.get('nombre').touched
                                 || formPesaje.get('nombre').dirty)" class="alert alert-danger">
-                            El Nombre es obligatorio
-                        </div>
-
+                        El Nombre es obligatorio
                     </div>
 
-                    <div class="form-group">
-                        <label for="rut" class="form-label">Rut</label>
-                        <input type="text" formControlName="rut" class="form-control" placeholder="Rut">
-                        <div *ngIf="formPesaje.get('rut').errors && (formPesaje.get('rut').touched
+                </div>
+
+                <div class="form-group">
+                    <label for="rut" class="form-label">Rut</label>
+                    <input type="text" formControlName="rut" class="form-control" placeholder="Rut">
+                    <div *ngIf="formPesaje.get('rut').errors && (formPesaje.get('rut').touched
                                 || formPesaje.get('rut').dirty)" class="alert alert-danger">
-                            El Rut es obligatorio
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="razonSocial">Razón Social</label>
-                        <input type="text" formControlName="razonSocial" class="form-control" placeholder="Razón Social">
-                        <div *ngIf="formPesaje.get('razonSocial').errors && (formPesaje.get('razonSocial').touched
-                                    || formPesaje.get('razonSocial').dirty)" class="alert alert-danger">
-                            La razón social es obligatoria
-                        </div>
+                        El Rut es obligatorio
                     </div>
                 </div>
+                <div class="form-group">
+                    <label for="razonSocial">Razón Social</label>
+                    <input type="text" formControlName="razonSocial" class="form-control" placeholder="Razón Social">
+                    <div *ngIf="formPesaje.get('razonSocial').errors && (formPesaje.get('razonSocial').touched
+                                    || formPesaje.get('razonSocial').dirty)" class="alert alert-danger">
+                        La razón social es obligatoria
+                    </div>
+                </div>
+            </div>
         </div>
 
 
@@ -60,8 +60,9 @@
                 <div class="form-group">
                     <label for="tipoTransaccion"> Tipo de transaccion</label>
                     <select formControlName="tipoTransaccion" class="form-control">
-                        <option value="compra">Compra</option>
-                        <option selected value="venta">Venta</option>
+                        <option value="" selected disabled>Tipo de transaccion</option>
+                        <option value="Compra">Compra</option>
+                        <option selected value="Venta">Venta</option>
                     </select>
                     <div *ngIf="formPesaje.get('tipoTransaccion').errors && (formPesaje.get('tipoTransaccion').touched
                             || formPesaje.get('tipoTransaccion').dirty)" class="alert alert-danger">
@@ -81,11 +82,17 @@
                 </div>
                 <div *ngIf="formPesaje.get('patente').errors && (formPesaje.get('patente').touched
                             || formPesaje.get('patente').dirty)" class="alert alert-danger">
-                    el numero de Patente es obligatorio
+                    La Patente es obligatoria
                 </div>
                 <div class="form-group">
                     <label for="tipoVehiculo">Tipo de Vehiculo</label>
-                    <input type="text" formControlName="tipoVehiculo" class="form-control" placeholder="Tipo de vehiculo">
+                    <select formControlName="tipoVehiculo" class="form-control">
+                        <option value="" selected disabled>Tipo de Vehiculo</option>
+                        <option value="Camión">Camión</option>
+                        <option value="Camioneta">Camioneta</option>
+                        <option value="Auto">Auto</option>
+                    </select>
+
                 </div>
                 <div *ngIf="formPesaje.get('tipoVehiculo').errors && (formPesaje.get('tipoVehiculo').touched
                             || formPesaje.get('tipoVehiculo').dirty)" class="alert alert-danger">
