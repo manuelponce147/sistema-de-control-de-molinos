@@ -1,57 +1,65 @@
 <div class="container mt-2">
-    <h2>Registrar Silo</h2>
-    <form [formGroup]="formSilo" (ngSubmit)="onSubmit()" novalidate>
+  <h2>Registrar Silo</h2>
+  <form [formGroup]="formSilo" (ngSubmit)="onSubmit()" novalidate>
 
-        <div class="client card">
+      <div class="client card">
 
-            <div class="card-body">
-                <h5 class="card-title">Descripción</h5>
-                <div class="form-group">
-                    <label for="nombre" class="form-label ml-1">Nombre</label>
-                    <input type="text" formControlName="nombre" class="form-control" placeholder="Nombre">
+          <div class="card-body">
+              <h5 class="card-title">Descripción</h5>
+              <div class="form-group">
+                  <label for="nombre" class="form-label ml-1">Nombre</label>
+                  <input type="text" formControlName="nombre" class="form-control" placeholder="Nombre">
+                  <div *ngIf="formSilo.get('nombre').errors && (formSilo.get('nombre').touched
+                  || formSilo.get('nombre').dirty)" class="alert alert-danger">
+                      Este campo es Obligatorio </div>
 
-                </div>
-                <div class="form-group">
-                    <label for="capacidadTotal" class="form-label ml-1">Capacidad Total</label>
-                    <input type="number" formControlName="capacidadTotal"
-                    class="form-control" placeholder="Capacidad Total">
-
-                </div>
-                <div class="form-group">
-                    <label for="stock" class="form-label ml-1">Stock Actual</label>
-                    <input type="number" formControlName="stock"
-                    class="form-control" placeholder="Stock Actual">
-
-                </div>
-                <div class="form-group">
-                    <label for="tipoProducto" class="form-label ml-1">Tipo de Grano</label>
-                    <select class="form-control" formControlName="tipoProducto">
-                      <option value="" selected disabled>Tipo de Grano</option>
-                      <option value="Trigo">Trigo</option>
-                      <option value="Soya">Soya</option>
-                      <option value="Avena">Avena</option>
-                    </select>
-
-
-                </div>
-                <div class="form-group">
-                    <label for="estado" class="form-label ml-1">Estado</label>
-                    <input type="text" formControlName="estado"
-                    class="form-control" placeholder="Estado">
-
-                </div>
-                <div class="row">
-
-                    <button type="submit" [disabled]="!formSilo.valid" class="btn btn-primary">Registrar</button>
-
-                </div>
-            </div>
-        </div>
+              </div>
+              <div class="form-group">
+                  <label for="capacidadTotal" class="form-label ml-1">Capacidad Total</label>
+                  <input type="number" formControlName="capacidadTotal" class="form-control" placeholder="Capacidad Total">
+                  <div *ngIf="formSilo.get('capacidadTotal').errors && (formSilo.get('capacidadTotal').touched
+                  || formSilo.get('capacidadTotal').dirty)" class="alert alert-danger">
+                      Este campo es Obligatorio </div>
+              </div>
+              <div class="form-group">
+                  <label for="stock" class="form-label ml-1">Stock Actual</label>
+                  <input type="number" formControlName="stock" class="form-control" placeholder="Stock Actual">
+                  <div *ngIf="formSilo.get('stock').errors && (formSilo.get('stock').touched
+                  || formSilo.get('stock').dirty)" class="alert alert-danger">
+                      Este campo es Obligatorio </div>
+              </div>
+              <div class="form-group">
+                  <label for="tipoProducto" class="form-label ml-1">Tipo de Grano</label>
+                  <select class="form-control" formControlName="tipoProducto">
+                    <option value="" selected disabled>Tipo de Grano</option>
+                    <option value="Trigo">Trigo</option>
+                    <option value="Soya">Soya</option>
+                    <option value="Avena">Avena</option>
+                  </select>
 
 
+              </div>
+              <div class="form-group">
+                  <label for="estado" class="form-label ml-1">Estado</label>
+                  <select class="form-control" formControlName="estado">
+                      <option value="" selected disabled>Seleccione estado</option>
+                      <option value=true>Activo</option>
+                      <option value=false>Inactivo</option>
+                  </select>
+
+              </div>
+              <div class="row">
+
+                  <button type="submit" [disabled]="!formSilo.valid" class="btn btn-primary">Registrar</button>
+
+              </div>
+          </div>
+      </div>
 
 
 
-    </form>
+
+
+  </form>
 
 </div>

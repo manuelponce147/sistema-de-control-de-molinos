@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { SiloService } from 'src/app/services/silo.service';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-create-silo',
@@ -10,8 +11,10 @@ import { SiloService } from 'src/app/services/silo.service';
 export class CreateSiloComponent implements OnInit {
   formSilo:FormGroup;
 
+
   constructor(private siloService:SiloService,
-    private formBuilder:FormBuilder){ 
+    private router: Router,
+    private formBuilder:FormBuilder){
       this.formSilo=this.formBuilder.group({
         nombre:['',[Validators.required]],
         capacidadTotal:['',[Validators.required]],
@@ -25,13 +28,13 @@ export class CreateSiloComponent implements OnInit {
   }
   onSubmit(){
     console.log(this.formSilo.value);
-    
+
     this.siloService.createSilo(this.formSilo.value)
       .subscribe( (data)=>{
         console.log("imprimiendo resultado");
         console.log(data)
         this.formSilo.reset();
-    
+        this.router.navigate(['/silos']);
     });
   }
 

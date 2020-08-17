@@ -37,8 +37,13 @@ export class PhotoPreviewComponent implements OnInit {
     this.photoService.deletePhoto(id)
       .subscribe(res => {
         console.log(res)
-        this.router.navigate(['/photos']);
+        this.router.navigate(['/catalogo']);
       })
+  }
+  back() {
+
+    this.router.navigate(['/catalogo']);
+
   }
 
   updatePhoto(title: HTMLInputElement, description: HTMLInputElement): boolean {
