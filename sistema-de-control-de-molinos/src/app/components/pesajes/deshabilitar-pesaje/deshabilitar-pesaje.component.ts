@@ -3,6 +3,7 @@ import { Pesaje } from 'src/app/models/pesaje';
 import { PesajeService } from 'src/app/services/pesaje.service';
 import {Global} from '../../../global';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-deshabilitar-pesaje',
@@ -52,8 +53,13 @@ export class DeshabilitarPesajeComponent implements OnInit {
     this.pesajeService.deletePesaje(id).subscribe(
       res=>{
         console.log(res);
+        Swal.fire({
+          title:'Se ha eliminado exitosamente el pesaje!!',
+          icon:'success'
+        });
         this.getPesajes();
- 
+
+
       }
     )
 
@@ -66,7 +72,7 @@ export class DeshabilitarPesajeComponent implements OnInit {
       razonSocial:pesaje.razonSocial,
       pesoEntrada:pesaje.pesoEntrada,
       pesoSalida:pesaje.pesoSalida,
-      tipoTransaccion:pesaje.pesoSalida,
+      tipoTransaccion:pesaje.tipoTransaccion,
       patente:pesaje.patente,
       tipoVehiculo:pesaje.tipoVehiculo
     }) 

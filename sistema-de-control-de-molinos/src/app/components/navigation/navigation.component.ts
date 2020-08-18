@@ -11,6 +11,8 @@ export class NavigationComponent implements OnInit,OnChanges {
   public opened: boolean = false;
   public closeOnClickOutside = false;
   public token: any;
+  public nombre: any;
+  public rol: any;
   isRegular:boolean;
   status: boolean;
   constructor(public authservice: AuthService) {
@@ -43,6 +45,9 @@ export class NavigationComponent implements OnInit,OnChanges {
   }
   cargarcomponentes() {
     this.token = this.authservice.getToken();
+    this.nombre = this.authservice.getUserName();
+    this.rol=this.authservice.getUserRole();
+
     
     if (this.token != null) {
       this.status = true;

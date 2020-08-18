@@ -29,10 +29,16 @@ export class SigninComponent implements OnInit {
         localStorage.setItem('user', JSON.stringify(res.user));
         console.log(res);
         Swal.fire({
-          title: "Has iniciado sesión correctamente",
-          icon: 'success'
-        });
-        window.open ('home', '_self');
+          title: 'Inicio de sesión exitoso',
+          text: "Bienvenido a Pesajex!",
+          icon: 'success',
+          timer: 2500
+        }).then((result) => {
+          
+            window.open('/home' , '_self' )
+          
+        })
+        
       },
       err => {
         console.log(err);

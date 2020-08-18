@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Photo } from 'src/app/interfaces/photo';
 import { Router, ActivatedRoute } from '@angular/router';
 import { PhotoService } from 'src/app/services/photo.service';
+import Swal from 'sweetalert2';
+
 
 @Component({
   selector: 'app-photo-preview',
@@ -50,7 +52,11 @@ export class PhotoPreviewComponent implements OnInit {
     this.photoService.updatePhoto(this.photo._id, title.value, description.value)
       .subscribe(res => {
         console.log(res);
-        this.router.navigate(['/photos']);
+        Swal.fire({
+          title:'Se ha editado exitosamente el producto!!',
+          icon:'success'
+        });
+        this.router.navigate(['/catalogo']);
       });
     return false;
   }

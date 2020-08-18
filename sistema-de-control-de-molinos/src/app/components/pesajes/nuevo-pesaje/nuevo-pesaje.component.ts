@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormGroup, FormBuilder,FormControl, Validators} from '@angular/forms';
 import { PesajeService } from 'src/app/services/pesaje.service';
+import Swal from 'sweetalert2'; 
 @Component({
   selector: 'app-nuevo-pesaje',
   templateUrl: './nuevo-pesaje.component.html',
@@ -31,8 +32,13 @@ export class NuevoPesajeComponent implements OnInit {
     this.pesajeService.guardarPesaje(this.formPesaje.value).
       subscribe(
         (data)=>{
+          
           console.log("imprimiendo resultado");
           console.log(data)
+          Swal.fire({
+            title:'Se ha registrado exitosamente el pesaje!!',
+            icon:'success'
+          });
           this.formPesaje.reset();
       
       })

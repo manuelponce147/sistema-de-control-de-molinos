@@ -60,7 +60,7 @@ export class ListarPesajesComponent implements OnInit {
       razonSocial: pesaje.razonSocial,
       pesoEntrada: pesaje.pesoEntrada,
       pesoSalida: pesaje.pesoSalida,
-      tipoTransaccion: pesaje.pesoSalida,
+      tipoTransaccion: pesaje.tipoTransaccion,
       patente: pesaje.patente,
       tipoVehiculo: pesaje.tipoVehiculo
     });
@@ -72,7 +72,7 @@ export class ListarPesajesComponent implements OnInit {
       razonSocial: pesaje.razonSocial,
       pesoEntrada: pesaje.pesoEntrada,
       pesoSalida: pesaje.pesoSalida,
-      tipoTransaccion: pesaje.pesoSalida,
+      tipoTransaccion: pesaje.tipoTransaccion,
       patente: pesaje.patente,
       tipoVehiculo: pesaje.tipoVehiculo
     });
