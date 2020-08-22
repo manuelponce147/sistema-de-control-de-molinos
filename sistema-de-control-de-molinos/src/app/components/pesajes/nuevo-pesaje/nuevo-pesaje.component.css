@@ -9,6 +9,8 @@ form{
     margin: 10px;
     margin-top: 20px;
     padding-left: 20px;  
+    width: 70%;
+
 
 }
 h5{
@@ -18,10 +20,11 @@ h5{
 .card{
     margin: 10px;
     padding:10px;
+    background: rgba(10, 10, 10, 0.1);
 }
  .client , .details{
-    width: 45%;
-    display:inline-block;
+    display:block;
+    overflow:auto;
 }
 @media screen and (max-width:767px){
     .client, .details{

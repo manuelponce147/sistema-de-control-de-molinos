@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { Pesaje } from 'src/app/models/pesaje';
+import { IPesaje } from 'src/app/interfaces/pesaje';
 import { PesajeService } from 'src/app/services/pesaje.service';
 import {Global} from '../../../global';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import Swal from 'sweetalert2';
+import { PhotoService } from 'src/app/services/photo.service';
 
 @Component({
   selector: 'app-deshabilitar-pesaje',
@@ -11,12 +12,12 @@ import Swal from 'sweetalert2';
   styleUrls: ['./deshabilitar-pesaje.component.css']
 })
 export class DeshabilitarPesajeComponent implements OnInit {
-  public pesajes:Pesaje[]=[];
+  public pesajes:IPesaje[]=[];
   public url:string;
   formPesaje:FormGroup;
   guardarId:string;
-
-  constructor(private pesajeService:PesajeService, private formBuilder:FormBuilder ){
+  productos:any;
+  constructor(private pesajeService:PesajeService, private formBuilder:FormBuilder,private photoService:PhotoService ){
     this.url=Global.url;
     this.formPesaje=this.formBuilder.group({
       nombre:['',[Validators.required]],
@@ -34,6 +35,9 @@ export class DeshabilitarPesajeComponent implements OnInit {
 
   ngOnInit(): void {
     this.getPesajes();
+    this.photoService.getPhotos().subscribe(res=>{
+      this.productos=res;
+    })
   }
   getPesajes(){
     this.pesajeService.obtenerPesajes().subscribe(
@@ -74,7 +78,8 @@ export class DeshabilitarPesajeComponent implements OnInit {
       pesoSalida:pesaje.pesoSalida,
       tipoTransaccion:pesaje.tipoTransaccion,
       patente:pesaje.patente,
-      tipoVehiculo:pesaje.tipoVehiculo
+      tipoVehiculo:pesaje.tipoVehiculo,
+      tipoProducto:pesaje.tipoProducto
     }) 
     this.guardarId=id;
  

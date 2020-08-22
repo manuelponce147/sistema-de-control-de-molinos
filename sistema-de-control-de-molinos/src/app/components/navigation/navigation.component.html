@@ -162,7 +162,7 @@
                             Bienvenido {{this.nombre}} !!
                         </a>
                         <a class="dropdown-item" *ngIf="this.status">
-                            Usuario {{this.rol}}
+                            Usuario :<span style="color: red;">{{this.rol}}</span>
                         </a>
                         <a class="dropdown-item" *ngIf="this.status" (click)="cerrarSesion()"><i class="fa fa-sign-out"
                                 aria-hidden="true"></i>

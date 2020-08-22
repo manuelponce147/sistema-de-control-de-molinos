@@ -28,6 +28,8 @@ export class ListarPesajesComponent implements OnInit {
       tipoTransaccion: ['', Validators.required],
       patente: ['', Validators.required],
       tipoVehiculo: ['', Validators.required],
+      tipoProducto: ['', Validators.required],
+
 
     })
     this.url = Global.url;
@@ -62,7 +64,8 @@ export class ListarPesajesComponent implements OnInit {
       pesoSalida: pesaje.pesoSalida,
       tipoTransaccion: pesaje.tipoTransaccion,
       patente: pesaje.patente,
-      tipoVehiculo: pesaje.tipoVehiculo
+      tipoVehiculo: pesaje.tipoVehiculo,
+      tipoProducto: pesaje.tipoProducto
     });
   }
   cargarpdf(pesaje: any) {
@@ -74,7 +77,8 @@ export class ListarPesajesComponent implements OnInit {
       pesoSalida: pesaje.pesoSalida,
       tipoTransaccion: pesaje.tipoTransaccion,
       patente: pesaje.patente,
-      tipoVehiculo: pesaje.tipoVehiculo
+      tipoVehiculo: pesaje.tipoVehiculo,
+      tipoProducto: pesaje.tipoProducto
     });
 
 

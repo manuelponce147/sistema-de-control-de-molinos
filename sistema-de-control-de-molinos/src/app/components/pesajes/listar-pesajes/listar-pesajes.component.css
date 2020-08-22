@@ -24,6 +24,10 @@ a{
    width: 45%;
   
 }
+.typeP{
+    margin: 5px;
+   padding: 5px;
+}
 @media screen and (max-width:767px){
     .client , .details{
         display: block;

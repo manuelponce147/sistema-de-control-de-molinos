@@ -9,8 +9,8 @@ export async function getPesajes(req: Request, res: Response): Promise<Response>
 };
 
 export async function createPesaje(req: Request, res: Response): Promise<Response> {
-    const { nombre,rut,razonSocial,pesoEntrada,pesoSalida,tipoTransaccion,tipoVehiculo,patente } = req.body;
-    const newPesaje = { nombre,rut,razonSocial,pesoEntrada,pesoSalida,tipoTransaccion,tipoVehiculo,patente};
+    const { nombre,rut,razonSocial,pesoEntrada,pesoSalida,tipoTransaccion,tipoVehiculo,patente,tipoProducto} = req.body;
+    const newPesaje = { nombre,rut,razonSocial,pesoEntrada,pesoSalida,tipoTransaccion,tipoVehiculo,patente,tipoProducto};
     const pesaje = new Pesaje(newPesaje);
     await pesaje.save();
     return res.json({
@@ -35,8 +35,8 @@ export async function getPesaje(req: Request, res: Response): Promise<Response> 
 
 export async function updatePesaje(req: Request, res: Response): Promise<Response> {
     const { id } = req.params;
-    const { nombre,rut,razonSocial,pesoEntrada,pesoSalida,tipoTransaccion,tipoVehiculo,patente } = req.body;
-    const updatedPesaje = await Pesaje.findByIdAndUpdate(id, { nombre,rut,razonSocial,pesoEntrada,pesoSalida,tipoTransaccion,tipoVehiculo,patente });
+    const { nombre,rut,razonSocial,pesoEntrada,pesoSalida,tipoTransaccion,tipoVehiculo,patente,tipoProducto} = req.body;
+    const updatedPesaje = await Pesaje.findByIdAndUpdate(id, { nombre,rut,razonSocial,pesoEntrada,pesoSalida,tipoTransaccion,tipoVehiculo,patente,tipoProducto});
     return res.json({
         message: 'Successfully updated',
         updatedPesaje

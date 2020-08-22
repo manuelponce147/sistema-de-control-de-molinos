@@ -1,7 +1,7 @@
-<div class="container">
-    <h2>Ingresar Formulario Pesajes</h2>
-    <form [formGroup]="formPesaje" (ngSubmit)="onSubmit()" novalidate>
-
+<div class="container mx-auto">
+    <h2>Ingresar Pesajes</h2>
+    <br>
+    <form [formGroup]="formPesaje" (ngSubmit)="onSubmit()" novalidate class="mx-auto">
         <div class="client card">
 
             <div class="card-body">
@@ -41,7 +41,8 @@
                 <h5 class="card-title">Detalles</h5>
                 <div class="form-group">
                     <label for="pesoEntrada" class="form-label">Peso de entrada</label>
-                    <input type="number" formControlName="pesoEntrada" class="form-control" placeholder="Peso de Entrada">
+                    <input type="number" formControlName="pesoEntrada" class="form-control"
+                        placeholder="Peso de Entrada">
                     <div *ngIf="formPesaje.get('pesoEntrada').errors && (formPesaje.get('pesoEntrada').touched
                                 || formPesaje.get('pesoEntrada').dirty)" class="alert alert-danger">
                         El Peso de entrada obligatorio
@@ -65,11 +66,25 @@
                         <option selected value="Venta">Venta</option>
                     </select>
                     <div *ngIf="formPesaje.get('tipoTransaccion').errors && (formPesaje.get('tipoTransaccion').touched
-                            || formPesaje.get('tipoTransaccion').dirty)" class="alert alert-danger">
+                                    || formPesaje.get('tipoTransaccion').dirty)" class="alert alert-danger">
                         Seleccione alguna opción
                     </div>
-
                 </div>
+                <div class="form-group">
+                    <label for="tipoProducto"> Tipo de Producto</label>
+                    <select formControlName="tipoProducto" class="form-control">
+                        <option value="" selected disabled>Tipo de producto</option>
+                        <option *ngFor="let item of productos" value="{{item.title}}">{{item.title}}</option>
+
+                    </select>
+                    <div *ngIf="formPesaje.get('tipoProducto').errors && (formPesaje.get('tipoProducto').touched
+                                    || formPesaje.get('tipoProducto').dirty)" class="alert alert-danger">
+                        Seleccione alguna opción
+                    </div>
+                </div>
+
+
+
             </div>
         </div>
 

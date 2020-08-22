@@ -54,8 +54,7 @@ export class AuthService {
     return user.userRole;
   }
   getUserName(){
-    let user: IUser=JSON.parse(localStorage.getItem('user'));
-
+    let user: IUser=JSON.parse(localStorage.getItem('user'));    
     return user.name;
   }
   

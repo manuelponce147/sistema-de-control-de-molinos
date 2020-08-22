@@ -16,8 +16,8 @@
                 <td>{{pesaje.nombre}}</td>
                 <td>{{pesaje.rut}}</td>
                 <td>{{pesaje.patente}}</td>
-                <td>fecha!!</td>
-                <td>tipo_deP</td>
+                <td>{{pesaje.createdAt | date:'short'}}</td>
+                <td>{{pesaje.tipoProducto}}</td>
                 <td>
                     <a href="#" (click)="VerPesaje($event,pesaje)" data-toggle="modal" data-target="#updatemodal"><i
               class="fa fa-eye fa-2x"></i></a>
@@ -75,6 +75,13 @@
                             <label for="tipoTransaccion"> Tipo de transaccion</label>
                             <input type="string" formControlName="tipoTransaccion" class="form-control" [attr.disabled]="true" placeholder="Tipo de transaccion">
                         </div>
+                    </div>
+                    <div class="typeP">
+                        <div class="form-group">
+                            <label for="tipoProducto"> Tipo de Producto</label>
+                            <input type="string" formControlName="tipoProducto" class="form-control" [attr.disabled]="true" placeholder="Tipo de producto">
+                        </div>
+
                     </div>
 
 

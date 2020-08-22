@@ -6,14 +6,14 @@ import { AuthService } from 'src/app/services/auth.service';
   templateUrl: './navigation.component.html',
   styleUrls: ['./navigation.component.css']
 })
-export class NavigationComponent implements OnInit,OnChanges {
+export class NavigationComponent implements OnInit, OnChanges {
   title = 'sistema-de-control-de-molinos';
   public opened: boolean = false;
   public closeOnClickOutside = false;
   public token: any;
   public nombre: any;
   public rol: any;
-  isRegular:boolean;
+  isRegular: boolean;
   status: boolean;
   constructor(public authservice: AuthService) {
 
@@ -21,17 +21,11 @@ export class NavigationComponent implements OnInit,OnChanges {
   }
 
   ngOnInit(): void {
-      this.cargarcomponentes();
-
-    
-  
-
+    this.cargarcomponentes();
 
   }
-  ngOnChanges(){
-       this.cargarcomponentes();
-
-    
+  ngOnChanges() {
+    this.cargarcomponentes();
   }
 
   public toggleSidebar() {
@@ -40,29 +34,26 @@ export class NavigationComponent implements OnInit,OnChanges {
   cerrarSesion() {
     console.log(localStorage.getItem('auth-token'));
     this.authservice.logout();
-
-
   }
+  
   cargarcomponentes() {
     this.token = this.authservice.getToken();
-    this.nombre = this.authservice.getUserName();
-    this.rol=this.authservice.getUserRole();
-
-    
     if (this.token != null) {
       this.status = true;
       const user = this.authservice.getUserRole();
-      
-      if(user=="regular"){
-        this.isRegular=true;
-      }else{
-        this.isRegular=false;
+      this.nombre = this.authservice.getUserName();
+      this.rol = this.authservice.getUserRole();
+
+      if (user == "regular") {
+        this.isRegular = true;
+      } else {
+        this.isRegular = false;
       }
     } else {
       this.status = false;
     }
-   
-    
+
+
   }
 
 
