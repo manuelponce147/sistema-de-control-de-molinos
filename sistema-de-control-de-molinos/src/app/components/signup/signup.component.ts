@@ -13,8 +13,8 @@ export class SignupComponent implements OnInit {
   constructor(private authService:AuthService, private router:Router, private formBuilder:FormBuilder) {
       this.formSignup=this.formBuilder.group({
         name:['',[Validators.required]],
-        email:['',[Validators.required]],
-        password:['',[Validators.required]]
+        email:['',[Validators.required, Validators.email]],
+        password:['',[Validators.required,]]
       })
 
   }

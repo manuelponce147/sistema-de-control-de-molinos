@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PhotoService } from 'src/app/services/photo.service';
+import Swal from "sweetalert2";
 
 interface HtmlInputEvent extends Event {
   target:HTMLInputElement & EventTarget;
@@ -29,10 +30,22 @@ export class PhotoFormComponent implements OnInit {
   uploadPhoto(title:HTMLInputElement, description:HTMLInputElement,price:HTMLInputElement):boolean{
       this.photoService.createPhoto(title.value,description.value,price.value,this.file)
           .subscribe(
-              res=>console.log(res),
-              err=>console.log(err)
-              
+              res=>{
+                console.log(res);
+                Swal.fire({
+                  title:'Se ha registrado exitosamente el producto!!',
+                  icon:'success'
+                });
+                window.open ('catalogo', '_self');
+              },
+              err=>{
+                Swal.fire({
+                  title:`${'Completa los campos y selecciona una imagen'}`,
+                  icon:'error'
+                })}
+                
           )
+          
           return false;
       
       

@@ -1,8 +1,8 @@
-<div >
-    <ng-sidebar-container style=" height: 100vh" >
+<div>
+    <ng-sidebar-container style=" height: 100vh">
         <ng-sidebar [opened]="opened" mode="push" autoCollapseWidth=100 *ngIf="this.status">
-            <div class="text-justify" >
-                <img src="../../../assets/logo.png" alt="" >
+            <div class="text-justify">
+                <img src="../../../assets/logo.png" alt="">
 
                 <ul class="nav justify-contetn-center menu" id="sidebar">
                     <div class="accordion" id="accordionMenu">
@@ -16,8 +16,7 @@
                                     Pesajes
                                 </a>
                             </div>
-                            <div id="collapsePesaje" class="collapse show" aria-labelledby="headingOne"
-                                data-parent="#accordionMenu">
+                            <div id="collapsePesaje" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionMenu">
                                 <div class="card-body">
                                     <li class="nav-item">
                                         <a class="nav-link" [routerLink]="['/pesajes/nuevo-pesaje']">
@@ -49,8 +48,7 @@
                                 </a>
                             </div>
 
-                            <div id="collapseProduct" class="collapse show" aria-labelledby="headingOne"
-                                data-parent="#accordionMenu">
+                            <div id="collapseProduct" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionMenu">
                                 <div class="card-body">
                                     <li class="nav-item">
                                         <a class="nav-link" [routerLink]="['/catalogo/new']">
@@ -92,23 +90,23 @@
                                           Registrar Silo
 
                                       </a>
-                                  </li>
-                                  <li class="nav-item">
-                                      <a class="nav-link" [routerLink]="['/silos']">
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" [routerLink]="['/silos']">
                                           Lista de Silos
 
                                       </a>
-                                  </li>
-                                  <li class="nav-item">
-                                      <a class="nav-link" [routerLink]="['/silos']">
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" [routerLink]="['/silos']">
                                           Configurar Silos
 
                                       </a>
-                                  </li>
-                              </div>
-                          </div>
+                                    </li>
+                                </div>
+                            </div>
 
-                      </div>
+                        </div>
 
 
                     </div>
@@ -125,7 +123,7 @@
         <div ng-sidebar-content>
 
             <nav class="navbar navbar-expand-md navbar-dark ">
-                <a class="icon" (click)="toggleSidebar()"*ngIf="this.status"><i class="fa fa-bars fa-2x"></i><span
+                <a class="icon" (click)="toggleSidebar()" *ngIf="this.status"><i class="fa fa-bars fa-2x"></i><span
                         class="sr-only">(current)</span></a>
                 <ul class="nav mx-auto text-center">
 
@@ -140,28 +138,32 @@
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link"  *ngIf="this.status && !this.isRegular" [routerLink]="['/catalogo']">Catologo</a>
+                        <a class="nav-link" *ngIf="this.status && !this.isRegular" [routerLink]="['/catalogo']">Catologo</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link"  *ngIf="this.status && this.isRegular" [routerLink]="['/pedidos']">Pedidos</a>
+                        <a class="nav-link" *ngIf="this.status && this.isRegular" [routerLink]="['/pedidos']">Pedidos</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link"  *ngIf="this.status && this.isRegular" [routerLink]="['/pedidos-list']">Mis Pedidos</a>
+                        <a class="nav-link" *ngIf="this.status && this.isRegular" [routerLink]="['/pedidos-list']">Mis Pedidos</a>
                     </li>
 
                 </ul>
                 <div class="dropleft">
-                    <a data-toggle="dropdown" aria-expanded="false"><img src="../../../assets/user.png" alt="user"
-                            width="40px" height="40px"></a>
+                    <a data-toggle="dropdown" aria-expanded="false"><img src="../../../assets/user.png" alt="user" width="40px" height="40px"></a>
                     <div class="dropdown-menu">
                         <a class="dropdown-item" [routerLink]="['/signin']" *ngIf="!this.status">
-                            <i class="fa fa-sign-in" aria-hidden="true"></i>
-
-                            Iniciar Sesión</a>
+                            <i class="fa fa-sign-in" aria-hidden="true"></i> Iniciar Sesión</a>
                         <a class="dropdown-item" [routerLink]="['/signup']" *ngIf="!this.status">
-                            <i class="fa fa-user-plus" aria-hidden="true"></i>
-                            Registrarse</a>
-                        <div class="dropdown-divider"></div>
+                            <i class="fa fa-user-plus" aria-hidden="true"></i> Registrarse
+                        </a>
+
+
+                        <a class="dropdown-item" *ngIf="this.status">
+                            Bienvenido {{this.nombre}} !!
+                        </a>
+                        <a class="dropdown-item" *ngIf="this.status">
+                            Usuario {{this.rol}}
+                        </a>
                         <a class="dropdown-item" *ngIf="this.status" (click)="cerrarSesion()"><i class="fa fa-sign-out"
                                 aria-hidden="true"></i>
                             Cerrar Sesión</a>
