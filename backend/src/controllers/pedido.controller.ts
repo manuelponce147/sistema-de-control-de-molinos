@@ -54,8 +54,8 @@ export async function createPedido(req:Request,res:Response){
 }
 export async function changeStatus(req:Request,res:Response){
     const {id} =req.params;
-    const pedido = await Pedido.findByIdAndUpdate(id,{status:false},{new:true});
-    if(!pedido) return res.status(404).send({message:"no se ha podido actualizar el estado"});
+    const pedido = await Pedido.findByIdAndUpdate(id,{status:true},{new:true});
+    if(!pedido) return res.status(401).send({message:"no se ha podido actualizar el estado"});
 
     return res.status(200).json(pedido);
 }   

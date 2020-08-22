@@ -1,8 +1,14 @@
 import { Request, Response } from "express";
-import User, { IUser } from '../models/user';
+import User, { IUser,IUser2 } from '../models/user';
 
 export async function getUsers(req:Request, res:Response){
     const  users = await User.find();
+    if(!users) return res.status(404).json({message:"Error al obtener los ususarios"});
+
+    return res.status(200).json(users);
+}
+export async function getUsersName(req:Request, res:Response){
+    const  users = await User.find({userRole:'regular'},{name:1,_id:1});
     if(!users) return res.status(404).json({message:"Error al obtener los ususarios"});
 
     return res.status(200).json(users);

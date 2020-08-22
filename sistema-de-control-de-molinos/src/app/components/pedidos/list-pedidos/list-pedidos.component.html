@@ -21,7 +21,7 @@
                    <tr class="table-light" *ngFor="let pedido of this.misPedidos, let i= index">
                        <th scope="row">{{i+1}}</th>
                        <td>{{pedido.cantidad}}</td>
-                       <td>{{pedido.precio | currency}}</td>
+                       <td>{{pedido.precio | currency:'CLP':true:'4.0-0'}}</td>
                        <td>{{pedido.status}}</td>
                        <td>{{pedido.createdAt | date:'short'}}</td>
                        <td>{{pedido.updatedAt | date:'short'}}</td>

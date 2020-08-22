@@ -33,7 +33,7 @@ const schema = new Schema({
     status:{
         type:Boolean,
         required:true,
-        default:true
+        default:false
 
     }  
     
