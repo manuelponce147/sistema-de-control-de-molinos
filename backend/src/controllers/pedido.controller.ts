@@ -8,6 +8,12 @@ export async function getPedidos(req:Request,res:Response){
 
     return res.status(200).json(pedidos);
 }
+export async function getPedidosFalse(req:Request,res:Response){
+    const pedidos= await Pedido.find({status:false});
+    if (!pedidos) return res.status(404).send({message:"Error al solicitar los pedidos"});
+
+    return res.status(200).json(pedidos);
+}
 export async function getPedido(req:Request,res:Response){
     const {id}=req.params;
     const pedido=await Pedido.findById(id);

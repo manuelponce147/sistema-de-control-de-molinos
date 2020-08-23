@@ -1,7 +1,7 @@
 import { Router } from "express";
 const router=Router();
 
-import { createPedido, getPedidos, getPedido, updatePedido, deletePedido, getPedidoByClient, changeStatus } from "../controllers/pedido.controller";
+import { createPedido, getPedidos, getPedido, updatePedido, deletePedido, getPedidoByClient, changeStatus, getPedidosFalse } from "../controllers/pedido.controller";
 
 router.route('/pedidos')
     .post(createPedido)
@@ -16,5 +16,6 @@ router.route('/pedido/:id')
 router.route('/pedidos/:id')
     .get(getPedidoByClient)
     .put(changeStatus); 
-    
+router.route('/pedidos/pendientes/:id')
+    .get(getPedidosFalse);    
 export default router;
