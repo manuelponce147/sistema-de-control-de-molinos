@@ -16,18 +16,71 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let silo of silos" class=silo >
+        <tr *ngFor="let silo of silos" class=silo (click)="VerSilo($event,silo)" data-toggle="modal" data-target="#updatemodal">
           <td>{{silo.nombre}}</td>
           <td>{{silo.capacidadTotal}}</td>
           <td>{{silo.stock}}</td>
           <td>{{silo.tipoProducto}}</td>
-          <td style="color: #007bff;" *ngIf="silo.estado"><b>Habilitado</b></td>   
-          <td style="color: red;" *ngIf="!silo.estado"><b> No Habilitado</b></td>   
-        
-          
-         
+          <td style="color: #007bff;" *ngIf="silo.estado"><b>Habilitado</b></td>
+          <td style="color: red;" *ngIf="!silo.estado"><b> No Habilitado</b></td>
+
+
+
         </tr>
         <tr>
       </tbody>
     </table>
-  
+</div>
+
+<div class="modal fade" id="updatemodal" role="dailog">
+  <div class="modal-dialog ">
+      <div class="modal-content">
+          <form [formGroup]=formSilo novalidate id="export">
+              <div class="modal-header">
+                  <h4 class="modal-title">Ver Información</h4>
+                  <button type="button" class="close" id="modalclose" data-dismiss="modal">x</button>
+              </div>
+              <div class="moda-body">
+                  <div class="client">
+                      <h5>Silo</h5>
+                      <div class="form-group">
+                          <label for="nombre" class="form-label">Nombre</label>
+                          <input type="text" formControlName="nombre" class="form-control" [attr.disabled]="true" placeholder="Nombre">
+                      </div>
+
+                      <div class="form-group">
+                          <label for="rut" class="form-label">Capacidad Total</label>
+                          <input type="text" formControlName="capacidadTotal" class="form-control" [attr.disabled]="true" placeholder="Rut">
+                      </div>
+
+                  </div>
+                  <div class="details">
+
+                      <h5>Detalles</h5>
+                      <div class="form-group">
+                          <label for="pesoEntrada" class="form-label">Stock</label>
+                          <input type="number" formControlName="stock" class="form-control" [attr.disabled]="true" placeholder="Peso de Entrada">
+                      </div>
+                      <div class="form-group">
+                        <label for="pesoEntrada" class="form-label">Tipo de Producto</label>
+                        <input type="text" formControlName="tipoProducto" class="form-control" [attr.disabled]="true" placeholder="Tipo de Producto">
+                    </div>
+                    <div class="form-group">
+                      <label for="pesoEntrada" class="form-label">Estado</label>
+                      <input type="text"  formControlName="estado" class="form-control" [attr.disabled]="true" placeholder="Estado">
+                  </div>
+                  </div>
+
+              </div>
+
+              <div class="modal-footer">
+                  <button type="button" class="btn btn-danger" id="btnmodal" data-dismiss="modal">Cerrar</button>
+
+              </div>
+
+          </form>
+      </div>
+  </div>
+</div>
+
+

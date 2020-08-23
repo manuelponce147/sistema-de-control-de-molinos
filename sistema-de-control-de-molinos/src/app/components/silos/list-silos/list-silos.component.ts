@@ -12,7 +12,16 @@ import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 })
 export class ListSilosComponent implements OnInit {
   silos:Silo=[];
-  constructor(private siloService:SiloService) { 
+  formSilo: FormGroup;
+  details: FormGroup;
+  constructor(private siloService:SiloService , private formBuilder: FormBuilder) {
+    this.formSilo = this.formBuilder.group({
+      nombre:['',[Validators.required]],
+      capacidadTotal:['',[Validators.required]],
+      stock:['',[Validators.required]],
+      tipoProducto:['',[Validators.required]],
+      estado:['',[Validators.required]]
+    })
   }
 
   ngOnInit(): void {
@@ -23,10 +32,10 @@ export class ListSilosComponent implements OnInit {
       .subscribe(res => {
         this.silos = res;
         console.log(this.silos);
-        
+
       }
         );
-    
+
   }
   public downloadPDF():void {
     let DATA = document.getElementById('dataSilos');
@@ -39,5 +48,18 @@ export class ListSilosComponent implements OnInit {
     autoTable(pdf, { html: '#dataSilos' })
     pdf.save('angular-demo.pdf');
   }
-  
+  cargarDatos(silo: any) {
+    this.formSilo = this.formBuilder.group({
+      nombre: silo.nombre,
+      capacidadTotal: silo.capacidadTotal,
+      stock: silo.stock,
+      tipoProducto: silo.tipoProducto,
+      estado: silo.estado
+    });
+  }
+  VerSilo(event: Event, silo: any) {
+    event.preventDefault();
+    this.cargarDatos(silo);
+
+  }
 }
