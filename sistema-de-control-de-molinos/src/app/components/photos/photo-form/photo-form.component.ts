@@ -28,6 +28,14 @@ export class PhotoFormComponent implements OnInit {
     }
   }
   uploadPhoto(title:HTMLInputElement, description:HTMLInputElement,price:HTMLInputElement, stock:HTMLInputElement):boolean{
+    console.log(typeof title.value);
+    
+    if(typeof this.file==="undefined" || title.value=="" || description.value=="" || price.value=="" || stock.value=="" ){
+      Swal.fire({
+        title:`${'Por favor complete todos los campos'}`,
+        icon:'error'
+      });
+    }else{
       this.photoService.createPhoto(title.value,description.value,price.value,stock.value,this.file)
           .subscribe(
               res=>{
@@ -37,14 +45,13 @@ export class PhotoFormComponent implements OnInit {
                   icon:'success'
                 });
                 window.open ('catalogo', '_self');
-              },
-              err=>{
-                Swal.fire({
-                  title:`${'Completa los campos y selecciona una imagen'}`,
-                  icon:'error'
-                })}
+              }
                 
           )
+
+    }
+     
+    
           
           return false;
       

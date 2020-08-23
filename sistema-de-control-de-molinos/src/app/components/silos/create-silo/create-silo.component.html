@@ -1,11 +1,12 @@
-<div class="container mt-2">
-    <h2>Registrar Silo</h2>
+<div class="container">
+    <h2 class="text-center">Registro de Silo</h2>
     <form [formGroup]="formSilo" (ngSubmit)="onSubmit()" novalidate>
 
         <div class="client card">
-
+            <div class="card-header">
+                <h5><b>Detalles del Silo</b></h5>
+            </div>
             <div class="card-body">
-                <h5 class="card-title">Descripción</h5>
                 <div class="form-group">
                     <label for="nombre" class="form-label ml-1">Nombre</label>
                     <input type="text" formControlName="nombre" class="form-control" placeholder="Nombre">

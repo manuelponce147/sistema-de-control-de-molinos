@@ -2,8 +2,8 @@ export interface Photo{
     _id?:string;
     title:string;
     description:string;
-    price:number;
-    stock:number
+    price:string;
+    stock:string
     imagePath:string;
 
 }

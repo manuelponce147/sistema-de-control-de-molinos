@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { PesajeService } from 'src/app/services/pesaje.service';
 import { Pesaje } from 'src/app/models/pesaje';
 import { Global } from '../../../global';
@@ -14,7 +14,6 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   providers: [PesajeService]
 })
 export class ListarPesajesComponent implements OnInit {
-  @ViewChild('htmlData') htmlData:ElementRef;
   public pesajes: Pesaje[];
   public url: string;
   formPesaje: FormGroup;

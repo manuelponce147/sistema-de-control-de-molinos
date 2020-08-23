@@ -105,7 +105,7 @@ const routes: Routes = [
     canActivate: [AuthGuard,UserEncargadoGuard]
   },
   {
-    path: 'silos/:id', 
+    path: 'silos/configure', 
     component: ConfigureSiloComponent, 
     canActivate: [AuthGuard,UserEncargadoGuard]
   },

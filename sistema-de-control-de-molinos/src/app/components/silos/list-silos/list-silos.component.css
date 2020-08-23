@@ -1,0 +1,17 @@
+.container{
+    margin-top: 30px;
+}
+.pdf{
+    float:right;
+    margin-top: 20px;
+}
+.pdf button{
+    margin:10px;
+}
+ tbody tr:hover{
+     background: rgba(10, 10, 10, 0.3);
+     cursor: pointer;
+}
+tbody{
+    background: rgba(10, 10, 10, 0.2);
+}

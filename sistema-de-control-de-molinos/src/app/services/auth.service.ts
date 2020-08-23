@@ -39,8 +39,8 @@ export class AuthService {
    logout():void{
      localStorage.removeItem('auth-token');
      localStorage.removeItem('user');
-     location.reload();
-     this.router.navigate(['/home']);
+     window.open('/home' , '_self' );
+
 
    }
    getUserID(){

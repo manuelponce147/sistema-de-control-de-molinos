@@ -11,12 +11,11 @@ export async function getPhotos(req: Request, res: Response): Promise<Response> 
 };
 
 export async function createPhoto(req: Request, res: Response): Promise<Response> {
-    const { title, description,price } = req.body;
-
-    
-    const newPhoto = { title, description, price, imagePath: req.file.path };
+    const { title, description,price,stock } = req.body;
+    const newPhoto = { title, description, price,stock, imagePath: req.file.path };
     const photo = new Photo(newPhoto);
-    await photo.save();
+    await photo.save();    
+    if(!photo) return res.status(400).json({message:'Error al actulizar los datos'});
     return res.json({
         message: 'Photo Saved Successfully',
         photo
@@ -41,11 +40,12 @@ export async function deletePhoto(req: Request, res: Response): Promise<Response
 
 export async function updatePhoto(req: Request, res: Response): Promise<Response> {
     const { id } = req.params;
-    const { title, description,price } = req.body;
+    const { title, description,price,stock } = req.body;
     const updatedPhoto = await Photo.findByIdAndUpdate(id, {
         title,
         description,
-        price
+        price,
+        stock
     });
     return res.json({
         message: 'Successfully updated',

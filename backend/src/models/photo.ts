@@ -4,7 +4,8 @@ const schema = new Schema({
     title: String,
     description: String,
     imagePath: String,
-    price:String
+    price:String,
+    stock:String
 });
 
 export interface IPhoto extends Document {
@@ -12,6 +13,7 @@ export interface IPhoto extends Document {
     description: string;
     imagePath: string;
     price:string;
+    stock:string;
 }
 
 export default model<IPhoto>('Photo', schema);

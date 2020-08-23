@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { SiloService } from 'src/app/services/silo.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-create-silo',
@@ -31,7 +32,17 @@ export class CreateSiloComponent implements OnInit {
         console.log("imprimiendo resultado");
         console.log(data)
         this.formSilo.reset();
+        Swal.fire({
+          icon:'success',
+          title:'Se han registrado los datos existosamente!!'
+        })
     
+    },
+    err=>{
+      Swal.fire({
+        icon:'error',
+        title:'No se ha podido registrar la información'
+      })
     });
   }
 

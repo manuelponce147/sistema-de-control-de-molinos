@@ -1,6 +1,10 @@
 <div class="container">
+    <h3 class="text-center"><b>Listado de Silos</b></h3>
+    <div class="pdf">
+      <button type="button" (click)="downloadPDF()" class="btn btn-primary">Generar PDF</button>
 
-    <table class="table">
+    </div>
+    <table  class="table table-striped table-hover" id="dataSilos">
       <thead class="thead-light">
         <tr>
           <th scope="col">Nombre</th>
@@ -8,21 +12,20 @@
           <th scope="col">Stock</th>
           <th scope="col">Tipo de Producto</th>
           <th scope="col">Estado</th>
-          <th scope="col">Acción</th>
 
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let silo of silos" class=silo>
+        <tr *ngFor="let silo of silos" class=silo >
           <td>{{silo.nombre}}</td>
           <td>{{silo.capacidadTotal}}</td>
           <td>{{silo.stock}}</td>
           <td>{{silo.tipoProducto}}</td>
-          <td>{{silo.estado}}</td>
-          <td><button type="button" class="btn btn-primary">Ver</button></td>
-
-           
+          <td style="color: #007bff;" *ngIf="silo.estado"><b>Habilitado</b></td>   
+          <td style="color: red;" *ngIf="!silo.estado"><b> No Habilitado</b></td>   
+        
           
+         
         </tr>
         <tr>
       </tbody>

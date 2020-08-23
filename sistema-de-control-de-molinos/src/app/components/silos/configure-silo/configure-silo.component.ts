@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { SiloService } from 'src/app/services/silo.service';
 import { Silo } from 'src/app/models/silos';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-configure-silo',
   templateUrl: './configure-silo.component.html',
@@ -54,20 +54,42 @@ export class ConfigureSiloComponent implements OnInit {
     this.siloService.deleteSilo(id).subscribe(
       (res)=>{
         console.log(res);
+        Swal.fire({
+          icon:"success",
+          text:"Datos eliminados exitosamente!!"
+        })
         this.obtenerSilos();
         
       }
     )
   }
   onSubmit(){
-    this.siloService.updateSilo(this.guardarId,this.formSilo.value).subscribe(
+    if(this.formSilo.get('nombre').value=="" ||this.formSilo.get('capacidadTotal').value=="" ||
+    this.formSilo.get('stock').value=="" || this.formSilo.get('tipoProducto').value=="" || this.formSilo.get('estado').value=="" ){
+      Swal.fire({
+        icon:"error",
+        text:"Por favor complete todos los campos"
+      });
+    }else{
+
+     this.siloService.updateSilo(this.guardarId,this.formSilo.value).subscribe(
       res=>{
         this.obtenerSilos();
         document.getElementById('updateSilo').click();
+        Swal.fire({
+          icon:"success",
+          text:"Datos actualizados exitosamente!!"
+        });
         
     })
-    
   }
+  
+    }
+    
+  
+      
+    
+  
   
 
 }
