@@ -1,0 +1,21 @@
+.container{
+    margin-top: 40px;
+    width: inherit;
+    display: block;
+}
+h2{
+margin-bottom: 20px;
+}
+.card{
+    background: none;
+    border:none;
+    width: 100%;
+}
+tbody br:hover{
+    background:rgba(10, 10, 10, 0.3);
+}
+.pdf{
+    float: right;
+    margin-right: 20px;    
+    
+}

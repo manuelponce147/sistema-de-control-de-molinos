@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { NuevoPesajeComponent } from './components/pesajes/nuevo-pesaje/nuevo-pesaje.component';
 import { DeshabilitarPesajeComponent } from './components/pesajes/deshabilitar-pesaje/deshabilitar-pesaje.component';
-import { ClientesComponent } from './components/clientes/clientes.component';
+import { ClientesComponent } from './components/clientes/pedidos-pendientes/clientes.component';
 import { HomeComponent } from './components/home/home.component';
 import { ListarPesajesComponent } from './components/pesajes/listar-pesajes/listar-pesajes.component';
 import { ErrorComponent } from './components/error/error.component';
@@ -23,6 +23,7 @@ import { AuthService } from './services/auth.service';
 import { PedidosComponent } from './components/pedidos/pedidos.component';
 import { CreatePedidosComponent } from './components/pedidos/create-pedidos/create-pedidos.component';
 import { ListPedidosComponent } from './components/pedidos/list-pedidos/list-pedidos.component';
+import { PedidosListComponent } from './components/clientes/pedidos-list/pedidos-list.component';
 
 const routes: Routes = [
   {
@@ -59,6 +60,11 @@ const routes: Routes = [
   {
     path: 'clientes', 
     component: ClientesComponent, 
+    canActivate: [AuthGuard,UserEncargadoGuard]
+  },
+  {
+    path: 'clientes/list', 
+    component: PedidosListComponent, 
     canActivate: [AuthGuard,UserEncargadoGuard]
   },
   {

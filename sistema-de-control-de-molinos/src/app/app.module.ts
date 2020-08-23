@@ -10,7 +10,7 @@ import { NuevoPesajeComponent } from './components/pesajes/nuevo-pesaje/nuevo-pe
 import { RouterModule } from '@angular/router';
 import { DeshabilitarPesajeComponent } from './components/pesajes/deshabilitar-pesaje/deshabilitar-pesaje.component';
 import { HomeComponent } from './components/home/home.component';
-import { ClientesComponent } from './components/clientes/clientes.component';
+import { ClientesComponent } from './components/clientes/pedidos-pendientes/clientes.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 import { ListarPesajesComponent } from './components/pesajes/listar-pesajes/listar-pesajes.component';
@@ -36,6 +36,7 @@ import {GoogleMapsModule} from '@angular/google-maps';
 import { PedidosComponent } from './components/pedidos/pedidos.component';
 import { CreatePedidosComponent } from './components/pedidos/create-pedidos/create-pedidos.component';
 import { ListPedidosComponent } from './components/pedidos/list-pedidos/list-pedidos.component';
+import { PedidosListComponent } from './components/clientes/pedidos-list/pedidos-list.component';
 
 @NgModule({
   declarations: [
@@ -59,7 +60,8 @@ import { ListPedidosComponent } from './components/pedidos/list-pedidos/list-ped
     UserComponent,
     PedidosComponent,
     CreatePedidosComponent,
-    ListPedidosComponent
+    ListPedidosComponent,
+    PedidosListComponent
     
     
     

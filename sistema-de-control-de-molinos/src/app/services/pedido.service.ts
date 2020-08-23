@@ -22,6 +22,10 @@ export class PedidoService {
     let headers= new HttpHeaders().set('Content-Type','application/json');
     return this.http.get(this.url+'pedidos',{headers:headers});
   }
+  getPedidosFalse():Observable<any>{
+    let headers= new HttpHeaders().set('Content-Type','application/json');
+    return this.http.get(this.url+'pedidos/pendientes',{headers:headers});
+  }
   getPedido(id:string):Observable<any>{
     let headers= new HttpHeaders().set('Content-Type','application/json');
 
@@ -36,6 +40,7 @@ export class PedidoService {
     let headers= new HttpHeaders().set('Content-Type','application.json');
     return this.http.get(this.url+'pedidos/'+id,{headers:headers});
   }
+  
   setStatus(id:string):Observable<any>{
     let headers= new HttpHeaders().set('Content-Type','application.json');
     return this.http.put(this.url+'pedidos/'+id, {headers:headers});

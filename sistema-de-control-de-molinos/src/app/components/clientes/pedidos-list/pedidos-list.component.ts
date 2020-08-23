@@ -1,13 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { PedidoService } from 'src/app/services/pedido.service';
 import { UserService } from 'src/app/services/user.service';
-
+import Swal, * as Jwal from 'sweetalert2';
+import * as jsPDF from 'jspdf';
+import autoTable from 'jspdf-autotable';
 @Component({
-  selector: 'app-clientes',
-  templateUrl: './clientes.component.html',
-  styleUrls: ['./clientes.component.css']
+  selector: 'app-pedidos-list',
+  templateUrl: './pedidos-list.component.html',
+  styleUrls: ['./pedidos-list.component.css']
 })
-export class ClientesComponent implements OnInit {
+export class PedidosListComponent implements OnInit {
+
   misPedidos:any;
   clientes:any;
   name:string;
@@ -33,7 +36,11 @@ export class ClientesComponent implements OnInit {
   }
   aprobar(pedido:any){
     this.verifyTime(pedido);
-    this.pedidoService.setStatus(pedido._id).subscribe(res=>{      
+    this.pedidoService.setStatus(pedido._id).subscribe(res=>{ 
+      Swal.fire({
+        icon:'success',
+        text:'La solicitud  ha sido aceptada'
+      })     
     });
     this.cargarPedidos();
     
@@ -45,9 +52,15 @@ export class ClientesComponent implements OnInit {
     console.log(date, datePedido);
     
   }
-  
-    
-
-
-
+  public downloadPDF():void {
+    let DATA = document.getElementById('table-pedidos');
+    let pdf = new jsPDF({
+      orientation:'1',
+      unit:'pt',
+      format:'a4'
+    });
+    pdf.text("Listado de Pedidos ",200,30);
+    autoTable(pdf, { html: '#table-pedidos' })
+    pdf.save('angular-demo.pdf');
+  }
 }
