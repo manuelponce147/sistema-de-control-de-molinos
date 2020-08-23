@@ -12,7 +12,6 @@ import Swal from 'sweetalert2';
 })
 export class PhotoPreviewComponent implements OnInit {
 
-
   id: string;
   photo: Photo;
 
@@ -29,6 +28,8 @@ export class PhotoPreviewComponent implements OnInit {
         .subscribe(
           res => {
             this.photo = res;
+            console.log(this.photo);
+            
           },
           err => console.log(err)
         )
@@ -47,8 +48,8 @@ export class PhotoPreviewComponent implements OnInit {
       })
   }
 
-  updatePhoto(title: HTMLInputElement, description: HTMLInputElement): boolean {
-    this.photoService.updatePhoto(this.photo._id, title.value, description.value)
+  updatePhoto(title: HTMLInputElement, description: HTMLInputElement,price: HTMLInputElement, stock: HTMLInputElement): boolean {
+    this.photoService.updatePhoto(this.photo._id, title.value, description.value, price.value,stock.value)
       .subscribe(res => {
         console.log(res);
         Swal.fire({

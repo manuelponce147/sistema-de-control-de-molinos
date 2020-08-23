@@ -4,7 +4,7 @@
             Crear Producto
         </div>
         <div class="card-body">
-            <form (submit)="uploadPhoto(title,description,price)" enctype="multipart/form-data">
+            <form (submit)="uploadPhoto(title,description,price,stock)" enctype="multipart/form-data">
 
                 <div class="row">
                     <div class=" col-12 col-md-6 col-lg-6 ">
@@ -13,7 +13,9 @@
                             <label for="nombre">Nombre</label>
                             <input #title type="text" class="form-control" placeholder="ingrese el nombre aqui"
                                 required>
-
+                                <div *ngIf="title.errors && title.touched ||title.dirty" class="alert alert-danger">
+                                     El Nombre es obligatorio
+                                </div>    
                         </div>
 
                         <div class="form-group">
@@ -25,7 +27,12 @@
                         </div>
                         <div class="form-group">
                             <label for="nombre">Precio</label>
-                            <input #price type="text" class="form-control" placeholder="ingrese el Precio aqui" required>
+                            <input #price type="text" class="form-control" onkeypress="if ( isNaN( String.fromCharCode(event.keyCode) )) return false;"placeholder="ingrese la cantidad aqui" required placeholder="ingrese el Precio aqui" required>
+
+                        </div>
+                        <div class="form-group">
+                            <label for="nombre">Stock</label>
+                            <input #stock type="text" class="form-control"   onkeypress="if ( isNaN( String.fromCharCode(event.keyCode) )) return false;"placeholder="ingrese la cantidad aqui" required>
 
                         </div>
                     </div>

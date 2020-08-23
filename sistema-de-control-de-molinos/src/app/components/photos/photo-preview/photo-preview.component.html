@@ -6,7 +6,7 @@
         
         <div class="col-12 col-md-6 col-lg-5 mx-auto">
             <div class="card data">
-                <form class="card-body" (submit)="updatePhoto(title, description)">
+                <form class="card-body" (submit)="updatePhoto(title, description,price,stock)">
                     <div class="form-group">
                         <label for="nombre">Nombre</label>
                         <input type="text" class="form-control" placeholder="Photo's Title" [value]="photo.title"
@@ -19,8 +19,13 @@
                     </div>
                     <div class="form-group">
                         <label for="nombre">Precio</label>
-                        <input type="text" class="form-control" placeholder="Photo's price" [value]="photo.price"
+                        <input type="number" class="form-control" placeholder="Photo's price" [value]="(photo.price)"
                             #price>
+                    </div>
+                    <div class="form-group">
+                        <label for="nombre">Stock</label>
+                        <input type="number" class="form-control" placeholder="Photo's price" [value]="photo.stock"
+                            #stock>
                     </div>
                     <button class="btn btn-primary btn-block">
                         Actualizar

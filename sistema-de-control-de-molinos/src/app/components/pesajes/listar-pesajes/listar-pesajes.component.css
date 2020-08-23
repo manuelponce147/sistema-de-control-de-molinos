@@ -28,6 +28,19 @@ a{
     margin: 5px;
    padding: 5px;
 }
+
+.pdf{
+    width: 95%;
+    margin: 0 auto;
+}
+.pdf button{
+    float: right;
+    width: auto;
+    margin: 5px;
+}
+tbody tr{
+    cursor: pointer;
+}
 @media screen and (max-width:767px){
     .client , .details{
         display: block;
@@ -43,4 +56,7 @@ a{
 }
 .container{
     overflow-x: auto;
+}
+tbody tr:hover{
+    background-color: rgba(10, 10, 10, 0.3);
 }

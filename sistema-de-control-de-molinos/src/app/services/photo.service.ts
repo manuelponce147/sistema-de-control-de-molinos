@@ -13,11 +13,12 @@ export class PhotoService {
     this.url = Global.url;
   }
 
-  createPhoto(title: string, description: string, price:string,photo: File) {
+  createPhoto(title: string, description: string, price:string,stock:string,photo: File) {
     const fd = new FormData();    
     fd.append('title', title);
     fd.append('description', description);
     fd.append('price', price);
+    fd.append('stock', stock);
     fd.append('image', photo);
     let auth=localStorage.getItem("auth-token");
     console.log(JSON.stringify(fd));
@@ -42,7 +43,7 @@ export class PhotoService {
     return this.http.delete(`${this.url}/photos/${id}`);
   }
 
-  updatePhoto(id: string, title: string, description: string) {
-    return this.http.put(`${this.url}/photos/${id}`, { title, description });
+  updatePhoto(id: string, title: string, description: string, price:string,stock:string) {
+    return this.http.put(`${this.url}/photos/${id}`, { title, description ,price,stock});
   }
 }

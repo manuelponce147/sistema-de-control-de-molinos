@@ -1,9 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { PesajeService } from 'src/app/services/pesaje.service';
 import { Pesaje } from 'src/app/models/pesaje';
 import { Global } from '../../../global';
-import * as jspdf from 'jspdf';
-import html2canvas from 'html2canvas';
+import * as jsPDF from 'jspdf';
+import autoTable from 'jspdf-autotable';
+
+
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 @Component({
   selector: 'app-listar-pesajes',
@@ -12,6 +14,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   providers: [PesajeService]
 })
 export class ListarPesajesComponent implements OnInit {
+  @ViewChild('htmlData') htmlData:ElementRef;
   public pesajes: Pesaje[];
   public url: string;
   formPesaje: FormGroup;
@@ -87,6 +90,17 @@ export class ListarPesajesComponent implements OnInit {
     event.preventDefault();
     this.cargarDatos(pesaje);
     
+  }
+  public downloadPDF():void {
+    let DATA = document.getElementById('htmlData');
+    let pdf = new jsPDF({
+      orientation:'1',
+      unit:'pt',
+      format:'a4'
+    });
+    pdf.text("Listado de Pesajes",200,30);
+    autoTable(pdf, { html: '#htmlData' })
+    pdf.save('angular-demo.pdf');
   }
  
 }

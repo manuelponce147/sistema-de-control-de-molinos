@@ -28,6 +28,8 @@ export class DeshabilitarPesajeComponent implements OnInit {
       tipoTransaccion:['',Validators.required],
       patente:['',Validators.required],
       tipoVehiculo:['',Validators.required],
+      tipoProducto:['',Validators.required],
+
 
    });
 
@@ -92,7 +94,16 @@ export class DeshabilitarPesajeComponent implements OnInit {
       res=>{
         this.getPesajes();
         document.getElementById('updatemodal').click();
+        Swal.fire({
+          icon:'success',
+          text:'Los datos se han actualizado exitosamente!!'
+        })
         
+    },error=>{
+      Swal.fire({
+        icon:'error',
+        text:'Error al actualizar los datos por favor verifique la información'
+      })
     })
     
   }

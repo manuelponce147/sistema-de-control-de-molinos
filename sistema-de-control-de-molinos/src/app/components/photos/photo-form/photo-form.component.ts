@@ -27,8 +27,8 @@ export class PhotoFormComponent implements OnInit {
         
     }
   }
-  uploadPhoto(title:HTMLInputElement, description:HTMLInputElement,price:HTMLInputElement):boolean{
-      this.photoService.createPhoto(title.value,description.value,price.value,this.file)
+  uploadPhoto(title:HTMLInputElement, description:HTMLInputElement,price:HTMLInputElement, stock:HTMLInputElement):boolean{
+      this.photoService.createPhoto(title.value,description.value,price.value,stock.value,this.file)
           .subscribe(
               res=>{
                 console.log(res);
