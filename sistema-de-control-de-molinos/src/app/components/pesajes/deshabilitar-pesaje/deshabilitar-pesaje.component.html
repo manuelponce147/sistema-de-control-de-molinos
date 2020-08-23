@@ -1,5 +1,5 @@
 <div class="container">
-
+    <h3 id="title-table" class="text-center"><b> Configuración de pesajes</b></h3>
     <table class="table">
         <thead class="thead-light">
             <tr>
@@ -18,8 +18,7 @@
                 <td>{{pesaje.createdAt | date:'dd/MM/yyyy'}}</td>
                 <td>{{pesaje.tipoProducto}}</td>
                 <td>
-                    <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#updatemodal"
-                        (click)="cargarDatos(pesaje,pesaje._id)">Actualizar</button>
+                    <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#updatemodal" (click)="cargarDatos(pesaje,pesaje._id)">Actualizar</button>
                     <button type="button" class="btn btn-danger" (click)="eliminar(pesaje._id)">Eliminar</button>
                 </td>
             </tr>
@@ -52,23 +51,20 @@
                     </div>
                     <div class="form-group">
                         <label for="razonSocial">Razón Social</label>
-                        <input type="text" formControlName="razonSocial" class="form-control"
-                            placeholder="Razón Social">
+                        <input type="text" formControlName="razonSocial" class="form-control" placeholder="Razón Social">
 
                     </div>
 
                     <h5 class="card-title">Detalles</h5>
                     <div class="form-group">
                         <label for="pesoEntrada" class="form-label">Peso de entrada</label>
-                        <input type="number" formControlName="pesoEntrada" class="form-control"
-                            placeholder="Peso de Entrada">
+                        <input type="number" formControlName="pesoEntrada" class="form-control" placeholder="Peso de Entrada">
 
 
                     </div>
                     <div class="form-group">
                         <label for="pesoSalida" class="form-label">Peso de salida</label>
-                        <input type="number" formControlName="pesoSalida" class="form-control"
-                            placeholder="Peso de Salida">
+                        <input type="number" formControlName="pesoSalida" class="form-control" placeholder="Peso de Salida">
 
                     </div>
                     <div class="form-group">
@@ -99,7 +95,7 @@
                             <option value="Auto">Auto</option>
                         </select>
                     </div>
-                   
+
                 </div>
 
                 <div class="modal-footer">
