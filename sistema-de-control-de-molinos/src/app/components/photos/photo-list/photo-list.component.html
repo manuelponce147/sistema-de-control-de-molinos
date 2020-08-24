@@ -1,5 +1,5 @@
 <div class="container mx-auto col-8 col-offset-1 pt-4">
-    <h2 class="text-center">Lista de Productos</h2>
+    <h2 class="text-center"><b>Lista de Productos</b></h2>
     <div class="products row mx-auto mt-5">
         <div *ngFor="let photo of photos | paginate:{itemsPerPage:8,currentPage:p}" class="card " (click)="selectedCard(photo._id)">
             <div class="card-header">

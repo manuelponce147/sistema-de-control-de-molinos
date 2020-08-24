@@ -1,5 +1,7 @@
-
-h2{
+.container{
+    margin-top: 40px;
+}
+h3{
     text-align: center;
     margin:10px;
     font-family: Arial, Helvetica, sans-serif;
