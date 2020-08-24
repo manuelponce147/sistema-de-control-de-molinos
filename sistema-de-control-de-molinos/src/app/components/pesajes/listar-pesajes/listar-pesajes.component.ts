@@ -7,6 +7,7 @@ import autoTable from 'jspdf-autotable';
 
 
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { IPesaje } from 'src/app/interfaces/pesaje';
 @Component({
   selector: 'app-listar-pesajes',
   templateUrl: './listar-pesajes.component.html',
@@ -14,10 +15,16 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   providers: [PesajeService]
 })
 export class ListarPesajesComponent implements OnInit {
-  public pesajes: Pesaje[];
+  public pesajes: IPesaje[];
   public url: string;
   formPesaje: FormGroup;
   details: FormGroup;
+  nombre: string;
+  rut: string;
+  patente: string;
+  formFiltrado: FormGroup;
+
+
 
   constructor(private pesajeService: PesajeService, private formBuilder: FormBuilder) {
     this.url = Global.url;
@@ -40,8 +47,6 @@ export class ListarPesajesComponent implements OnInit {
 
   ngOnInit(): void {
     this.getPesajes();
-
-    
   }
   getPesajes() {
     this.pesajeService.obtenerPesajes().subscribe(
@@ -49,7 +54,7 @@ export class ListarPesajesComponent implements OnInit {
         if (response) {
           this.pesajes=response;
           console.log(response);
-          
+
         }
       }, error => {
         console.log(<any>error);
@@ -88,7 +93,7 @@ export class ListarPesajesComponent implements OnInit {
   VerPesaje(event: Event, pesaje: any) {
     event.preventDefault();
     this.cargarDatos(pesaje);
-    
+
   }
   public downloadPDF():void {
     let DATA = document.getElementById('htmlData');
@@ -101,5 +106,17 @@ export class ListarPesajesComponent implements OnInit {
     autoTable(pdf, { html: '#htmlData' })
     pdf.save('angular-demo.pdf');
   }
- 
+  Search(){
+    if(this.nombre != ""){
+      this.pesajes = this.pesajes.filter(res=>{
+        return res.nombre.toLocaleLowerCase().match(this.nombre.toLocaleLowerCase());
+      });
+    }else if(this.nombre == ""){
+        this.ngOnInit();
+    }
+
+  }
+
+
+
 }

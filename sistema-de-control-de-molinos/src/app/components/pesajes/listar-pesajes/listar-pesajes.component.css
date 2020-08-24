@@ -10,6 +10,14 @@ table{
 a{
     margin-left: 15px;
 }
+.row2{
+  margin: 10px;
+  margin-left: 30px;
+}
+.row2 label{
+  margin-right: 5px;
+
+}
 .modal-body{
     position: flex;
     overflow: auto;
@@ -22,7 +30,7 @@ a{
    margin: 5px;
    padding: 5px;
    width: 45%;
-  
+
 }
 .typeP{
     margin: 5px;
