@@ -1,12 +1,13 @@
 export interface IPesaje{
     _id?:string;
-    nombre:String;
-    rut:String;
-    razonSocial:String;
-    pesoEntrada:Number;
-    pesoSalida:Number;
-    tipoTransaccion:String;
-    tipoVehiculo:String;
-    patente:String; 
-    tipoProducto:String;
+    nombre:string;
+    rut:string;
+    razonSocial:string;
+    pesoEntrada:number;
+    pesoSalida:number;
+    tipoTransaccion:string;
+    tipoVehiculo:string;
+    patente:string; 
+    tipoProducto:string;
+    createdAt:Date
 }

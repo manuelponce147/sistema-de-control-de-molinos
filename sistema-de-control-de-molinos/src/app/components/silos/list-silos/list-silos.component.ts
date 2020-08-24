@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { SiloService } from 'src/app/services/silo.service';
 import { Silo } from 'src/app/models/silos';
 import * as jsPDF from 'jspdf';
@@ -14,6 +14,7 @@ export class ListSilosComponent implements OnInit {
   silos:Silo=[];
   formSilo: FormGroup;
   details: FormGroup;
+  @Input() progreso:any;
   constructor(private siloService:SiloService , private formBuilder: FormBuilder) {
     this.formSilo = this.formBuilder.group({
       nombre:['',[Validators.required]],
@@ -55,7 +56,9 @@ export class ListSilosComponent implements OnInit {
       stock: silo.stock,
       tipoProducto: silo.tipoProducto,
       estado: silo.estado
+
     });
+    this.progreso = (silo.stock*100 )/ silo.capacidadTotal ;
   }
   VerSilo(event: Event, silo: any) {
     event.preventDefault();
