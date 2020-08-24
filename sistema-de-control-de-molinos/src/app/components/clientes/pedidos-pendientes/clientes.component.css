@@ -1,9 +1,16 @@
 .container{
     margin-top: 40px;
+    display: block;
 }
 h2{
 margin-bottom: 20px;
 }
 .card{
     margin-top: 30px;
+    width: 100%;
+}
+
+.pedidos button{
+    float: right;
+    margin-bottom: 10px;
 }
