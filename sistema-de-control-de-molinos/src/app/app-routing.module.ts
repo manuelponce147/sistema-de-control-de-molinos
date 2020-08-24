@@ -24,6 +24,7 @@ import { PedidosComponent } from './components/pedidos/pedidos.component';
 import { CreatePedidosComponent } from './components/pedidos/create-pedidos/create-pedidos.component';
 import { ListPedidosComponent } from './components/pedidos/list-pedidos/list-pedidos.component';
 import { PedidosListComponent } from './components/clientes/pedidos-list/pedidos-list.component';
+import { ListUserComponent } from './components/user/list-user/list-user.component';
 
 const routes: Routes = [
   {
@@ -65,6 +66,11 @@ const routes: Routes = [
   {
     path: 'clientes/list', 
     component: PedidosListComponent, 
+    canActivate: [AuthGuard,UserEncargadoGuard]
+  },
+  {
+    path: 'users/list', 
+    component: ListUserComponent, 
     canActivate: [AuthGuard,UserEncargadoGuard]
   },
   {

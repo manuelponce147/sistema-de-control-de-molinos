@@ -37,6 +37,7 @@ import { PedidosComponent } from './components/pedidos/pedidos.component';
 import { CreatePedidosComponent } from './components/pedidos/create-pedidos/create-pedidos.component';
 import { ListPedidosComponent } from './components/pedidos/list-pedidos/list-pedidos.component';
 import { PedidosListComponent } from './components/clientes/pedidos-list/pedidos-list.component';
+import { ListUserComponent } from './components/user/list-user/list-user.component';
 
 @NgModule({
   declarations: [
@@ -61,7 +62,8 @@ import { PedidosListComponent } from './components/clientes/pedidos-list/pedidos
     PedidosComponent,
     CreatePedidosComponent,
     ListPedidosComponent,
-    PedidosListComponent
+    PedidosListComponent,
+    ListUserComponent
     
     
     
