@@ -12,6 +12,7 @@
         </div>
         <div class="right">
           <button type="button" class="btn btn-primary" (click)="downloadPDF()">Generar PDF</button>
+          <button type="button" class="btn btn-danger" (click)="downloadPDFToday()">Generar PDF del dia</button>
         </div>
 
     </div>
@@ -49,12 +50,14 @@
       <form [formGroup]=formPesaje novalidate id="export">
 
         <div class="modal-header">
-          <h4 class="modal-title">Ver Información</h4>
           <button type="button" class="close" id="modalclose" data-dismiss="modal">x</button>
         </div>
-        <div class="moda-body">
+       
+        <div id="content" class="modal-body">
+          <h4 class="text-center"><b>Información del Pesaje</b></h4>
           <div class="client">
-            <h5>Cliente</h5>
+            <h5><b>Cliente</b></h5>
+            <br>
             <div class="form-group">
               <label for="nombre" class="form-label">Nombre</label>
               <input type="text" formControlName="nombre" class="form-control" [attr.disabled]="true"
@@ -75,7 +78,8 @@
           </div>
           <div class="details">
 
-            <h5>Detalles</h5>
+            <h5><b>Detalles</b></h5>
+              <br>            
             <div class="form-group">
               <label for="pesoEntrada" class="form-label">Peso de entrada</label>
               <input type="number" formControlName="pesoEntrada" class="form-control" [attr.disabled]="true"
@@ -95,8 +99,8 @@
                 placeholder="Tipo de transaccion">
             </div>
           </div>
-          <div class="typeP">
-            <div class="form-group">
+          <div class="type_P">
+            <div class="form-group col-5">
               <label for="tipoProducto"> Tipo de Producto</label>
               <input type="string" formControlName="tipoProducto" class="form-control" [attr.disabled]="true"
                 placeholder="Tipo de producto">
@@ -107,7 +111,7 @@
 
 
           <div class="vehicle">
-            <h5> Vehiculo</h5>
+            <h5 class="text-center"><b>Detalles del Vehiculo </b> </h5>
             <div class="form-group">
               <label for="patente" class="form-label">Patente</label>
               <input type="text" formControlName="patente" class="form-control" [attr.disabled]="true"
@@ -124,6 +128,7 @@
         </div>
 
         <div class="modal-footer">
+          <button type="button" class="btn btn-primary" (click)="downloadUnique()">generar Pdf</button>
           <button type="button" class="btn btn-danger" id="btnmodal" data-dismiss="modal">Cerrar</button>
 
         </div>

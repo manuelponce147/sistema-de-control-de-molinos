@@ -38,6 +38,11 @@ a{
     float: right;
     width: auto;
     margin-bottom: 10px;
+   
+}
+.right button{
+    margin-right: 5px;
+    margin-left: 5px;
 }
 
 tbody tr{
@@ -61,4 +66,19 @@ tbody tr{
 }
 tbody tr:hover{
     background-color: rgba(10, 10, 10, 0.3);
+}
+.type_P{
+    margin: 0px auto;
+    width: 100%;
+    display: flex;
+  justify-content: center;
+}
+h4{
+    margin-top: 10px;
+    margin-bottom: 20px;
+    color:#007bff
+    
+}
+.modal-body{
+    padding: 0;
 }
