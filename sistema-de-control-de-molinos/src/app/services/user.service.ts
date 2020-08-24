@@ -31,4 +31,8 @@ export class UserService {
     return this.http.put(this.url+'user/'+id,userRole,{headers:headers});
 
   }
+  NewPassword(email:string):Observable<any>{
+    return this.http.post(this.url+'newpass',email);
+
+  }
 }

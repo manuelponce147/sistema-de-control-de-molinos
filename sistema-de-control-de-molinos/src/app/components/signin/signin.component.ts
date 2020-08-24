@@ -3,6 +3,7 @@ import { AuthService } from 'src/app/services/auth.service';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { UserService } from 'src/app/services/user.service';
 @Component({
   selector: 'app-signin',
   templateUrl: './signin.component.html',
@@ -10,11 +11,14 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 })
 export class SigninComponent implements OnInit {
   formSignin:FormGroup;
-
-  constructor(private authService: AuthService, private router: Router,private formBuilder:FormBuilder) {
+  formEmail:FormGroup;
+  constructor(private authService: AuthService,private userService: UserService, private router: Router,private formBuilder:FormBuilder) {
       this.formSignin=this.formBuilder.group({
         email:['',[Validators.required]],
         password:['',[Validators.required]]
+      });
+      this.formEmail=this.formBuilder.group({
+        email:['',[Validators.required]],
       })
   }
 
@@ -54,5 +58,28 @@ export class SigninComponent implements OnInit {
 
   }
 
+  solicitar(){
+    this.userService.NewPassword(this.formEmail.value).subscribe(res=>{
+      document.getElementById('change-pass').click();
+      this.formEmail.reset();
+      Swal.fire({
+        icon:"success",
+        text:"Se ha solicitado exitosamente la nueva contraseña"
+      });
+      
+    },
+    err=>{
+      console.log(err);
+      
+      document.getElementById('change-pass').click();
+      this.formEmail.reset();
+      Swal.fire({
+        icon:"error",
+        text:err.error
+      });
+      
+      
+    })
+  }
 
 }

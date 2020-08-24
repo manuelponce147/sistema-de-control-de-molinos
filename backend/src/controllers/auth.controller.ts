@@ -3,6 +3,7 @@ import User, { IUser } from '../models/user';
 import jwt from 'jsonwebtoken';
 import bcrypt from 'bcrypt';
 
+
 export const signup = async (req: Request, res: Response) => {
     const user: IUser = new User({
         name: req.body.name,

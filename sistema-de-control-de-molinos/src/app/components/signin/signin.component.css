@@ -17,3 +17,26 @@ button{
     margin:auto;
     
 }
+#reset-pass{
+    background: none;
+    border: none;
+    margin-top: 10px;
+    color: #007bff;
+    font-weight: bold;
+}
+#reset-pass:hover{
+    font-size: 17px;
+    font-family: sans-serif;
+
+}
+.modal h5{
+    color: #007bff;
+}
+.modal label{
+    font-weight: bold;
+    font-size: 16px;
+    font-family: sans-serif;
+}
+.modal-footer{
+    border: none;
+}

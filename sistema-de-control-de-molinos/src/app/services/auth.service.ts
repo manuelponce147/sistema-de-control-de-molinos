@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Auth } from '../global';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
 import {IUser } from '../interfaces/user'
@@ -57,6 +57,7 @@ export class AuthService {
     let user: IUser=JSON.parse(localStorage.getItem('user'));    
     return user.name;
   }
+  
   
    
    

@@ -1,5 +1,7 @@
 import { Request, Response } from "express";
 import User, { IUser,IUser2 } from '../models/user';
+import Mail from "../services/mail";
+import * as generator from "generate-password";
 
 export async function getUsers(req:Request, res:Response){
     const  users = await User.find();
@@ -33,4 +35,32 @@ export async function changeRole(req:Request, res:Response){
     });
     if(!update) return res.status(404).send({message:"No se ha encontrado el usuario"});
     return res.status(200).json(update);
+}
+export async function newPassword(req:Request,res:Response){
+    const {email}=req.body;
+    const user = await User.findOne({ email });    
+    console.log(user);
+    
+    if (!user) return res.status(404).json("Email incorrecto !!");
+    var password = generator.generate({
+        length:10,
+        numbers:true
+    });
+    var encrypPass=await user.encryptPassword(password);    
+    const newUser=await User.findByIdAndUpdate(user.id,{
+        password:encrypPass
+    });
+    
+    if(!newUser) return res.status(400).send("Error al actualzar la contraseña");
+    
+    Mail.to = email;
+    Mail.subject = "Cambio de contraseña";
+    Mail.message = "su nueva contraseña es: "+password;
+    const result = await Mail.sendMail();
+
+    return res.status(200).send({message:"se ha cambiado exitosamente la contraseña"})
+
+
+    
+    
 }
