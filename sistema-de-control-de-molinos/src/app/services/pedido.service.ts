@@ -24,7 +24,7 @@ export class PedidoService {
   }
   getPedidosFalse():Observable<any>{
     let headers= new HttpHeaders().set('Content-Type','application/json');
-    return this.http.get(this.url+'pedidos/pendientes',{headers:headers});
+    return this.http.get(this.url+'pedidospendientes',{headers:headers});
   }
   getPedido(id:string):Observable<any>{
     let headers= new HttpHeaders().set('Content-Type','application/json');

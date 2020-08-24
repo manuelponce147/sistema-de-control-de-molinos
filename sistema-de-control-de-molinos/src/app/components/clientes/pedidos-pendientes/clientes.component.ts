@@ -20,9 +20,10 @@ export class ClientesComponent implements OnInit {
   cargarPedidos(){
     this.pedidoService.getPedidosFalse().subscribe(res=>{
       this.misPedidos=res;
+      console.log(res);
+      
       
     });
-    document
   }
   cargarUsuarios(){
     this.userService.getUsers().subscribe(res=>{
@@ -32,7 +33,6 @@ export class ClientesComponent implements OnInit {
     
   }
   aprobar(pedido:any){
-    this.verifyTime(pedido);
     this.pedidoService.setStatus(pedido._id).subscribe(res=>{ 
       Swal.fire({
         icon:'success',
@@ -43,12 +43,7 @@ export class ClientesComponent implements OnInit {
     
     
   }
-  verifyTime(pedido){
-    var date=new Date();
-    var datePedido=new Date(pedido.createdAt);
-    console.log(date, datePedido);
-    
-  }
+  
   
     
 

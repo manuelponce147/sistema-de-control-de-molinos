@@ -36,14 +36,14 @@ export class PhotoService {
 
   getPhoto(id: string):Observable<Photo> {
 
-    return this.http.get<Photo>(`${this.url}/photos/${id}`);
+    return this.http.get<Photo>(this.url+'photos/'+id);
   }
 
   deletePhoto(id: string) {
-    return this.http.delete(`${this.url}/photos/${id}`);
+    return this.http.delete(this.url+'photos/'+id);
   }
 
   updatePhoto(id: string, title: string, description: string, price:string,stock:string) {
-    return this.http.put(`${this.url}/photos/${id}`, { title, description ,price,stock});
+    return this.http.put(this.url+'photos/'+id, { title, description ,price,stock});
   }
 }

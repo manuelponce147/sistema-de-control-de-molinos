@@ -1,15 +1,8 @@
 import {Request, Response } from 'express';
 import Pedido,{ IPedido } from "../models/pedido";
-import { pseudoRandomBytes } from 'crypto';
 
 export async function getPedidos(req:Request,res:Response){
     const pedidos= await Pedido.find();
-    if (!pedidos) return res.status(404).send({message:"Error al solicitar los pedidos"});
-
-    return res.status(200).json(pedidos);
-}
-export async function getPedidosFalse(req:Request,res:Response){
-    const pedidos= await Pedido.find({status:false});
     if (!pedidos) return res.status(404).send({message:"Error al solicitar los pedidos"});
 
     return res.status(200).json(pedidos);
@@ -65,3 +58,15 @@ export async function changeStatus(req:Request,res:Response){
 
     return res.status(200).json(pedido);
 }   
+
+export async function getPedidosPendientes(req:Request,res:Response){
+    const pedidos= await Pedido.find({status:false});
+    if (!pedidos) return res.status(400).send({message:"Error al solicitar los pedidos"});
+    
+    if(pedidos.length==0)return res.status(404).send({message:"No se ha encontrado ningun pedido"}); 
+
+    
+    return res.status(200).json(pedidos);
+        
+    
+}
