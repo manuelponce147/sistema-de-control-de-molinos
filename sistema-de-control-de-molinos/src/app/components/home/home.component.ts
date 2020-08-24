@@ -19,8 +19,8 @@ export class HomeComponent implements OnInit {
 
   constructor(private authService:AuthService, private router:Router) { }
 
-  ngOnInit(): void { 
-   
+  ngOnInit(): void {
+
   }
   butonclic(){
     let isLogged= this.authService.loggedIn();
@@ -40,18 +40,18 @@ export class HomeComponent implements OnInit {
           this.router.navigate(['catalogo']);
         }
       }
-      
 
-      
+
+
     }
-    
-   
-  
-    
 
-   
-      
-    
+
+
+
+
+
+
+
   }
 
 
