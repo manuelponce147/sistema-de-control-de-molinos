@@ -56,8 +56,13 @@
 
                             </div>
                             <div class="form-group">
-                                <label for="tipoProducto" class="form-label ml-1">Tipo de Producto</label>
-                                <input type="text" formControlName="tipoProducto" class="form-control" placeholder="Tipo de Producto">
+                              <label for="tipoProducto" class="form-label ml-1">Tipo de Grano</label>
+                              <select class="form-control" formControlName="tipoProducto">
+                                <option value="" selected disabled>Tipo de Grano</option>
+                                <option value="Trigo">Trigo</option>
+                                <option value="Soya">Soya</option>
+                                <option value="Avena">Avena</option>
+                              </select>
 
                             </div>
                             <div class="form-group">

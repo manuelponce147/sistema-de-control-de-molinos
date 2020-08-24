@@ -13,7 +13,7 @@
                                 required>
                                 <div *ngIf="title.errors && title.touched ||title.dirty" class="alert alert-danger">
                                      El Nombre es obligatorio
-                                </div>    
+                                </div>
                         </div>
 
                         <div class="form-group">
@@ -24,7 +24,7 @@
                         </textarea>
                         </div>
                         <div class="form-group">
-                            <label for="nombre">Precio</label>
+                            <label for="nombre">Precio (CLP)</label>
                             <input #price type="text" class="form-control" onkeypress="if ( isNaN( String.fromCharCode(event.keyCode) )) return false;"placeholder="ingrese la cantidad aqui" required placeholder="ingrese el Precio aqui" required>
 
                         </div>
