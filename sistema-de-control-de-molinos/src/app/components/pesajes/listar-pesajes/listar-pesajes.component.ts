@@ -54,11 +54,10 @@ export class ListarPesajesComponent implements OnInit {
       response => {
         if (response) {
           this.pesajes = response;
-          console.log(response);
 
         }
       }, error => {
-        console.log(<any>error);
+        console.log(error);
 
       }
     )
@@ -108,7 +107,7 @@ export class ListarPesajesComponent implements OnInit {
     pdf.save('angular-demo.pdf');
   }
  
-  Search() {
+  searchNombre() {
     if (this.nombre != "") {
       this.pesajes = this.pesajes.filter(res => {
         return res.nombre.toLocaleLowerCase().match(this.nombre.toLocaleLowerCase());
@@ -116,6 +115,58 @@ export class ListarPesajesComponent implements OnInit {
     } else if (this.nombre == "") {
       this.ngOnInit();
     }
+
+  }
+  searchRut() {
+    if (this.rut != "") {
+      this.pesajes = this.pesajes.filter(res => {
+        return res.rut.toLocaleLowerCase().match(this.rut.toLocaleLowerCase());
+      });
+    } else if (this.rut == "") {
+      this.ngOnInit();
+    }
+
+  }
+  searchPatente() {
+    if (this.patente != "") {
+      this.pesajes = this.pesajes.filter(res => {
+        return res.patente.toLocaleLowerCase().match(this.patente.toLocaleLowerCase());
+      });
+    } else if (this.patente == "") {
+      this.ngOnInit();
+    }
+
+  }
+  
+  changeFilter(value:string){
+    const inputName = document.getElementById('filterName');
+    const inputRut = document.getElementById('filterRut');
+    const inputPatente = document.getElementById('filterPatente');
+    console.log(inputName,inputRut,inputPatente);
+    
+    if(value=="nombre"){
+      inputName.style.display="";
+      inputRut.style.display="none";
+      inputPatente.style.display="none";
+    }else{
+      if(value=="rut"){
+        inputName.style.display="none";
+        inputRut.style.display="";
+        inputPatente.style.display="none";
+      }else{
+        if(value=="patente"){
+          inputName.style.display="none";
+          inputRut.style.display="none";
+          inputPatente.style.display="";
+          }
+      }
+    }
+      
+    
+  
+
+    
+
 
   }
   public downloadPDFToday(): void {
@@ -148,7 +199,6 @@ export class ListarPesajesComponent implements OnInit {
       delete pesajesToday[i]['__v']
 
     }
-    console.log(pesajesToday); 
     let data =pesajesToday;
     values = data.map( (elemento) => Object.values(elemento));
 
@@ -159,7 +209,6 @@ export class ListarPesajesComponent implements OnInit {
         body: values  ,
       })
 
-    console.log("Impresion PDF");
     pdf.save('pesajesdehoy.pdf');
   }
   public downloadUnique(): void{

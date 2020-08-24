@@ -82,3 +82,20 @@ h4{
 .modal-body{
     padding: 0;
 }
+.left input,select{
+    height: 30px;
+    border-radius: .25rem;
+    border:none;
+    margin-left: 5px;
+}
+.left select{
+    background: #007bff;
+    color: white;
+}
+.left select option{
+    background: white;
+    color: black;
+}
+.lef input:focus{
+ box-shadow: cornflowerblue;   
+}
