@@ -10,14 +10,6 @@ table{
 a{
     margin-left: 15px;
 }
-.row2{
-  margin: 10px;
-  margin-left: 30px;
-}
-.row2 label{
-  margin-right: 5px;
-
-}
 .modal-body{
     position: flex;
     overflow: auto;
@@ -32,20 +24,22 @@ a{
    width: 45%;
 
 }
-.typeP{
-    margin: 5px;
-   padding: 5px;
-}
 
-.pdf{
+.side{
     width: 95%;
     margin: 0 auto;
+    display: inline-block;
 }
-.pdf button{
+.left{
+    float: left;
+    width: auto;
+}
+.right{
     float: right;
     width: auto;
-    margin: 5px;
+    margin-bottom: 10px;
 }
+
 tbody tr{
     cursor: pointer;
 }

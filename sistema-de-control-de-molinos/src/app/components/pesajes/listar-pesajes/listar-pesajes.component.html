@@ -5,14 +5,12 @@
   <br>
 
   <div class="row">
-    <div class="row2">
-        <label>Filtrado por Nombre:  </label>
-
-        <input type="text" [(ngModel)]="nombre" (input)="Search()" />
-
-
-
-        <div class="pdf">
+    <div class="side">
+        <div class="left">
+          <label>Filtrado por Nombre:  </label>
+          <input type="text" [(ngModel)]="nombre" (input)="Search()" />
+        </div>
+        <div class="right">
           <button type="button" class="btn btn-primary" (click)="downloadPDF()">Generar PDF</button>
         </div>
 
