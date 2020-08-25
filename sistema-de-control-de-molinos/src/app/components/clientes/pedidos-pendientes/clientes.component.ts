@@ -33,12 +33,27 @@ export class ClientesComponent implements OnInit {
     
   }
   aprobar(pedido:any){
-    this.pedidoService.setStatus(pedido._id).subscribe(res=>{ 
+    let date=  new Date();
+    const milliseconds= new Date(date).getTime();
+    let dateP = new Date(pedido.createdAt);
+    const mills=dateP.getTime();
+    const oneday = 60 * 60 * 24 * 1000;
+
+    if(milliseconds-mills< oneday){
+        this.pedidoService.setStatus(pedido._id).subscribe(res=>{
+          Swal.fire({
+            icon:'success',
+            text:'La solicitud ha sido aprobada exitosamente'
+          }   
+      )});
+  
+    }else{
       Swal.fire({
-        icon:'success',
-        text:'La solicitud  ha sido aceptada'
-      })     
-    });
+        icon:'warning',
+        text:'La solicitud ha caducado'
+      })   
+      
+    }
     this.cargarPedidos();
     
     
