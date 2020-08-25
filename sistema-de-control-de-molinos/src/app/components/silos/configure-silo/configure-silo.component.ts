@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { SiloService } from 'src/app/services/silo.service';
-import { Silo } from 'src/app/models/silos';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import Swal from 'sweetalert2';
+import { ISilo } from 'src/app/interfaces/silo';
 @Component({
   selector: 'app-configure-silo',
   templateUrl: './configure-silo.component.html',
@@ -10,8 +10,9 @@ import Swal from 'sweetalert2';
 })
 export class ConfigureSiloComponent implements OnInit {
   formSilo:FormGroup;
-  silos:Silo=[];
+  silos:ISilo[]=[];
   guardarId:string;
+  status:boolean;
   constructor(private siloService:SiloService,
     private formBuilder:FormBuilder){ 
       this.formSilo=this.formBuilder.group({
@@ -24,13 +25,18 @@ export class ConfigureSiloComponent implements OnInit {
     }
 
   ngOnInit(): void {
-    this.obtenerSilos()
+    this.obtenerSilos();
+    if (this.silos.length==0) {
+      this.status=true;      
+    }else{
+      this.status=false;
+    }
+    
   }
   obtenerSilos(){
     this.siloService.getSilos()
       .subscribe(res => {
         this.silos = res;
-        console.log(this.silos);
         
       }
         );
@@ -53,7 +59,6 @@ export class ConfigureSiloComponent implements OnInit {
   deleteSilo(id:string){
     this.siloService.deleteSilo(id).subscribe(
       (res)=>{
-        console.log(res);
         Swal.fire({
           icon:"success",
           text:"Datos eliminados exitosamente!!"

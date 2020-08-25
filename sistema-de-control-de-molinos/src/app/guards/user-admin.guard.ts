@@ -13,7 +13,6 @@ export class UserAdminGuard implements CanActivate {
 
   canActivate():boolean{
     let role=this.authService.getUserRole();
-    console.log(role);
     
     if (role=="admin") {
       return true;

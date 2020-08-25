@@ -23,7 +23,6 @@ export class AuthService {
      return this.http.post(this.url+'signin',user);
    }
    loggedIn():Boolean{
-     console.log(localStorage.getItem("auth-token"));
      
     if(typeof(localStorage.getItem("auth-token"))=='undefined' || localStorage.getItem("auth-token")==null ){
       return true;

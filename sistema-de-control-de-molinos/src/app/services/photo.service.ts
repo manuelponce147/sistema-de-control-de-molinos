@@ -21,7 +21,6 @@ export class PhotoService {
     fd.append('stock', stock);
     fd.append('image', photo);
     let auth=localStorage.getItem("auth-token");
-    console.log(JSON.stringify(fd));
   
     return this.http.post(this.url + "photos", fd)
 

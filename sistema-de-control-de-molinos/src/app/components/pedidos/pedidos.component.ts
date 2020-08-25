@@ -15,7 +15,6 @@ export class PedidosComponent implements OnInit {
   }
   recibirId(id:string){
     this.idProduct=id;
-    console.log(this.idProduct);
     this.route.navigate(['/pedido/'+id]);
     
     

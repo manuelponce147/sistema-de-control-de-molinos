@@ -10,11 +10,6 @@ export interface IUser extends Document{
     validatePassword(password:string):Promise<boolean>;
 }
 
-export interface IUser2 extends Document{
-    name:string;   
-}
-
-
 const schema = new Schema({
     name:{
         type:String,

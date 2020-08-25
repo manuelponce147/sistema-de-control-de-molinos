@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { SiloService } from 'src/app/services/silo.service';
-import { Silo } from 'src/app/models/silos';
+import { ISilo } from 'src/app/interfaces/silo';
 import * as jsPDF from 'jspdf';
 import autoTable from 'jspdf-autotable';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
@@ -11,9 +11,10 @@ import { FormBuilder, Validators, FormGroup } from '@angular/forms';
   styleUrls: ['./list-silos.component.css']
 })
 export class ListSilosComponent implements OnInit {
-  silos:Silo=[];
+  silos:ISilo[]=[];
   formSilo: FormGroup;
   details: FormGroup;
+  status:boolean;
   @Input() progreso:any;
   constructor(private siloService:SiloService , private formBuilder: FormBuilder) {
     this.formSilo = this.formBuilder.group({
@@ -26,13 +27,19 @@ export class ListSilosComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.obtenerSilos()
+    this.obtenerSilos();
+
+    if (this.silos.length==0) {
+      this.status=true;      
+    }else{
+      this.status=false;
+    }
+    
   }
   obtenerSilos(){
     this.siloService.getSilos()
       .subscribe(res => {
         this.silos = res;
-        console.log(this.silos);
 
       }
         );

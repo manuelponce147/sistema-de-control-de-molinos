@@ -34,7 +34,6 @@ export class ListPedidosComponent implements OnInit {
     this.id = this.authService.getUserID();
     this.pedidoService.getMisPedidos(this.id).subscribe(res => {
       this.misPedidos = res;
-      console.log(this.misPedidos);
 
     },
       err => console.log(err)
@@ -46,7 +45,6 @@ export class ListPedidosComponent implements OnInit {
     this.photoService.getPhoto(id).subscribe(
       res => {
         this.producto=res;
-        console.log(res);
       }
     );
     setTimeout(()=>{this.actualizar()},1000)

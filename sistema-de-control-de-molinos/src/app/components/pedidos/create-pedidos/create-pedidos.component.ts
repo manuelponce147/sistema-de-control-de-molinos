@@ -57,10 +57,7 @@ export class CreatePedidosComponent implements OnInit {
           this.product = response;
 
         }
-      }, error => {
-        console.log(<any>error);
-
-      }
+      }, err =>console.log(err)
     )
   }
 
@@ -71,14 +68,10 @@ export class CreatePedidosComponent implements OnInit {
       cantidad: this.cantidad,
       precio: this.cantidad * parseInt(this.product.price),
     });
-    console.log(this.formPedido.value);
 
     this.pedidoService.savePedido(this.formPedido.value)
       .subscribe(
         (response) => {
-          console.log("imprimiendo resultado");
-          console.log(response)
-          
           Swal.fire({
             title: "Se ha registrado tu pedido exitosamente!!",
             icon: 'success'

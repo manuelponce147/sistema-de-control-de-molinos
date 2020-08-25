@@ -15,7 +15,7 @@ import { IPesaje } from 'src/app/interfaces/pesaje';
   providers: [PesajeService]
 })
 export class ListarPesajesComponent implements OnInit {
-  public pesajes: IPesaje[];
+  public pesajes: IPesaje[]=[];
   public url: string;
   formPesaje: FormGroup;
   details: FormGroup;
@@ -28,6 +28,7 @@ export class ListarPesajesComponent implements OnInit {
   fecha: Date;
   patente: string;
   formFiltrado: FormGroup;
+  status:boolean;
   @ViewChild('content') content: ElementRef;
 
 
@@ -53,6 +54,9 @@ export class ListarPesajesComponent implements OnInit {
 
   ngOnInit(): void {
     this.getPesajes();
+    
+    
+
   }
   getPesajes() {
     this.pesajeService.obtenerPesajes().subscribe(
@@ -62,10 +66,15 @@ export class ListarPesajesComponent implements OnInit {
 
         }
       }, error => {
-        console.log(error);
 
       }
     )
+    if (this.pesajes.length==0) {
+      this.status=true;      
+    }else{
+      this.status=false;
+    }
+    
   }
   cargarDatos(pesaje: any) {
     this.formPesaje = this.formBuilder.group({
@@ -125,7 +134,6 @@ export class ListarPesajesComponent implements OnInit {
   searchRut() {
     if (this.rut != "") {
       this.pesajes = this.pesajes.filter(res => {
-        console.log(this.rut);
         return res.rut.toLocaleLowerCase().match(this.rut.toLocaleLowerCase());
       });
     } else if (this.rut == "") {
@@ -146,17 +154,8 @@ export class ListarPesajesComponent implements OnInit {
   searchFecha() {
     if (this.fecha != null) {
       this.pesajes = this.pesajes.filter(res => {
-        console.log("aqui va");
-        console.log(this.fecha+" fecha seleccionada");
-        console.log();
         return res.createdAt.toString().match(this.fecha.toString());
-       // console.log(this.fechaa+" fecha respuesta");
-       // this.dia=this.fechaa.getDate();
-       // this.anio=this.fechaa.getFullYear();
-       // this.mes=this.fechaa.getMonth();
-       // console.log(res.createdAt.toDateString());
-       // console.log(res.createdAt.match(this.fecha);
-       // return res.createdAt.toDateString().match(this.fecha);
+
       });
     } else if (this.fecha == null) {
       this.ngOnInit();
@@ -169,7 +168,6 @@ export class ListarPesajesComponent implements OnInit {
     const inputRut = document.getElementById('filterRut');
     const inputPatente = document.getElementById('filterPatente');
     const inputFecha = document.getElementById('filterFecha');
-    console.log(inputName, inputRut, inputPatente, inputFecha);
 
     if (value == "nombre") {
       this.ngOnInit();

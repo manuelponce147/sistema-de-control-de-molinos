@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import User, { IUser,IUser2 } from '../models/user';
+import User, { IUser } from '../models/user';
 import Mail from "../services/mail";
 import * as generator from "generate-password";
 
@@ -39,7 +39,6 @@ export async function changeRole(req:Request, res:Response){
 export async function newPassword(req:Request,res:Response){
     const {email}=req.body;
     const user = await User.findOne({ email });    
-    console.log(user);
     
     if (!user) return res.status(404).json("Email incorrecto !!");
     var password = generator.generate({

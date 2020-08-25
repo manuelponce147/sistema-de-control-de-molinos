@@ -28,7 +28,6 @@ export class PhotoFormComponent implements OnInit {
     }
   }
   uploadPhoto(title:HTMLInputElement, description:HTMLInputElement,price:HTMLInputElement, stock:HTMLInputElement):boolean{
-    console.log(typeof title.value);
     
     if(typeof this.file==="undefined" || title.value=="" || description.value=="" || price.value=="" || stock.value=="" ){
       Swal.fire({
@@ -39,7 +38,6 @@ export class PhotoFormComponent implements OnInit {
       this.photoService.createPhoto(title.value,description.value,price.value,stock.value,this.file)
           .subscribe(
               res=>{
-                console.log(res);
                 Swal.fire({
                   title:'Se ha registrado exitosamente el producto!!',
                   icon:'success'

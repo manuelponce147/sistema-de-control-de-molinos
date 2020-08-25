@@ -13,5 +13,4 @@ async function main() {
     console.log('Server on port', app_1.default.get('port'));
 }
 main();
-console.log('hola');
 //# sourceMappingURL=index.js.map

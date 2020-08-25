@@ -24,7 +24,9 @@
                     <button type="button" class="btn btn-danger m-1" (click)="deleteSilo(silo._id)">Eliminar</button></td>
 
             </tr>
-            <tr>
+            <tr *ngIf="this.status" class="text-center">
+                <td colspan="6">No existe ningun Silo</td>
+            </tr>
         </tbody>
     </table>
 

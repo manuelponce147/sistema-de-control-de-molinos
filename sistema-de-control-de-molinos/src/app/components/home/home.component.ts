@@ -24,7 +24,6 @@ export class HomeComponent implements OnInit {
   }
   butonclic(){
     let isLogged= this.authService.loggedIn();
-    console.log(isLogged);
     if(isLogged){
       Swal.fire({
         title:'Por favor Incia sesión o registrate para acceder al catalogo',
@@ -32,7 +31,6 @@ export class HomeComponent implements OnInit {
       });
     }else{
       let user=this.authService.getUserRole();
-      console.log(user);
       if (user=='regular') {
         this.router.navigate(['pedidos']);
       }else{

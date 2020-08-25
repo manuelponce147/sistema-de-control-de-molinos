@@ -25,12 +25,11 @@ export class CreateSiloComponent implements OnInit {
   ngOnInit(): void {
   }
   onSubmit(){
-    console.log(this.formSilo.value);
+ 
     
     this.siloService.createSilo(this.formSilo.value)
       .subscribe( (data)=>{
-        console.log("imprimiendo resultado");
-        console.log(data)
+    
         this.formSilo.reset();
         Swal.fire({
           icon:'success',

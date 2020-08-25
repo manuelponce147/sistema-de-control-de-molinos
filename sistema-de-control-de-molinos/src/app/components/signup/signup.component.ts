@@ -23,7 +23,6 @@ export class SignupComponent implements OnInit {
   signup(){
     this.authService.signup(this.formSignup.value).subscribe(
       res=>{
-        console.log(res);
         localStorage.setItem('auth-token',res.token);
         Swal.fire({
           title:'Felicidades se ha registrado exitosamente !!',

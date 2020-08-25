@@ -9,6 +9,7 @@
                 <th scope="col">Fecha</th>
                 <th scope="col">Tipo de Producto</th>
                 <th scope="col">Acción</th>
+            </tr>    
         </thead>
         <tbody>
             <tr *ngFor="let pesaje of pesajes" class=pesaje>
@@ -22,7 +23,10 @@
                     <button type="button" class="btn btn-danger" (click)="eliminar(pesaje._id)">Eliminar</button>
                 </td>
             </tr>
-            <tr>
+            <tr *ngIf="this.status" class="text-center">
+                <td colspan="6  ">No existe ningun pesaje</td>
+            </tr>
+            
         </tbody>
     </table>
 

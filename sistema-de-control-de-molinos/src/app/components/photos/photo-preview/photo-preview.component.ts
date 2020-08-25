@@ -28,7 +28,6 @@ export class PhotoPreviewComponent implements OnInit {
         .subscribe(
           res => {
             this.photo = res;
-            console.log(this.photo);
             
           },
           err => console.log(err)
@@ -39,7 +38,6 @@ export class PhotoPreviewComponent implements OnInit {
   deletePhoto(id: string) {
     this.photoService.deletePhoto(id)
       .subscribe(res => {
-        console.log(res)
         Swal.fire({
           title:'Se ha eliminado exitosamente el producto!!',
           icon:'success'
@@ -51,7 +49,6 @@ export class PhotoPreviewComponent implements OnInit {
   updatePhoto(title: HTMLInputElement, description: HTMLInputElement,price: HTMLInputElement, stock: HTMLInputElement): boolean {
     this.photoService.updatePhoto(this.photo._id, title.value, description.value, price.value,stock.value)
       .subscribe(res => {
-        console.log(res);
         Swal.fire({
           title:'Se ha editado exitosamente el producto!!',
           icon:'success'

@@ -10,7 +10,6 @@ export class UserEncargadoGuard implements CanActivate {
 
   canActivate():boolean{
     let role=this.authService.getUserRole();
-    console.log(role);
     
     if (role=="encargado"  || role=="admin") {
       return true;

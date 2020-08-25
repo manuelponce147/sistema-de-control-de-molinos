@@ -7,15 +7,15 @@ h2{
 margin-bottom: 20px;
 }
 .card{
-    background: none;
     border:none;
     width: 100%;
+    
 }
 tbody br:hover{
-    background:rgba(10, 10, 10, 0.3);
+    background:rgba(73, 62, 62, 0.3);
 }
 .pdf{
     float: right;
     margin-right: 20px;    
-    
+    margin-bottom: 20px;
 }

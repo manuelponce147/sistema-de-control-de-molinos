@@ -4,52 +4,31 @@ import { UserService } from 'src/app/services/user.service';
 import Swal, * as Jwal from 'sweetalert2';
 import * as jsPDF from 'jspdf';
 import autoTable from 'jspdf-autotable';
+import { empty } from 'rxjs';
 @Component({
   selector: 'app-pedidos-list',
   templateUrl: './pedidos-list.component.html',
   styleUrls: ['./pedidos-list.component.css']
 })
 export class PedidosListComponent implements OnInit {
-
   misPedidos:any;
-  clientes:any;
   name:string;
+  status:boolean;
   constructor(private pedidoService:PedidoService, private userService:UserService) { }
   ngOnInit(): void {
-    this.cargarPedidos();
-    this.cargarUsuarios();
-    
+    this.cargarPedidos(); 
+    if (this.misPedidos.length==0) {
+      this.status=true;      
+    }else{
+      this.status=false;
+    }
   }
   cargarPedidos(){
     this.pedidoService.getPedidos().subscribe(res=>{
       this.misPedidos=res;
       
     });
-    document
-  }
-  cargarUsuarios(){
-    this.userService.getUsers().subscribe(res=>{
-      this.clientes=res;
-      
-    });
     
-  }
-  aprobar(pedido:any){
-    this.verifyTime(pedido);
-    this.pedidoService.setStatus(pedido._id).subscribe(res=>{ 
-      Swal.fire({
-        icon:'success',
-        text:'La solicitud  ha sido aceptada'
-      })     
-    });
-    this.cargarPedidos();
-    
-    
-  }
-  verifyTime(pedido){
-    var date=new Date();
-    var datePedido=new Date(pedido.createdAt);
-    console.log(date, datePedido);
     
   }
   public downloadPDF():void {

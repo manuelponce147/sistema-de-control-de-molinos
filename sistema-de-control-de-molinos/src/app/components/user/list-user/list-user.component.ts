@@ -25,11 +25,9 @@ export class ListUserComponent implements OnInit {
   ngOnInit(): void {
     this.userService.getUsersData().subscribe(res=>{
       this.users=res;
-      console.log(res);
       
     });
     this.auth=this.authService.getUserID();
-    console.log(this.auth);
     
 
   }
@@ -42,7 +40,6 @@ export class ListUserComponent implements OnInit {
     }else{
       this.userService.changeRole(this.formRole.value,this.userId ).subscribe(
         res=>{
-        console.log(res);
         document.getElementById('changeRole').click();
         Swal.fire({
           icon:'success',
@@ -65,7 +62,6 @@ export class ListUserComponent implements OnInit {
     var name=document.getElementById('email').setAttribute('value',user.email);
     this.formRole.patchValue({userRole:user.userRole});
     this.userId=user._id;
-    console.log(this.userId);
     
 
   }

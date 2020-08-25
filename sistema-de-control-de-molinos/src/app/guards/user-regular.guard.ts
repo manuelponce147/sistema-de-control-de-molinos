@@ -10,7 +10,6 @@ export class UserRegularGuard implements CanActivate {
 
   canActivate():boolean{
     let role=this.authService.getUserRole();
-    console.log(role);
     
     if (role=="regular") {
       return true;

@@ -8,27 +8,24 @@ import Swal, * as Jwal from 'sweetalert2';
   styleUrls: ['./clientes.component.css']
 })
 export class ClientesComponent implements OnInit {
-  misPedidos:any;
-  clientes:any;
-  name:string;
+  misPedidos:any=[];
+  status:boolean=false;
   constructor(private pedidoService:PedidoService, private userService:UserService) { }
   ngOnInit(): void {
     this.cargarPedidos();
-    this.cargarUsuarios();
+    
+    if (this.misPedidos.length==0) {
+      this.status=true;      
+    }else{
+      this.status=false;
+    }
     
   }
   cargarPedidos(){
     this.pedidoService.getPedidosFalse().subscribe(res=>{
-      this.misPedidos=res;      
+      this.misPedidos=res as [];      
       
     });
-  }
-  cargarUsuarios(){
-    this.userService.getUsers().subscribe(res=>{
-      this.clientes=res;
-      
-    });
-    
   }
   aprobar(pedido:any){
     let date=  new Date();
@@ -41,7 +38,7 @@ export class ClientesComponent implements OnInit {
         this.pedidoService.setStatus(pedido._id).subscribe(res=>{
           Swal.fire({
             icon:'success',
-            text:'La solicitud ha sido aprobada exitosamente'
+            text:res.message
           }   
       )});
   

@@ -21,7 +21,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr class="table-light" *ngFor="let pedido of this.misPedidos, let i= index">
+                    <tr id="elements" class="table-light" *ngFor="let pedido of this.misPedidos, let i= index">
                         <th scope="row">{{i+1}}</th>
                         <td> {{pedido.nameClient}}</td>
                         <td>{{pedido.cantidad}} Uds</td>
@@ -37,6 +37,9 @@
 
 
 
+                    </tr>
+                    <tr *ngIf="this.status" class="text-center">
+                        <td colspan="8">No existe ningun pedido pendiente</td>
                     </tr>
                 </tbody>
             </table>

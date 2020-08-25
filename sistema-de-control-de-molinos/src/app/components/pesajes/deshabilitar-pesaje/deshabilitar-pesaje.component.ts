@@ -17,6 +17,7 @@ export class DeshabilitarPesajeComponent implements OnInit {
   formPesaje:FormGroup;
   guardarId:string;
   productos:any;
+  status:boolean;
   constructor(private pesajeService:PesajeService, private formBuilder:FormBuilder,private photoService:PhotoService ){
     this.url=Global.url;
     this.formPesaje=this.formBuilder.group({
@@ -40,25 +41,26 @@ export class DeshabilitarPesajeComponent implements OnInit {
     this.photoService.getPhotos().subscribe(res=>{
       this.productos=res;
     })
+    if (this.pesajes.length==0) {
+      this.status=true;      
+    }else{
+      this.status=false;
+    }
   }
   getPesajes(){
     this.pesajeService.obtenerPesajes().subscribe(
       response=>{
         if(response){
           this.pesajes=response;
-          console.log(this.pesajes);
           
         }
-      },error=>{
-        console.log(<any>error);
-        
-      }
+      },err=>console.log(err)
+    
     )
   }
   eliminar(id:any){
     this.pesajeService.deletePesaje(id).subscribe(
       res=>{
-        console.log(res);
         Swal.fire({
           title:'Se ha eliminado exitosamente el pesaje!!',
           icon:'success'

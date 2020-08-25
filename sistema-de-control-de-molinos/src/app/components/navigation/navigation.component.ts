@@ -32,7 +32,6 @@ export class NavigationComponent implements OnInit, OnChanges {
     this.opened = !this.opened;
   }
   cerrarSesion() {
-    console.log(localStorage.getItem('auth-token'));
     this.authservice.logout();
   }
   

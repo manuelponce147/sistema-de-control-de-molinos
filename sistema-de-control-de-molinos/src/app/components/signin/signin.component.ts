@@ -28,10 +28,8 @@ export class SigninComponent implements OnInit {
      
     this.authService.signin(this.formSignin.value).subscribe(
       res => {
-        console.log(res);
         localStorage.setItem('auth-token', res.token);
         localStorage.setItem('user', JSON.stringify(res.user));
-        console.log(res);
         Swal.fire({
           title: 'Inicio de sesión exitoso',
           text: "Bienvenido a Pesajex!",
@@ -45,7 +43,6 @@ export class SigninComponent implements OnInit {
         
       },
       err => {
-        console.log(err);
         Swal.fire({
           title: `${err.error}`,
           icon: 'error'
@@ -69,7 +66,6 @@ export class SigninComponent implements OnInit {
       
     },
     err=>{
-      console.log(err);
       
       document.getElementById('change-pass').click();
       this.formEmail.reset();
