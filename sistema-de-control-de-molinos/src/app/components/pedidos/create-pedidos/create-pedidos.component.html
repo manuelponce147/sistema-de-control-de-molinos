@@ -14,19 +14,16 @@
                 </div>
                 <div class="form-group">
                     <label for="cantidad" class="form-label">Cantidad</label>
-                    <input type="number" formControlName="cantidad" class="form-control"
-                    (keyup)="generatePrice($event)">
+                    <input type="number" formControlName="cantidad" class="form-control" (keyup)="generatePrice($event)">
                 </div>
                 <div class="form-group">
                     <label for="precio" class="form-label">Precio</label>
-                    <input type="number" formControlName="precio" class="form-control" [value]="this.formPedido.get('precio') | currency:'CLP':true:'4.0-0'" 
-                  
-                   >
+                    <input type="number" formControlName="precio" class="form-control" [value]="this.formPedido.get('precio') | currency:'CLP':true:'4.0-0'">
                 </div>
-                
+
 
             </div>
-    
+
             <div class="card-footer">
                 <button type="submit" [disabled]="!formPedido.valid" class="btn btn-primary">Solicitar</button>
                 <button type="button" class="btn btn-danger">Cancelar</button>
@@ -34,7 +31,7 @@
             </div>
 
         </form>
-        
+
 
     </div>
 

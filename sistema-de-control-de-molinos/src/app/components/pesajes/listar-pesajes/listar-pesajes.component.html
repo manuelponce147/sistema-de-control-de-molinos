@@ -1,146 +1,140 @@
 <div class="container">
-  <h3 id="title-table" class="text-center"><b> Listado de Pesajes</b></h3>
-  <br>
+    <h3 id="title-table" class="text-center"><b> Listado de Pesajes</b></h3>
+    <br>
 
-  <br>
+    <br>
 
-  <div class="row">
-    <div class="side">
-        <div class="left">
-          <label>Filtrado por: </label>
-          <select name="filtered" #filtered (change)='changeFilter(filtered.value)' class="">
+    <div class="row">
+        <div class="side">
+            <div class="left">
+                <label>Filtrado por: </label>
+                <select name="filtered" #filtered (change)='changeFilter(filtered.value)' class="">
             <option value="nombre" >Nombre</option>
             <option value="rut">Rut</option>
             <option value="patente">Patente</option>
+            <option value="fecha">Fecha</option>
+
           </select>
-          <input type="text" [(ngModel)]="nombre" id="filterName" (input)="searchNombre()" />
-          <input type="text" style="display: none;" [(ngModel)]="rut" id="filterRut" (input)="searchRut()" />
-          <input type="text" style="display: none;" [(ngModel)]="patente" id="filterPatente" (input)="searchPatente()" />
-        </div>
-        <div class="right">
-          <button type="button" class="btn btn-primary" (click)="downloadPDF()">Generar PDF</button>
-          <button type="button" class="btn btn-danger" (click)="downloadPDFToday()">Generar PDF del dia</button>
-        </div>
+                <input type="text" [(ngModel)]="nombre" id="filterName" (input)="searchNombre()" />
+                <input type="text" style="display: none;" [(ngModel)]="rut" id="filterRut" (input)="searchRut()" />
+                <input type="text" style="display: none;" [(ngModel)]="patente" id="filterPatente" (input)="searchPatente()" />
+                <input type="date" style="display: none;" [(ngModel)]="fecha" id="filterFecha" (input)="searchFecha()" />
+            </div>
+            <div class="right">
+                <button type="button" class="btn btn-primary" (click)="downloadPDF()">Generar PDF</button>
+                <button type="button" class="btn btn-danger" (click)="downloadPDFToday()">Generar PDF del dia</button>
+            </div>
 
+        </div>
+        <table class="table table-striped  table-hover" id="htmlData" #htmlData>
+            <thead class="thead-light">
+                <tr style="width: auto;">
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Rut</th>
+                    <th scope="col">Patente</th>
+                    <th scope="col">Fecha</th>
+                    <th scope="col">Tipo de Producto</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let pesaje of pesajes" class="pesaje" (click)="VerPesaje($event,pesaje)" data-toggle="modal" data-target="#updatemodal">
+                    <td>{{pesaje.nombre}}</td>
+                    <td>{{pesaje.rut}}</td>
+                    <td>{{pesaje.patente}}</td>
+                    <td>{{pesaje.createdAt | date:'dd/MM/yyyy'}}</td>
+                    <td>{{pesaje.tipoProducto}}</td>
+
+                </tr>
+                <tr>
+            </tbody>
+        </table>
     </div>
-    <table class="table table-striped  table-hover" id="htmlData" #htmlData>
-      <thead class="thead-light">
-        <tr style="width: auto;">
-          <th scope="col">Nombre</th>
-          <th scope="col">Rut</th>
-          <th scope="col">Patente</th>
-          <th scope="col">Fecha</th>
-          <th scope="col">Tipo de Producto</th>
-
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let pesaje of pesajes" class="pesaje" (click)="VerPesaje($event,pesaje)" data-toggle="modal"
-          data-target="#updatemodal">
-          <td>{{pesaje.nombre}}</td>
-          <td>{{pesaje.rut | rut }}</td>
-          <td>{{pesaje.patente}}</td>
-          <td>{{pesaje.createdAt | date:'dd/MM/yyyy'}}</td>
-          <td>{{pesaje.tipoProducto}}</td>
-
-        </tr>
-        <tr>
-      </tbody>
-    </table>
-  </div>
 
 
 </div>
 <div class="modal fade" id="updatemodal" role="dailog">
-  <div class="modal-dialog ">
-    <div class="modal-content">
-      <form [formGroup]=formPesaje novalidate id="export" #f>
+    <div class="modal-dialog ">
+        <div class="modal-content">
+            <form [formGroup]=formPesaje novalidate id="export">
 
-        <div class="modal-header">
-          <button type="button" class="close" id="modalclose" data-dismiss="modal">x</button>
+                <div class="modal-header">
+                    <button type="button" class="close" id="modalclose" data-dismiss="modal">x</button>
+                </div>
+
+                <div id="content" class="modal-body">
+                    <h4 class="text-center"><b>Información del Pesaje</b></h4>
+                    <div class="client">
+                        <h5><b>Cliente</b></h5>
+                        <br>
+                        <div class="form-group">
+                            <label for="nombre" class="form-label">Nombre</label>
+                            <input type="text" formControlName="nombre" class="form-control" [attr.disabled]="true" placeholder="Nombre">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="rut" class="form-label">Rut</label>
+                            <input type="text" formControlName="rut" class="form-control" [attr.disabled]="true" placeholder="Rut">
+                        </div>
+                        <div class="form-group">
+                            <label for="razonSocial">Razón Social</label>
+                            <input type="text" formControlName="razonSocial" class="form-control" [attr.disabled]="true" placeholder="Razón Social">
+
+                        </div>
+
+                    </div>
+                    <div class="details">
+
+                        <h5><b>Detalles</b></h5>
+                        <br>
+                        <div class="form-group">
+                            <label for="pesoEntrada" class="form-label">Peso de entrada</label>
+                            <input type="number" formControlName="pesoEntrada" class="form-control" [attr.disabled]="true" placeholder="Peso de Entrada">
+
+
+                        </div>
+                        <div class="form-group">
+                            <label for="pesoSalida" class="form-label">Peso de salida</label>
+                            <input type="number" formControlName="pesoSalida" class="form-control" [attr.disabled]="true" placeholder="Peso de Salida">
+
+                        </div>
+                        <div class="form-group">
+                            <label for="tipoTransaccion"> Tipo de transaccion</label>
+                            <input type="string" formControlName="tipoTransaccion" class="form-control" [attr.disabled]="true" placeholder="Tipo de transaccion">
+                        </div>
+                    </div>
+                    <div class="type_P">
+                        <div class="form-group col-5">
+                            <label for="tipoProducto"> Tipo de Producto</label>
+                            <input type="string" formControlName="tipoProducto" class="form-control" [attr.disabled]="true" placeholder="Tipo de producto">
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="vehicle">
+                        <h5 class="text-center"><b>Detalles del Vehiculo </b> </h5>
+                        <div class="form-group">
+                            <label for="patente" class="form-label">Patente</label>
+                            <input type="text" formControlName="patente" class="form-control" [attr.disabled]="true" placeholder="Patente">
+                        </div>
+                        <div class="form-group">
+                            <label for="tipoVehiculo">Tipo de Vehiculo</label>
+                            <input type="text" formControlName="tipoVehiculo" class="form-control" [attr.disabled]="true" placeholder="Tipo de vehiculo">
+                        </div>
+                    </div>
+
+
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" (click)="downloadUnique()">generar Pdf</button>
+                    <button type="button" class="btn btn-danger" id="btnmodal" data-dismiss="modal">Cerrar</button>
+
+                </div>
+
+            </form>
         </div>
-       
-        <div id="content" class="modal-body">
-          <h4 class="text-center"><b>Información del Pesaje</b></h4>
-          <div class="client">
-            <h5><b>Cliente</b></h5>
-            <br>
-            <div class="form-group">
-              <label for="nombre" class="form-label">Nombre</label>
-              <input type="text" formControlName="nombre" class="form-control" [attr.disabled]="true"
-                placeholder="Nombre">
-            </div>
-
-            <div class="form-group">
-              <label for="rut" class="form-label">Rut</label>
-              <input type="text" formControlName="rut" [ngModel]="f.value.rut | rut" class="form-control" [attr.disabled]="true" placeholder="Rut">
-            </div>
-            <div class="form-group">
-              <label for="razonSocial">Razón Social</label>
-              <input type="text" formControlName="razonSocial" class="form-control" [attr.disabled]="true"
-                placeholder="Razón Social">
-
-            </div>
-
-          </div>
-          <div class="details">
-
-            <h5><b>Detalles</b></h5>
-              <br>            
-            <div class="form-group">
-              <label for="pesoEntrada" class="form-label">Peso de entrada</label>
-              <input type="number" formControlName="pesoEntrada" class="form-control" [attr.disabled]="true"
-                placeholder="Peso de Entrada">
-
-
-            </div>
-            <div class="form-group">
-              <label for="pesoSalida" class="form-label">Peso de salida</label>
-              <input type="number" formControlName="pesoSalida" class="form-control" [attr.disabled]="true"
-                placeholder="Peso de Salida">
-
-            </div>
-            <div class="form-group">
-              <label for="tipoTransaccion"> Tipo de transaccion</label>
-              <input type="string" formControlName="tipoTransaccion" class="form-control" [attr.disabled]="true"
-                placeholder="Tipo de transaccion">
-            </div>
-          </div>
-          <div class="type_P">
-            <div class="form-group col-5">
-              <label for="tipoProducto"> Tipo de Producto</label>
-              <input type="string" formControlName="tipoProducto" class="form-control" [attr.disabled]="true"
-                placeholder="Tipo de producto">
-            </div>
-
-          </div>
-
-
-
-          <div class="vehicle">
-            <h5 class="text-center"><b>Detalles del Vehiculo </b> </h5>
-            <div class="form-group">
-              <label for="patente" class="form-label">Patente</label>
-              <input type="text" formControlName="patente" class="form-control" [attr.disabled]="true"
-                placeholder="Patente">
-            </div>
-            <div class="form-group">
-              <label for="tipoVehiculo">Tipo de Vehiculo</label>
-              <input type="text" formControlName="tipoVehiculo" class="form-control" [attr.disabled]="true"
-                placeholder="Tipo de vehiculo">
-            </div>
-          </div>
-
-
-        </div>
-
-        <div class="modal-footer">
-          <button type="button" class="btn btn-primary" (click)="downloadUnique()">generar Pdf</button>
-          <button type="button" class="btn btn-danger" id="btnmodal" data-dismiss="modal">Cerrar</button>
-
-        </div>
-
-      </form>
     </div>
-  </div>
-</div>
+</div>+
