@@ -40,7 +40,7 @@
             <div class="card-body">
                 <h5 class="card-title">Detalles</h5>
                 <div class="form-group">
-                    <label for="pesoEntrada" class="form-label">Peso de entrada</label>
+                    <label for="pesoEntrada" class="form-label">Peso de entrada (Kg)</label>
                     <input type="number" formControlName="pesoEntrada" class="form-control"
                         placeholder="Peso de Entrada">
                     <div *ngIf="formPesaje.get('pesoEntrada').errors && (formPesaje.get('pesoEntrada').touched
@@ -50,7 +50,7 @@
 
                 </div>
                 <div class="form-group">
-                    <label for="pesoSalida" class="form-label">Peso de salida</label>
+                    <label for="pesoSalida" class="form-label">Peso de salida (Kg)</label>
                     <input type="number" formControlName="pesoSalida" class="form-control" placeholder="Peso de Salida">
                     <div *ngIf="formPesaje.get('pesoSalida').errors && (formPesaje.get('pesoSalida').touched
                                 || formPesaje.get('pesoSalida').dirty)" class="alert alert-danger">

@@ -1,0 +1,37 @@
+<div class="left">
+  <label>Filtrado por: </label>
+
+  <select id="filtered" #filtered  class="">
+    <option value="" selected disabled>Seleccione Producto</option>
+    <option *ngFor= "let product of productos" value="product.title">{{product.title}}</option>
+  </select>
+  <select id="cov"  class="">
+    <option value="" selected disabled>Seleccione Tipo de Transaccion</option>
+    <option  value="compra">Compra</option>
+    <option  value="venta">Venta</option>
+  </select>
+
+</div>
+
+<div>
+  <label>Mes: </label>
+  <select id="mes"   class="">
+    <option value="" selected disabled>Seleccione Mes</option>
+    <option   value="Enero">Enero</option>
+    <option   value="Febrero">Febrero</option>
+    <option   value="Marzo">Marzo</option>
+    <option   value="Abril">Abril</option>
+    <option   value="Mayo">Mayo</option>
+    <option   value="Junio">Junio</option>
+    <option   value="Julio">Julio</option>
+    <option   value="Agosto">Agosto</option>
+    <option   value="Septiembre">Septiembre</option>
+    <option   value="Octubre">Octubre</option>
+    <option   value="Noviembre">Noviembre</option>
+    <option   value="Diciembre">Diciembre</option>
+
+  </select>
+</div>
+<div>
+  <button type="button" class="btn btn-warning" (click)="aplicar(filtered.value)">Aplicar</button>
+</div>

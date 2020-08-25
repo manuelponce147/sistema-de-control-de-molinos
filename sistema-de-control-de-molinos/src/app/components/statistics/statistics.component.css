@@ -1,0 +1,101 @@
+
+.container{
+  margin: 20px;
+  padding: 20px;
+}
+table{
+  width: 95%;
+  margin: 0px auto;
+}
+a{
+  margin-left: 15px;
+}
+.modal-body{
+  position: flex;
+  overflow: auto;
+  margin:10px;
+  padding:20px;
+}
+
+.client, .details{
+ display:inline-block;
+ margin: 5px;
+ padding: 5px;
+ width: 45%;
+
+}
+
+.side{
+  width: 95%;
+  margin: 0 auto;
+  display: inline-block;
+}
+.left{
+  float: left;
+  width: auto;
+}
+.right{
+  float: right;
+  width: auto;
+  margin-bottom: 10px;
+
+}
+.right button{
+  margin-right: 5px;
+  margin-left: 5px;
+}
+
+tbody tr{
+  cursor: pointer;
+}
+@media screen and (max-width:767px){
+  .client , .details{
+      display: block;
+      width: inherit;
+      margin: 5px;
+      padding: 5px;
+
+  }
+}
+.vehicle{
+  margin: 5px;
+  padding: 5px;
+}
+.container{
+  overflow-x: auto;
+}
+tbody tr:hover{
+  background-color: rgba(10, 10, 10, 0.3);
+}
+.type_P{
+  margin: 0px auto;
+  width: 100%;
+  display: flex;
+justify-content: center;
+}
+h4{
+  margin-top: 10px;
+  margin-bottom: 20px;
+  color:#007bff
+
+}
+.modal-body{
+  padding: 0;
+}
+.left input,select{
+  height: 30px;
+  border-radius: .25rem;
+  border:none;
+  margin-left: 5px;
+}
+.left select{
+  background: #007bff;
+  color: white;
+}
+.left select option{
+  background: white;
+  color: black;
+}
+.lef input:focus{
+box-shadow: cornflowerblue;
+}

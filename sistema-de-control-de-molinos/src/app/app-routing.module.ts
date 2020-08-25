@@ -1,3 +1,4 @@
+import { StatisticsComponent } from './components/statistics/statistics.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { NuevoPesajeComponent } from './components/pesajes/nuevo-pesaje/nuevo-pesaje.component';
@@ -43,7 +44,7 @@ const routes: Routes = [
     canActivate: [AuthGuard,UserEncargadoGuard]
   },
 
-  { path: 'signup', 
+  { path: 'signup',
     component: SignupComponent
 
   },
@@ -55,31 +56,31 @@ const routes: Routes = [
 
   },
   {
-    path: 'pesajes/deshabilitar-pesaje', 
-    component: DeshabilitarPesajeComponent, 
+    path: 'pesajes/deshabilitar-pesaje',
+    component: DeshabilitarPesajeComponent,
     canActivate: [AuthGuard,UserEncargadoGuard]  },
   {
-    path: 'clientes', 
-    component: ClientesComponent, 
+    path: 'clientes',
+    component: ClientesComponent,
     canActivate: [AuthGuard,UserEncargadoGuard]
   },
   {
-    path: 'clientes/list', 
-    component: PedidosListComponent, 
+    path: 'clientes/list',
+    component: PedidosListComponent,
     canActivate: [AuthGuard,UserEncargadoGuard]
   },
   {
-    path: 'users/list', 
-    component: ListUserComponent, 
+    path: 'users/list',
+    component: ListUserComponent,
     canActivate: [AuthGuard,UserEncargadoGuard]
   },
   {
-    path: 'pesajes/listar-pesaje', 
+    path: 'pesajes/listar-pesaje',
     component: ListarPesajesComponent,
     canActivate: [AuthGuard,UserEncargadoGuard]
   },
   { path: 'home',
-   component: HomeComponent 
+   component: HomeComponent
 
 
   },
@@ -96,29 +97,34 @@ const routes: Routes = [
     component:ListPedidosComponent
   },
   {
-    path: 'catalogo/new', 
-    component: PhotoFormComponent, 
+    path: 'catalogo/new',
+    component: PhotoFormComponent,
     canActivate: [AuthGuard,UserEncargadoGuard]
   },
   {
-    path: 'catalogo/:id', 
-    component: PhotoPreviewComponent, 
+    path: 'statistics',
+    component: StatisticsComponent,
     canActivate: [AuthGuard,UserEncargadoGuard]
   },
   {
-    path: 'silos', 
+    path: 'catalogo/:id',
+    component: PhotoPreviewComponent,
+    canActivate: [AuthGuard,UserEncargadoGuard]
+  },
+  {
+    path: 'silos',
     component: ListSilosComponent,
     canActivate: [AuthGuard,UserEncargadoGuard]
   },
 
   {
-    path: 'silos/new', 
-    component: CreateSiloComponent, 
+    path: 'silos/new',
+    component: CreateSiloComponent,
     canActivate: [AuthGuard,UserEncargadoGuard]
   },
   {
-    path: 'silos/configure', 
-    component: ConfigureSiloComponent, 
+    path: 'silos/configure',
+    component: ConfigureSiloComponent,
     canActivate: [AuthGuard,UserEncargadoGuard]
   },
 
@@ -128,7 +134,7 @@ const routes: Routes = [
     path:'user',
     component:UserComponent,
     canActivate: [AuthGuard,UserAdminGuard]
-  
+
   },
 
 

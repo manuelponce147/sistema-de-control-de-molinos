@@ -29,7 +29,7 @@ export class PhotoPreviewComponent implements OnInit {
           res => {
             this.photo = res;
             console.log(this.photo);
-            
+
           },
           err => console.log(err)
         )
@@ -46,6 +46,9 @@ export class PhotoPreviewComponent implements OnInit {
         });
         this.router.navigate(['/catalogo']);
       })
+  }
+  back(){
+    this.router.navigate(['/catalogo']);
   }
 
   updatePhoto(title: HTMLInputElement, description: HTMLInputElement,price: HTMLInputElement, stock: HTMLInputElement): boolean {

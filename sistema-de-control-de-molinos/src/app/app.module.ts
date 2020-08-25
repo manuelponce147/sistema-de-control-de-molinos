@@ -38,7 +38,8 @@ import { CreatePedidosComponent } from './components/pedidos/create-pedidos/crea
 import { ListPedidosComponent } from './components/pedidos/list-pedidos/list-pedidos.component';
 import { PedidosListComponent } from './components/clientes/pedidos-list/pedidos-list.component';
 import { ListUserComponent } from './components/user/list-user/list-user.component';
-import {ProgressBarModule} from "angular-progress-bar"
+import {ProgressBarModule} from "angular-progress-bar";
+import { StatisticsComponent } from './components/statistics/statistics.component'
 
 @NgModule({
   declarations: [
@@ -64,10 +65,11 @@ import {ProgressBarModule} from "angular-progress-bar"
     CreatePedidosComponent,
     ListPedidosComponent,
     PedidosListComponent,
-    ListUserComponent
-    
-    
-    
+    ListUserComponent,
+    StatisticsComponent
+
+
+
   ],
   imports: [
     BrowserModule,
