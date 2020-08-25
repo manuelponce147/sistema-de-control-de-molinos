@@ -1,0 +1,37 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.row{
+    margin: 0 auto;
+}
+.card-title{
+    color: white;
+    font-family: sans-serif;
+}
+.card-header{
+    border: none;
+}
+.card{
+    background: rgba(10, 10, 10, 0.3);
+    width: 18%;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    cursor: pointer;
+    border: 2px solid white ;
+    overflow:hidden;
+}
+.card:hover{
+    border: 3px solid black;
+}
+img{
+   overflow: hidden;
+   width: 140px;
+   height: 165px;
+   padding-bottom: 5px;
+   
+}
+pagination-controls /deep/ .ngx-pagination .disabled {
+    color:rgba(10, 10, 10, 0.5);
+  }

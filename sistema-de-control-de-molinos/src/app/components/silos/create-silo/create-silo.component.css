@@ -1,0 +1,15 @@
+.container{
+    margin-top: 30px;
+    width: 70%;
+}
+.card{
+    background: rgba(10, 10, 10, 0.15);
+}
+form{
+    margin-top: 25px;
+}
+.row{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}

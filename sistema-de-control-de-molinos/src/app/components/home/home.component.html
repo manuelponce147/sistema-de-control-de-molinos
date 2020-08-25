@@ -1,2 +1,77 @@
-<p>home works!</p>
+<div class="content">
+  <h4 class="title">COMPROMETIDOS CON LA CALIDAD!!</h4>
+  <ngb-carousel [showNavigationArrows]="true" [showNavigationIndicators]="true" interval="4000" [keyboard]="true"
+    [pauseOnHover]="true" [wrap]="true" [activeId]="'secondSlide'">
+    <ng-template ngbSlide>
+      <div class="picsum-img-wrapper">
+        <img src="assets/carousel/slide-01.jpg" alt="Angular Carousel 1">
+      </div>
+      <div class="carousel-caption">
 
+      </div>
+    </ng-template>
+    <ng-template ngbSlide>
+      <div class="picsum-img-wrapper">
+        <img src="assets/carousel/slider-02.jpg" alt="Angular Carousel 2">
+      </div>
+      <div class="carousel-caption">
+      </div>
+    </ng-template>
+
+    <ng-template ngbSlide>
+      <div class="picsum-img-wrapper">
+        <img src="assets/carousel/img1.jpg" alt="Angular Carousel 2">
+      </div>
+      <div class="carousel-caption">
+      </div>
+    </ng-template>
+
+    <ng-template ngbSlide>
+      <div class="picsum-img-wrapper">
+        <img src="assets/carousel/img5.jpg" alt="Angular Carousel 2">
+      </div>
+      <div class="carousel-caption">
+      </div>
+    </ng-template>
+
+  </ngb-carousel>
+
+  <div class="myv">
+    <h3>MISIÓN Y VISIÓN</h3>
+    <br>
+    <p>
+      Misión: Diferenciarnos para ser productores de harina de primera calidad y proveedores confiables para todos
+      nuestros clientes.
+      <br>
+      Visión: ser el proveedor preferido por los clientes. Nuestro compromiso es la excelencia, buscando hacer mejor las
+      cosas cada día.
+
+    </p>
+  </div>
+
+  <div class="row content">
+
+    <div class="col-6 mx-auto">
+
+      <h4 class="title">Conoce nuestros productos</h4>
+      <div class="clearfix"></div>
+      <div class="text-center">
+
+        <button (click)="butonclic()" class="btn-catalogo"> Haz click aqui</button>
+      </div>
+
+    </div>
+
+    <div class="col-6 mx-auto">
+
+      <h4 class="">Nos encontramos en </h4>
+      <google-map height="300px" width="500px" [center]="position">
+        <map-marker [position]="position" [label]="label"></map-marker>
+
+
+      </google-map>
+
+    </div>
+
+
+  </div>

@@ -1,0 +1,45 @@
+.container{
+    margin-top: 40px;
+}
+h3{
+    text-align: center;
+    margin:10px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+form{
+    margin: 0px auto;
+    margin: 10px;
+    margin-top: 20px;
+    padding-left: 20px;  
+    width: 70%;
+
+
+}
+h5{
+    margin-bottom: 10px;
+    border-bottom: 1px solid grey;
+}
+.card{
+    margin: 10px;
+    padding:10px;
+    background: rgba(10, 10, 10, 0.1);
+}
+ .client , .details{
+    display:block;
+    overflow:auto;
+}
+@media screen and (max-width:767px){
+    .client, .details{
+        display: block;
+        width: inherit;
+    }
+}
+.row{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.alert{
+    margin-top: 20px;
+}
