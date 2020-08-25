@@ -3,35 +3,35 @@
 
   <select id="filtered" #filtered  class="">
     <option value="" selected disabled>Seleccione Producto</option>
-    <option *ngFor= "let product of productos" value="product.title">{{product.title}}</option>
+    <option *ngFor= "let product of productos" value={{product.title}}>{{product.title}}</option>
   </select>
-  <select id="cov"  class="">
+  <select id="cov"  #cov class="">
     <option value="" selected disabled>Seleccione Tipo de Transaccion</option>
-    <option  value="compra">Compra</option>
-    <option  value="venta">Venta</option>
+    <option  value="Compra">Compra</option>
+    <option  value="Venta">Venta</option>
   </select>
 
 </div>
 
 <div>
   <label>Mes: </label>
-  <select id="mes"   class="">
+  <select id="mes"  #mes class="">
     <option value="" selected disabled>Seleccione Mes</option>
-    <option   value="Enero">Enero</option>
-    <option   value="Febrero">Febrero</option>
-    <option   value="Marzo">Marzo</option>
-    <option   value="Abril">Abril</option>
-    <option   value="Mayo">Mayo</option>
-    <option   value="Junio">Junio</option>
-    <option   value="Julio">Julio</option>
-    <option   value="Agosto">Agosto</option>
-    <option   value="Septiembre">Septiembre</option>
-    <option   value="Octubre">Octubre</option>
-    <option   value="Noviembre">Noviembre</option>
-    <option   value="Diciembre">Diciembre</option>
+    <option   value="1">Enero</option>
+    <option   value="2">Febrero</option>
+    <option   value="3">Marzo</option>
+    <option   value="4">Abril</option>
+    <option   value="5">Mayo</option>
+    <option   value="6">Junio</option>
+    <option   value="7">Julio</option>
+    <option   value="8">Agosto</option>
+    <option   value="9">Septiembre</option>
+    <option   value="10">Octubre</option>
+    <option   value="11">Noviembre</option>
+    <option   value="12">Diciembre</option>
 
   </select>
 </div>
 <div>
-  <button type="button" class="btn btn-warning" (click)="aplicar(filtered.value)">Aplicar</button>
+  <button type="button" class="btn btn-warning" (click)="aplicar(filtered.value,cov.value,mes.value)">Aplicar</button>
 </div>
