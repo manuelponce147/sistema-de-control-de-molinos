@@ -18,7 +18,7 @@
 
                 <div class="form-group">
                     <label for="rut" class="form-label">Rut</label>
-                    <input type="text" formControlName="rut" class="form-control" placeholder="Rut">
+                    <input type="text" formControlName="rut" class="form-control" placeholder="Rut" validateRut>
                     <div *ngIf="formPesaje.get('rut').errors && (formPesaje.get('rut').touched
                                 || formPesaje.get('rut').dirty)" class="alert alert-danger">
                         El Rut es obligatorio

@@ -38,7 +38,7 @@
         <tr *ngFor="let pesaje of pesajes" class="pesaje" (click)="VerPesaje($event,pesaje)" data-toggle="modal"
           data-target="#updatemodal">
           <td>{{pesaje.nombre}}</td>
-          <td>{{pesaje.rut}}</td>
+          <td>{{pesaje.rut | rut }}</td>
           <td>{{pesaje.patente}}</td>
           <td>{{pesaje.createdAt | date:'dd/MM/yyyy'}}</td>
           <td>{{pesaje.tipoProducto}}</td>
@@ -54,7 +54,7 @@
 <div class="modal fade" id="updatemodal" role="dailog">
   <div class="modal-dialog ">
     <div class="modal-content">
-      <form [formGroup]=formPesaje novalidate id="export">
+      <form [formGroup]=formPesaje novalidate id="export" #f>
 
         <div class="modal-header">
           <button type="button" class="close" id="modalclose" data-dismiss="modal">x</button>
@@ -73,7 +73,7 @@
 
             <div class="form-group">
               <label for="rut" class="form-label">Rut</label>
-              <input type="text" formControlName="rut" class="form-control" [attr.disabled]="true" placeholder="Rut">
+              <input type="text" formControlName="rut" [ngModel]="f.value.rut | rut" class="form-control" [attr.disabled]="true" placeholder="Rut">
             </div>
             <div class="form-group">
               <label for="razonSocial">Razón Social</label>

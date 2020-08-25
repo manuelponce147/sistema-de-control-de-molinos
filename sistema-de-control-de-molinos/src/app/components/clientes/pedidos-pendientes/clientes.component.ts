@@ -19,9 +19,7 @@ export class ClientesComponent implements OnInit {
   }
   cargarPedidos(){
     this.pedidoService.getPedidosFalse().subscribe(res=>{
-      this.misPedidos=res;
-      console.log(res);
-      
+      this.misPedidos=res;      
       
     });
   }
