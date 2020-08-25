@@ -39,7 +39,6 @@ import { ListPedidosComponent } from './components/pedidos/list-pedidos/list-ped
 import { PedidosListComponent } from './components/clientes/pedidos-list/pedidos-list.component';
 import { ListUserComponent } from './components/user/list-user/list-user.component';
 import {ProgressBarModule} from "angular-progress-bar"
-import { Ng2Rut } from 'ng2-rut';
 
 
 @NgModule({
@@ -85,7 +84,7 @@ import { Ng2Rut } from 'ng2-rut';
     SidebarModule.forRoot(),
     NgxPaginationModule,
     GoogleMapsModule,
-    Ng2Rut
+  
   ],
   providers: [AuthGuard,{
     provide:HTTP_INTERCEPTORS,
