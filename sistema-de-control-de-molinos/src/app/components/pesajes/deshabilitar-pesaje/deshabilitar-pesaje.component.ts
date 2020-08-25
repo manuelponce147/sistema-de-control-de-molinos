@@ -40,12 +40,10 @@ export class DeshabilitarPesajeComponent implements OnInit {
     this.getPesajes();
     this.photoService.getPhotos().subscribe(res=>{
       this.productos=res;
-    })
-    if (this.pesajes.length==0) {
-      this.status=true;      
-    }else{
-      this.status=false;
-    }
+    });
+   this.verify();
+   
+   
   }
   getPesajes(){
     this.pesajeService.obtenerPesajes().subscribe(
@@ -56,7 +54,8 @@ export class DeshabilitarPesajeComponent implements OnInit {
         }
       },err=>console.log(err)
     
-    )
+    );
+    this.verify();
   }
   eliminar(id:any){
     this.pesajeService.deletePesaje(id).subscribe(
@@ -69,10 +68,17 @@ export class DeshabilitarPesajeComponent implements OnInit {
 
 
       }
-    )
+    );
+    
 
   }
-
+  verify(){
+    if (this.pesajes.length!=0) {
+      this.status=true;      
+    }else{
+      this.status=false;
+    }
+  }
   cargarDatos(pesaje:any, id:string){
     this.formPesaje=this.formBuilder.group({
       nombre:pesaje.nombre,

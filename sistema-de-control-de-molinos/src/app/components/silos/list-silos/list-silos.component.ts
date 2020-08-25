@@ -28,12 +28,7 @@ export class ListSilosComponent implements OnInit {
 
   ngOnInit(): void {
     this.obtenerSilos();
-
-    if (this.silos.length==0) {
-      this.status=true;      
-    }else{
-      this.status=false;
-    }
+    this.verify();
     
   }
   obtenerSilos(){
@@ -43,7 +38,14 @@ export class ListSilosComponent implements OnInit {
 
       }
         );
-
+     this.verify();
+  }
+  verify(){
+    if (this.silos.length!=0) {
+      this.status=true;      
+    }else{
+      this.status=false;
+    }
   }
   public downloadPDF():void {
     let DATA = document.getElementById('dataSilos');

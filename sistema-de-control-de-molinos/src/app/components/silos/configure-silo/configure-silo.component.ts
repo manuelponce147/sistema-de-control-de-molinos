@@ -26,11 +26,9 @@ export class ConfigureSiloComponent implements OnInit {
 
   ngOnInit(): void {
     this.obtenerSilos();
-    if (this.silos.length==0) {
-      this.status=true;      
-    }else{
-      this.status=false;
-    }
+    this.verify();
+    console.log(this.status);
+    
     
   }
   obtenerSilos(){
@@ -40,7 +38,14 @@ export class ConfigureSiloComponent implements OnInit {
         
       }
         );
-    
+
+  }
+  verify(){
+    if (this.silos.length!=0) {
+      this.status=true;      
+    }else{
+      this.status=false;
+    }
   }
   cargarDatos(silo:any, id:string){
     this.formSilo=this.formBuilder.group({
@@ -66,7 +71,8 @@ export class ConfigureSiloComponent implements OnInit {
         this.obtenerSilos();
         
       }
-    )
+    );
+    this.verify();
   }
   onSubmit(){
     if(this.formSilo.get('nombre').value=="" ||this.formSilo.get('capacidadTotal').value=="" ||

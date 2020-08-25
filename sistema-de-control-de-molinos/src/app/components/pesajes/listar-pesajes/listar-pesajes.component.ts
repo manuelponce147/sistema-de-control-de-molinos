@@ -54,26 +54,33 @@ export class ListarPesajesComponent implements OnInit {
 
   ngOnInit(): void {
     this.getPesajes();
-    
+    this.verify();
     
 
+  }
+  verify(){
+    if (this.pesajes.length!=0) {
+      this.status=true;      
+    }else{
+      this.status=false;
+    }
   }
   getPesajes() {
     this.pesajeService.obtenerPesajes().subscribe(
       response => {
         if (response) {
           this.pesajes = response;
+          
+
 
         }
-      }, error => {
-
+      }, err => {
+          console.log(err);
+          
       }
-    )
-    if (this.pesajes.length==0) {
-      this.status=true;      
-    }else{
-      this.status=false;
-    }
+    );
+    this.verify();
+   
     
   }
   cargarDatos(pesaje: any) {
