@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, Input } from '@angular/core';
 import { PesajeService } from 'src/app/services/pesaje.service';
 import { Global } from '../../../global';
 import * as jsPDF from 'jspdf';
@@ -21,9 +21,14 @@ export class ListarPesajesComponent implements OnInit {
   details: FormGroup;
   nombre: string;
   rut: string;
+  fechaa: Date;
+  dia:number;
+  mes:number;
+  anio:number;
+  fecha: Date;
   patente: string;
   formFiltrado: FormGroup;
-  @ViewChild('content') content:ElementRef;
+  @ViewChild('content') content: ElementRef;
 
 
 
@@ -106,7 +111,7 @@ export class ListarPesajesComponent implements OnInit {
     autoTable(pdf, { html: '#htmlData' })
     pdf.save('angular-demo.pdf');
   }
- 
+
   searchNombre() {
     if (this.nombre != "") {
       this.pesajes = this.pesajes.filter(res => {
@@ -120,6 +125,7 @@ export class ListarPesajesComponent implements OnInit {
   searchRut() {
     if (this.rut != "") {
       this.pesajes = this.pesajes.filter(res => {
+        console.log(this.rut);
         return res.rut.toLocaleLowerCase().match(this.rut.toLocaleLowerCase());
       });
     } else if (this.rut == "") {
@@ -137,35 +143,81 @@ export class ListarPesajesComponent implements OnInit {
     }
 
   }
-  
-  changeFilter(value:string){
+  searchFecha() {
+    if (this.fecha != null) {
+      this.pesajes = this.pesajes.filter(res => {
+        console.log("aqui va");
+        console.log(this.fecha+" fecha seleccionada");
+        console.log();
+        return res.createdAt.toString().match(this.fecha.toString());
+       // console.log(this.fechaa+" fecha respuesta");
+       // this.dia=this.fechaa.getDate();
+       // this.anio=this.fechaa.getFullYear();
+       // this.mes=this.fechaa.getMonth();
+       // console.log(res.createdAt.toDateString());
+       // console.log(res.createdAt.match(this.fecha);
+       // return res.createdAt.toDateString().match(this.fecha);
+      });
+    } else if (this.fecha == null) {
+      this.ngOnInit();
+    }
+
+  }
+
+  changeFilter(value: string) {
     const inputName = document.getElementById('filterName');
     const inputRut = document.getElementById('filterRut');
     const inputPatente = document.getElementById('filterPatente');
-    console.log(inputName,inputRut,inputPatente);
-    
-    if(value=="nombre"){
-      inputName.style.display="";
-      inputRut.style.display="none";
-      inputPatente.style.display="none";
-    }else{
-      if(value=="rut"){
-        inputName.style.display="none";
-        inputRut.style.display="";
-        inputPatente.style.display="none";
-      }else{
-        if(value=="patente"){
-          inputName.style.display="none";
-          inputRut.style.display="none";
-          inputPatente.style.display="";
+    const inputFecha = document.getElementById('filterFecha');
+    console.log(inputName, inputRut, inputPatente, inputFecha);
+
+    if (value == "nombre") {
+      this.ngOnInit();
+      inputName.style.display = "";
+      inputRut.style.display = "none";
+      inputPatente.style.display = "none";
+      inputFecha.style.display = "none";
+      this.fecha = null;
+      this.nombre = "";
+      this.patente = "";
+      this.rut = "";
+    } else {
+      if (value == "rut") {
+        this.ngOnInit();
+        inputName.style.display = "none";
+        inputRut.style.display = "";
+        inputPatente.style.display = "none";
+        inputFecha.style.display = "none";
+        this.fecha = null;
+        this.nombre = "";
+        this.patente = "";
+        this.rut = "";
+      } else {
+        if (value == "patente") {
+          this.ngOnInit();
+          inputName.style.display = "none";
+          inputRut.style.display = "none";
+          inputPatente.style.display = "";
+          inputFecha.style.display = "none";
+          this.fecha = null;
+          this.nombre = "";
+          this.patente = "";
+          this.rut = "";
+        } else {
+          if (value == "fecha") {
+            this.ngOnInit();
+            inputName.style.display = "none";
+            inputRut.style.display = "none";
+            inputPatente.style.display = "none";
+            inputFecha.style.display = "";
+            this.fecha = null;
+            this.nombre = "";
+            this.patente = "";
+            this.rut = "";
           }
+        }
       }
     }
-      
-    
-  
-
-    
 
 
   }
@@ -177,18 +229,18 @@ export class ListarPesajesComponent implements OnInit {
     });
 
     let values: any;
-    var pesajesToday:IPesaje[]=[];
-    var todayDate = new Date().toISOString().slice(0,10);
-    for(let i in this.pesajes) {
-      let created=this.pesajes[i].createdAt.toString();
-      let date =created.substr(0,10);
-      if(date==todayDate){
+    var pesajesToday: IPesaje[] = [];
+    var todayDate = new Date().toISOString().slice(0, 10);
+    for (let i in this.pesajes) {
+      let created = this.pesajes[i].createdAt.toString();
+      let date = created.substr(0, 10);
+      if (date == todayDate) {
         pesajesToday.push(this.pesajes[i]);
       }
-      
+
     }
-    
-    for(let i in pesajesToday) {
+
+    for (let i in pesajesToday) {
       delete pesajesToday[i]['_id']
       delete pesajesToday[i]['razonSocial']
       delete pesajesToday[i]['pesoEntrada']
@@ -199,28 +251,28 @@ export class ListarPesajesComponent implements OnInit {
       delete pesajesToday[i]['__v']
 
     }
-    let data =pesajesToday;
-    values = data.map( (elemento) => Object.values(elemento));
+    let data = pesajesToday;
+    values = data.map((elemento) => Object.values(elemento));
 
-    pdf.text("Lista de pesajes del dia "+todayDate,180,30)
+    pdf.text("Lista de pesajes del dia " + todayDate, 180, 30)
     autoTable(pdf,
       {
-        head: [["Nombre","Rut","tipo de Transacción","Patente","Tipo de Producto"]],
-        body: values  ,
+        head: [["Nombre", "Rut", "tipo de Transacción", "Patente", "Tipo de Producto"]],
+        body: values,
       })
 
     pdf.save('pesajesdehoy.pdf');
   }
-  public downloadUnique(): void{
-    const options={
-      filename:"detalles_de_pesaje.pdf",
-      image:{type:'jpeg'},
-      html2canvas:{}
+  public downloadUnique(): void {
+    const options = {
+      filename: "detalles_de_pesaje.pdf",
+      image: { type: 'jpeg' },
+      html2canvas: {}
     }
-    const content:Element = document.getElementById('content');
+    const content: Element = document.getElementById('content');
 
     html2pdf()
-      
+
       .from(content)
       .set(options)
       .save()
@@ -228,7 +280,7 @@ export class ListarPesajesComponent implements OnInit {
   }
 
 }
-  
+
 
 
 
