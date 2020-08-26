@@ -1,0 +1,21 @@
+.container{
+    margin-top: 40px;
+    width: 80%;
+}
+.content{
+    margin-top: 30px;
+}
+.card{
+    margin-top: 30px;
+    border-radius: 10px;
+    background: rgba(10, 10, 10, 0.1);
+    margin: 20px;
+ 
+}
+.card-header{
+    background: none;
+}
+img{
+    margin-top: 20%;
+}
+

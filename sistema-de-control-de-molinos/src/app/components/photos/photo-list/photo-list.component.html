@@ -1,0 +1,17 @@
+<div class="container mx-auto col-8 col-offset-1 pt-4">
+    <h2 class="text-center"><b>Lista de Productos</b></h2>
+    <div class="products row mx-auto mt-5">
+        <div *ngFor="let photo of photos | paginate:{itemsPerPage:8,currentPage:p}" class="card " (click)="selectedCard(photo._id)">
+            <div class="card-header">
+                <div class="card-title text-center"><b> {{photo.title}}</b></div>
+            </div>
+            <div class="mx-auto">
+                <img [src]="'http://localhost:3000/' + photo.imagePath">
+            </div>
+        </div>
+
+    </div>
+    <div class="text-center">
+        <pagination-controls maxSize="10" autoHide="true" previousLabel="Anterior" nextLabel="Siguiente" (pageChange)="p = $event"></pagination-controls>
+    </div>
+</div>

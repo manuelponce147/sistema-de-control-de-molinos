@@ -1,0 +1,55 @@
+<div class="col-12 col-lg-8 mx-auto p-4 container">
+    <h3 class="text-center"><b>Registro de Producto</b></h3>
+    <div class="card">
+        <div class="card-body">
+            <form (submit)="uploadPhoto(title,description,price,stock)" enctype="multipart/form-data">
+
+                <div class="row">
+                    <div class=" col-12 col-md-6 col-lg-6 ">
+
+                        <div class="form-group">
+                            <label for="nombre">Nombre</label>
+                            <input #title type="text" class="form-control" placeholder="ingrese el nombre aqui"
+                                required>
+                                <div *ngIf="title.errors && title.touched ||title.dirty" class="alert alert-danger">
+                                     El Nombre es obligatorio
+                                </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="descirption">Descripción del producto</label>
+                            <textarea rows="3" type="text" class="form-control" #description
+                                placeholder="ingrese la descripción aqui " required>
+
+                        </textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="nombre">Precio (CLP)</label>
+                            <input #price type="text" class="form-control" onkeypress="if ( isNaN( String.fromCharCode(event.keyCode) )) return false;"placeholder="ingrese la cantidad aqui" required placeholder="ingrese el Precio aqui" required>
+
+                        </div>
+                        <div class="form-group">
+                            <label for="nombre">Stock</label>
+                            <input #stock type="text" class="form-control"   onkeypress="if ( isNaN( String.fromCharCode(event.keyCode) )) return false;"placeholder="ingrese la cantidad aqui" required>
+
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-6 mx-auto">
+                        <input type="file" class="d-none" #photoInput (change)="onPhotoSelected($event)">
+                        <img [src]="photoSelected || './assets/no-image.png'" class="img-fluid " alt="No image"
+                            (click)="photoInput.click()">
+
+                        <button type="submit" class="form-control mt-2 btn btn-success">Registrar</button>
+
+                    </div>
+
+
+
+                </div>
+
+
+
+            </form>
+        </div>
+    </div>
+</div>

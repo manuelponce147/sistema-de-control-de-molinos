@@ -1,15 +1,66 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnChanges } from '@angular/core';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-navigation',
   templateUrl: './navigation.component.html',
   styleUrls: ['./navigation.component.css']
 })
-export class NavigationComponent implements OnInit {
+export class NavigationComponent implements OnInit, OnChanges {
+  title = 'sistema-de-control-de-molinos';
+  public opened: boolean = false;
+  public closeOnClickOutside = false;
+  public token: any;
+  public nombre: any;
+  public rol: any;
+  isRegular: boolean;
+  isAdmin:boolean;
+  status: boolean;
+  constructor(public authservice: AuthService) {
 
-  constructor() { }
+
+  }
 
   ngOnInit(): void {
+    this.cargarcomponentes();
+
   }
+  ngOnChanges() {
+    this.cargarcomponentes();
+  }
+
+  public toggleSidebar() {
+    this.opened = !this.opened;
+  }
+  cerrarSesion() {
+    this.authservice.logout();
+  }
+  
+  cargarcomponentes() {
+    this.token = this.authservice.getToken();
+    if (this.token != null) {
+      this.status = true;
+      const user = this.authservice.getUserRole();
+      this.nombre = this.authservice.getUserName();
+      this.rol = this.authservice.getUserRole();
+
+      if (user == "regular") {
+        this.isRegular = true;
+      } else {
+        this.isRegular = false;
+        if(user=="admin"){
+          this.isAdmin=true;
+        }else{
+          this.isAdmin=false;
+        }
+      }
+    } else {
+      this.status = false;
+    }
+
+
+  }
+
+
 
 }
