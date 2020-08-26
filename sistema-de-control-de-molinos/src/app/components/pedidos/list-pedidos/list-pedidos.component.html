@@ -24,8 +24,8 @@
                        <td>{{pedido.precio | currency:'CLP':true:'4.0-0'}}</td>
                        <td style="color: #007bff;" *ngIf="pedido.status"><b>Habilitado</b></td>
                        <td style="color: red;" *ngIf="!pedido.status"><b> No Habilitado</b></td>
-                       <td>{{pedido.createdAt | date:'short'}}</td>
-                       <td>{{pedido.updatedAt | date:'short'}}</td>
+                       <td>{{pedido.createdAt | date:'dd/MM/yyyy'}}</td>
+                       <td>{{pedido.updatedAt | date:'dd/MM/yyyy'}}</td>
                        <td>
                            <button type="button" data-toggle="modal"
                            (click)="cargarProducto(pedido.producto)"

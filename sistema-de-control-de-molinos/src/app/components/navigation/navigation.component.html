@@ -118,7 +118,7 @@
         <div ng-sidebar-content>
 
             <nav class="navbar navbar-expand-md navbar-dark ">
-                <a class="icon" (click)="toggleSidebar()" *ngIf="this.status"><i class="fa fa-bars fa-2x"></i><span
+                <a class="icon" (click)="toggleSidebar()" *ngIf="this.status && !this.isRegular"><i class="fa fa-bars fa-2x"></i><span
                         class="sr-only">(current)</span></a>
                 <ul class="nav mx-auto text-center">
 
@@ -128,11 +128,11 @@
                     <li class="nav-item" *ngIf="this.status && !this.isRegular">
                         <a class="nav-link" [routerLink]="['/clientes']">Pedidos</a>
                     </li>
-                    <li class="nav-item" *ngIf="this.status && !this.isRegular">
+                    <li class="nav-item" *ngIf="this.status && !this.isRegular && isAdmin">
                         <a class="nav-link" [routerLink]="['/users/list']">Usuarios</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" *ngIf="this.status && !this.isRegular" [routerLink]="['/silos']">Silos</a>
+                        <a class="nav-link" *ngIf="this.status && !this.isRegular" [routerLink]="['/estadisticas']">Estadisticas</a>
                     </li>
 
                     <li class="nav-item">

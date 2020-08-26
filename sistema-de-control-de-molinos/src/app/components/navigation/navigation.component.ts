@@ -14,6 +14,7 @@ export class NavigationComponent implements OnInit, OnChanges {
   public nombre: any;
   public rol: any;
   isRegular: boolean;
+  isAdmin:boolean;
   status: boolean;
   constructor(public authservice: AuthService) {
 
@@ -47,6 +48,11 @@ export class NavigationComponent implements OnInit, OnChanges {
         this.isRegular = true;
       } else {
         this.isRegular = false;
+        if(user=="admin"){
+          this.isAdmin=true;
+        }else{
+          this.isAdmin=false;
+        }
       }
     } else {
       this.status = false;

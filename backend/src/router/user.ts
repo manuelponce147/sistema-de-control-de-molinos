@@ -1,6 +1,7 @@
 import { Router } from 'express'
 const router = Router();
 import { getUsers, getUser, changeRole, getUsersName, getUserData, newPassword } from "../controllers/user.controller";
+import { TokenValidation } from "../libs/verifyToken";
 
 router.route('/users').get(getUsers);
 router.route('/usersInfo').get(getUsersName);

@@ -25,7 +25,7 @@ button{
     font-weight: bold;
 }
 #reset-pass:hover{
-    font-size: 17px;
+    color: black;
     font-family: sans-serif;
 
 }
@@ -39,4 +39,10 @@ button{
 }
 .modal-footer{
     border: none;
+}
+.contrasena{
+    margin-top: 20px;
+}
+.submit{
+    margin-top: 20px;
 }

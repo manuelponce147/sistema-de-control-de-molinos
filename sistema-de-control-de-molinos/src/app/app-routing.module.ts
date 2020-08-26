@@ -37,16 +37,21 @@ const routes: Routes = [
     path: 'signin',
     component: SigninComponent,
   },
+  { path: 'signup', 
+    component: SignupComponent
+
+  },
+  { path: 'home',
+   component: HomeComponent 
+
+
+  },
   {
     path: 'catalogo',
     component: PhotoListComponent,
     canActivate: [AuthGuard,UserEncargadoGuard]
   },
 
-  { path: 'signup', 
-    component: SignupComponent
-
-  },
   {
     path: 'pesajes/nuevo-pesaje',
     component: NuevoPesajeComponent,
@@ -78,22 +83,20 @@ const routes: Routes = [
     component: ListarPesajesComponent,
     canActivate: [AuthGuard,UserEncargadoGuard]
   },
-  { path: 'home',
-   component: HomeComponent 
-
-
-  },
   {
     path:'pedidos',
-    component:PedidosComponent
+    component:PedidosComponent,
+    canActivate:[AuthGuard]
   },
   {
     path:'pedido/:id',
-    component:CreatePedidosComponent
+    component:CreatePedidosComponent,
+    canActivate:[AuthGuard]
   }
   ,{
     path:'pedidos-list',
-    component:ListPedidosComponent
+    component:ListPedidosComponent,
+    canActivate:[AuthGuard]
   },
   {
     path: 'catalogo/new', 
@@ -121,18 +124,11 @@ const routes: Routes = [
     component: ConfigureSiloComponent, 
     canActivate: [AuthGuard,UserEncargadoGuard]
   },
-
-
-
   {
     path:'user',
     component:UserComponent,
     canActivate: [AuthGuard,UserAdminGuard]
-  
   },
-
-
-
 
   { path: '**', component: ErrorComponent }
 
